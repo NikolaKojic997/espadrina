@@ -1,0 +1,580 @@
+@use 'sass:color';
+
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    background: transparent;
+    z-index: 1000;
+    box-sizing: border-box;
+
+    .logo {
+        height: 40px;
+
+        img {
+            height: 100%;
+        }
+    }
+
+    .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        .ghost-btn {
+            padding: 10px 25px;
+            border: 1px solid white;
+            color: white;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+
+            &:hover {
+                background: white;
+                color: black;
+            }
+        }
+
+        .menu-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            margin-left: 20px;
+
+            img {
+                width: 30px;
+                filter: brightness(0) invert(1);
+            }
+        }
+    }
+}
+
+.hero {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .hero-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('/images/serene-aerial-view-turquoise-river-flowing-through-lush-green-forests.jpg') no-repeat center center;
+        background-size: cover;
+        z-index: -1;
+    }
+
+    .hero-content {
+        z-index: 1;
+        width: 80%;
+        max-width: 1000px;
+        display: flex;
+        justify-content: center;
+
+        .hero-title-svg {
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3));
+        }
+    }
+}
+
+.timeless-flow {
+    display: flex;
+    height: 90vh;
+    background-color: var(--drina-beige);
+    overflow: hidden;
+    position: relative;
+
+    .mist-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('/images/suma.jpg') no-repeat left center;
+        background-size: cover;
+        opacity: 0.8;
+        // Mask to fade from misty forest on the left to beige on the right
+        mask-image: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 0) 70%);
+        -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 0) 70%);
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    .flow-content {
+        flex: 1.2;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0 8% 0 10%;
+        z-index: 2;
+
+        h2 {
+            font-size: 42px;
+            line-height: 1.1;
+            color: var(--drina-dark);
+            font-weight: 700;
+            margin-bottom: 50px;
+            letter-spacing: 1px;
+        }
+
+        p {
+            font-size: 19px;
+            line-height: 1.5;
+            color: #333;
+            max-width: 550px;
+            margin-bottom: 50px;
+            font-weight: 400;
+        }
+
+        .flow-link {
+            color: var(--drina-accent);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 19px;
+            transition: opacity 0.3s;
+
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+    }
+
+    .flow-visual {
+        flex: 1;
+        position: relative;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        z-index: 2;
+
+        .drina-path-svg {
+            height: 110%;
+            width: auto;
+            margin-right: 5%;
+            opacity: 1;
+            filter: drop-shadow(-5px 5px 15px rgba(0, 0, 0, 0.1));
+        }
+
+        .location-marker {
+            position: absolute;
+            top: 43%;
+            right: 17%;
+            width: 30px;
+            height: 30px;
+            background: var(--drina-accent);
+            clip-path: polygon(50% 100%, 0 0, 100% 0);
+            z-index: 3;
+        }
+    }
+}
+
+.luxury-escape {
+    height: 100vh;
+    width: 100%;
+    background: url('/images/kuce-na-drini-11-1.jpg') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    box-sizing: border-box;
+
+    .escape-box {
+        background-color: var(--drina-beige);
+        max-width: 800px;
+        padding: 80px 60px;
+        text-align: center;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+
+        h2 {
+            font-size: 48px;
+            color: var(--drina-dark);
+            margin-bottom: 40px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #444;
+            margin-bottom: 25px;
+
+            &:last-of-type {
+                margin-bottom: 40px;
+            }
+        }
+
+        .escape-btn {
+            display: inline-block;
+            padding: 12px 35px;
+            border: 1px solid var(--drina-accent);
+            color: var(--drina-accent);
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+
+            &:hover {
+                background: var(--drina-accent);
+                color: white;
+            }
+        }
+    }
+}
+
+.timeless-food {
+    position: relative;
+    min-height: 90vh;
+    margin-top: 60px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 100px 0 100px 0;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('/images/french-food-dessert-eclair-with-chocolate-filling-eclair-as-background.jpg') no-repeat center center;
+        background-size: cover;
+        transform: scaleX(-1); // Flips the image horizontally
+        z-index: 1;
+    }
+
+    .food-box {
+        background-color: var(--drina-beige);
+        padding: 80px 60px;
+        width: 100%;
+        max-width: 600px;
+        z-index: 2;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+
+        h2 {
+            font-size: 42px;
+            color: var(--drina-dark);
+            margin-bottom: 30px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #444;
+            margin-bottom: 25px;
+        }
+
+        .food-link {
+            color: var(--drina-accent);
+            text-decoration: underline;
+            font-weight: 600;
+            font-size: 19px;
+
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+    }
+}
+
+.personal-spa {
+    position: relative;
+    min-height: 90vh;
+    margin-top: 60px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 100px 0 100px 0;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('/images/huum-qebj2v4x1KA-unsplash.jpg') no-repeat center center;
+        background-size: cover;
+        transform: scaleX(-1); // Flips the image horizontally
+        z-index: 1;
+    }
+
+    .spa-box {
+        background-color: var(--drina-beige);
+        padding: 80px 60px;
+        width: 100%;
+        max-width: 600px;
+        z-index: 2;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+
+        h2 {
+            font-size: 42px;
+            color: var(--drina-dark);
+            margin-bottom: 30px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #444;
+            margin-bottom: 25px;
+        }
+
+        .spa-link {
+            color: var(--drina-accent);
+            text-decoration: underline;
+            font-weight: 600;
+            font-size: 19px;
+
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+    }
+}
+
+.pool-on-you {
+    background: var(--drina-beige) url('/images/back-view-young-woman-straw-hat-relaxing-swimming-pool-summer-vacation.jpg') no-repeat left center;
+    background-size: cover;
+    padding: 100px 0 100px 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    min-height: 90vh;
+    margin-top: 60px;
+    position: relative;
+
+    .pool-box {
+        background-color: var(--drina-beige);
+        padding: 80px 60px;
+        width: 100%;
+        max-width: 600px;
+        z-index: 2;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+
+        h2 {
+            font-size: 42px;
+            color: var(--drina-dark);
+            margin-bottom: 30px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #444;
+            margin-bottom: 25px;
+        }
+
+        .pool-link {
+            color: var(--drina-accent);
+            text-decoration: underline;
+            font-weight: 600;
+            font-size: 19px;
+
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+    }
+}
+
+.endless-inspiration {
+    position: relative;
+    min-height: 400vh;
+    background-color: var(--drina-beige);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15vh 20px 10vh;
+    text-align: center;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('/images/suma.jpg') no-repeat center bottom;
+        background-size: cover;
+        // Even longer transition for 500vh height
+        mask-image: linear-gradient(to bottom, transparent 0%, transparent 15%, black 85%);
+        -webkit-mask-image: linear-gradient(to bottom, transparent 0%, transparent 15%, black 85%);
+        z-index: 1;
+    }
+
+    .inspiration-content {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+        margin-top: 40px;
+
+        h2 {
+            font-size: 42px;
+            color: var(--drina-dark);
+            margin-bottom: 50px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        p {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #333;
+            font-weight: 400;
+        }
+    }
+
+    .inspiration-footer {
+        position: relative;
+        z-index: 2;
+        padding-bottom: 60px;
+
+        .ghost-btn {
+            display: inline-block;
+            padding: 15px 45px;
+            border: 1px solid white;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            // text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            background: rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+
+            &:hover {
+                background: white;
+                color: var(--drina-dark);
+            }
+        }
+    }
+}
+
+.section {
+    padding: 100px 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    h2 {
+        font-size: 40px;
+        margin-bottom: 50px;
+        text-align: center;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+    }
+
+    .card {
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+
+        img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 30px;
+
+            h3 {
+                margin-top: 0;
+            }
+        }
+    }
+}
+
+.site-footer {
+    .footer-brand {
+        background-color: var(--drina-dark);
+        padding: 100px 0;
+        text-align: center;
+
+        .brand-text {
+            font-family: var(--primary-font);
+            color: var(--drina-beige);
+            font-size: 52px;
+            margin: 0;
+            letter-spacing: 25px;
+            font-weight: 500; // Slightly bolder for better presence
+            text-transform: uppercase;
+        }
+    }
+
+    .footer-bottom {
+        background-color: var(--drina-accent);
+        padding: 25px 8%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: white;
+
+        .social-icons {
+            display: flex;
+            gap: 12px;
+
+            .icon-box {
+                width: 38px;
+                height: 38px;
+                border: 1.5px solid white;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: white;
+                text-decoration: none;
+                font-size: 16px;
+                transition: all 0.3s ease;
+
+                i {
+                    color: inherit;
+                }
+
+                &:hover {
+                    background-color: white;
+                    color: var(--drina-accent);
+                }
+            }
+        }
+
+        .copyright {
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+    }
+}
