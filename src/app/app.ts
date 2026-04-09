@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -8,12 +8,90 @@ import { Component, signal } from '@angular/core';
 })
 export class App {
   protected readonly title = signal('Espadrina');
+  isMenuOpen = signal(false);
+  heroScale = signal(1);
+  riverReveal = signal(0);
+  luxuryProgress = signal(0);
+  foodProgress = signal(0);
+  spaProgress = signal(0);
+  poolProgress = signal(0);
+
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    const scrollY = window.scrollY;
+    
+    // Hero zoom logic
+    const heroScale = 1 + (scrollY / 1000) * 0.3;
+    this.heroScale.set(Math.min(Math.max(heroScale, 1), 1.3));
+
+    // River reveal logic
+    const riverSection = document.querySelector('.timeless-flow');
+    if (riverSection) {
+      const rect = riverSection.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+      const sectionHeight = rect.height;
+      const currentPos = viewportHeight - rect.top;
+      let progress = (currentPos - viewportHeight * 0.2) / (sectionHeight * 0.8);
+      progress = Math.min(Math.max(progress, 0), 1);
+      this.riverReveal.set(progress * 100);
+    }
+
+    // Luxury section logic
+    const luxurySection = document.querySelector('.luxury-escape');
+    if (luxurySection) {
+      const rect = luxurySection.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+      const start = viewportHeight;
+      const end = viewportHeight * 0.1;
+      let progress = (start - rect.top) / (start - end);
+      progress = Math.min(Math.max(progress, 0), 1);
+      this.luxuryProgress.set(progress);
+    }
+
+    // Food section logic
+    const foodSection = document.querySelector('.timeless-food');
+    if (foodSection) {
+      const rect = foodSection.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+      const start = viewportHeight;
+      const end = viewportHeight * 0.2;
+      let progress = (start - rect.top) / (start - end);
+      progress = Math.min(Math.max(progress, 0), 1);
+      this.foodProgress.set(progress);
+    }
+
+    // SPA section logic
+    const spaSection = document.querySelector('.personal-spa');
+    if (spaSection) {
+      const rect = spaSection.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+      const start = viewportHeight;
+      const end = viewportHeight * 0.2;
+      let progress = (start - rect.top) / (start - end);
+      progress = Math.min(Math.max(progress, 0), 1);
+      this.spaProgress.set(progress);
+    }
+
+    // Pool section logic
+    const poolSection = document.querySelector('.pool-on-you');
+    if (poolSection) {
+      const rect = poolSection.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+      const start = viewportHeight;
+      const end = viewportHeight * 0.2;
+      let progress = (start - rect.top) / (start - end);
+      progress = Math.min(Math.max(progress, 0), 1);
+      this.poolProgress.set(progress);
+    }
+  }
 
   navItems = [
-    { label: 'Home', link: '#' },
-    { label: 'Experience', link: '#experience' },
-    { label: 'Gallery', link: '#gallery' },
-    { label: 'Restaurant', link: '#restaurant' },
-    { label: 'Contact', link: '#contact' }
+    { label: 'About us', link: '#about' },
+    { label: 'Your comfort', link: '#comfort' },
+    { label: 'Places', link: '#places' }
   ];
+
+  toggleMenu() {
+    this.isMenuOpen.update(v => !v);
+  }
 }

@@ -77,6 +77,8 @@
         background: url('/images/serene-aerial-view-turquoise-river-flowing-through-lush-green-forests.jpg') no-repeat center center;
         background-size: cover;
         z-index: -1;
+        will-change: transform;
+        transition: transform 0.1s ease-out;
     }
 
     .hero-content {
@@ -170,6 +172,8 @@
             margin-right: 5%;
             opacity: 1;
             filter: drop-shadow(-5px 5px 15px rgba(0, 0, 0, 0.1));
+            will-change: clip-path;
+            transition: clip-path 0.1s linear;
         }
 
         .location-marker {
@@ -181,6 +185,7 @@
             background: var(--drina-accent);
             clip-path: polygon(50% 100%, 0 0, 100% 0);
             z-index: 3;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
     }
 }
@@ -190,6 +195,7 @@
     width: 100%;
     background: url('/images/kuce-na-drini-11-1.jpg') no-repeat center center;
     background-size: cover;
+    background-attachment: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -197,11 +203,14 @@
     box-sizing: border-box;
 
     .escape-box {
-        background-color: var(--drina-beige);
+        background-color: rgba(245, 245, 240, 0.9);
+        opacity: 0.9;
         max-width: 800px;
         padding: 80px 60px;
         text-align: center;
         box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+        transition: transform 0.1s linear, opacity 0.1s linear;
+        will-change: transform, opacity;
 
         h2 {
             font-size: 48px;
@@ -244,33 +253,35 @@
 .timeless-food {
     position: relative;
     min-height: 90vh;
-    margin-top: 60px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
     padding: 100px 0 100px 0;
     overflow: hidden;
 
-    &::before {
-        content: '';
+    .food-bg {
         position: absolute;
         top: 0;
-        left: 0;
-        width: 100%;
+        left: -5%;
+        width: 110%;
         height: 100%;
         background: url('/images/french-food-dessert-eclair-with-chocolate-filling-eclair-as-background.jpg') no-repeat center center;
         background-size: cover;
-        transform: scaleX(-1); // Flips the image horizontally
         z-index: 1;
+        transition: transform 0.1s linear;
+        will-change: transform;
     }
 
     .food-box {
-        background-color: var(--drina-beige);
+        background-color: rgba(245, 245, 240, 0.9);
+        opacity: 0.9;
         padding: 80px 60px;
         width: 100%;
         max-width: 600px;
         z-index: 2;
         box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+        transition: transform 0.1s linear, opacity 0.1s linear;
+        will-change: transform, opacity;
 
         h2 {
             font-size: 42px;
@@ -303,33 +314,35 @@
 .personal-spa {
     position: relative;
     min-height: 90vh;
-    margin-top: 60px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     padding: 100px 0 100px 0;
     overflow: hidden;
 
-    &::before {
-        content: '';
+    .spa-bg {
         position: absolute;
         top: 0;
-        left: 0;
-        width: 100%;
+        right: -5%;
+        width: 110%;
         height: 100%;
-        background: url('/images/huum-qebj2v4x1KA-unsplash.jpg') no-repeat center center;
+        background: url('/images/huum-qebj2v4x1KA-unsplash.jpg') no-repeat 65% center;
         background-size: cover;
-        transform: scaleX(-1); // Flips the image horizontally
         z-index: 1;
+        transition: transform 0.1s linear;
+        will-change: transform;
     }
 
     .spa-box {
-        background-color: var(--drina-beige);
+        background-color: rgba(245, 245, 240, 0.9);
+        opacity: 0.9;
         padding: 80px 60px;
         width: 100%;
         max-width: 600px;
         z-index: 2;
         box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+        transition: transform 0.1s linear, opacity 0.1s linear;
+        will-change: transform, opacity;
 
         h2 {
             font-size: 42px;
@@ -360,23 +373,37 @@
 }
 
 .pool-on-you {
-    background: var(--drina-beige) url('/images/back-view-young-woman-straw-hat-relaxing-swimming-pool-summer-vacation.jpg') no-repeat left center;
-    background-size: cover;
     padding: 100px 0 100px 0;
     display: flex;
     justify-content: flex-end;
     align-items: center;
     min-height: 90vh;
-    margin-top: 60px;
     position: relative;
+    overflow: hidden;
+
+    .pool-bg {
+        position: absolute;
+        top: 0;
+        left: -5%;
+        width: 110%;
+        height: 100%;
+        background: url('/images/back-view-young-woman-straw-hat-relaxing-swimming-pool-summer-vacation.jpg') no-repeat center center;
+        background-size: cover;
+        z-index: 1;
+        transition: transform 0.1s linear;
+        will-change: transform;
+    }
 
     .pool-box {
-        background-color: var(--drina-beige);
+        background-color: rgba(245, 245, 240, 0.9);
+        opacity: 0.9;
         padding: 80px 60px;
         width: 100%;
         max-width: 600px;
         z-index: 2;
         box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+        transition: transform 0.1s linear, opacity 0.1s linear;
+        will-change: transform, opacity;
 
         h2 {
             font-size: 42px;
@@ -576,5 +603,145 @@
             font-size: 14px;
             letter-spacing: 0.5px;
         }
+    }
+}
+
+// Side Menu Overlay
+.side-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+
+    &.open {
+        opacity: 1;
+        visibility: visible;
+
+        .side-menu-content {
+            transform: translateX(0);
+        }
+    }
+
+    .side-menu-content {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background: url('/images/suma.jpg') no-repeat center bottom;
+        background-size: cover;
+        transform: translateX(100%);
+        transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        display: flex;
+        flex-direction: column;
+        padding: 60px 8%;
+        box-sizing: border-box;
+        opacity: 0.9;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            // Gradient from light beige at top to semi-transparent forest at bottom
+            background: linear-gradient(to bottom, 
+                rgba(250, 241, 235, 1) 0%, 
+                rgba(250, 241, 235, 0.95) 40%, 
+                rgba(250, 241, 235, 0.4) 100%);
+            z-index: 1;
+        }
+
+        .menu-header {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 80px;
+
+            .menu-close-btn {
+                background: none;
+                border: none;
+                cursor: pointer;
+                color: var(--drina-dark);
+                display: flex;
+                align-items: center;
+                padding: 0;
+                transition: transform 0.3s ease;
+
+                &:hover {
+                    transform: translateX(5px);
+                }
+
+                svg {
+                    width: 30px;
+                    height: 30px;
+                }
+            }
+
+            .menu-title {
+                font-size: 24px;
+                font-weight: 700;
+                color: var(--drina-dark);
+                letter-spacing: 2px;
+                text-transform: uppercase;
+            }
+        }
+
+        .side-nav {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+
+            .side-nav-item-wrapper {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                border-top: 1px solid rgba(0, 0, 0, 0.1);
+                padding: 20px 0;
+
+                .side-nav-item {
+                    font-size: 28px;
+                    font-weight: 700;
+                    color: var(--drina-dark);
+                    text-decoration: none;
+                    transition: all 0.3s ease;
+                    text-align: right;
+
+                    &:hover {
+                        opacity: 0.6;
+                        transform: translateX(-10px);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 768px) {
+    .side-menu-overlay .side-menu-content {
+        width: 50%;
+        padding: 80px 10%;
+    }
+    
+    .side-menu-overlay .side-menu-content .side-nav .side-nav-item-wrapper .side-nav-item {
+        font-size: 36px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .side-menu-overlay .side-menu-content {
+        width: 35%;
     }
 }

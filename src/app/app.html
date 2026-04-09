@@ -5,7 +5,7 @@
   <div class="nav-right">
     <a href="#booking" class="ghost-btn">Book now</a>
     <a href="#restaurant" class="ghost-btn">Restaurant</a>
-    <button class="menu-toggle">
+    <button class="menu-toggle" (click)="toggleMenu()">
       <img src="/svg/Menu.svg" alt="Menu">
     </button>
   </div>
@@ -13,7 +13,7 @@
 
 <main>
   <section class="hero">
-    <div class="hero-bg"></div>
+    <div class="hero-bg" [style.transform]="'scale(' + heroScale() + ')'"></div>
     <div class="hero-content">
       <img src="/svg/tipografija-espadrina.svg" class="hero-title-svg" alt="Espadrina">
     </div>
@@ -28,13 +28,16 @@
       <a href="#experience" class="flow-link">Explore Drina</a>
     </div>
     <div class="flow-visual">
-      <img src="/svg/drina.svg" class="drina-path-svg" alt="Drina River Path">
-      <div class="location-marker"></div>
+      <img src="/svg/drina.svg" class="drina-path-svg" alt="Drina River Path"
+        [style.clip-path]="'inset(0 0 ' + (100 - riverReveal()) + '% 0)'">
+      <div class="location-marker" [style.opacity]="riverReveal() > 95 ? 1 : 0" [style.transform]="'scale(' + (riverReveal() > 95 ? 1 : 0) + ')'"></div>
     </div>
   </section>
 
   <section class="luxury-escape">
-    <div class="escape-box">
+    <div class="escape-box" 
+      [style.opacity]="luxuryProgress()"
+      [style.transform]="'translateY(' + (100 - luxuryProgress() * 100) + 'px)'">
       <h2>LUXURY ESCAPE</h2>
       <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
         dolore magna aliquam erat volutpat.</p>
@@ -47,7 +50,12 @@
   </section>
 
   <section class="timeless-food">
-    <div class="food-box">
+    <div class="food-bg"
+      [style.transform]="'translateX(' + (-100 + foodProgress() * 100) + 'px) scaleX(-1)'">
+    </div>
+    <div class="food-box"
+      [style.opacity]="foodProgress()"
+      [style.transform]="'translateX(' + (100 - foodProgress() * 100) + 'px)'">
       <h2>TIMELESS FOOD</h2>
       <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
         dolore magna aliquam erat volutpat.</p>
@@ -60,7 +68,12 @@
   </section>
 
   <section class="personal-spa">
-    <div class="spa-box">
+    <div class="spa-bg"
+      [style.transform]="'translateX(' + (100 - spaProgress() * 100) + 'px) scaleX(-1)'">
+    </div>
+    <div class="spa-box"
+      [style.opacity]="spaProgress()"
+      [style.transform]="'translateX(' + (-100 + spaProgress() * 100) + 'px)'">
       <h2>YOUR PERSONAL SPA</h2>
       <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
         dolore magna aliquam erat volutpat.</p>
@@ -73,7 +86,12 @@
   </section>
 
   <section class="pool-on-you">
-    <div class="pool-box">
+    <div class="pool-bg"
+      [style.transform]="'translateX(' + (-100 + poolProgress() * 100) + 'px)'">
+    </div>
+    <div class="pool-box"
+      [style.opacity]="poolProgress()"
+      [style.transform]="'translateX(' + (100 - poolProgress() * 100) + 'px)'">
       <h2>POOL ON YOU</h2>
       <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
         dolore magna aliquam erat volutpat.</p>
@@ -118,3 +136,28 @@
     </div>
   </footer>
 </main>
+
+<div class="side-menu-overlay" [class.open]="isMenuOpen()" (click)="toggleMenu()">
+  <div class="side-menu-content" (click)="$event.stopPropagation()">
+    <div class="menu-header">
+      <button class="menu-close-btn" (click)="toggleMenu()">
+        <!-- Simple SVG arrow pointing right to "push" the menu back -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </button>
+      <span class="menu-title">MENU</span>
+    </div>
+    <nav class="side-nav">
+      @for (item of navItems; track item.label) {
+      <div class="side-nav-item-wrapper">
+        <div class="side-nav-divider"></div>
+        <a [href]="item.link" class="side-nav-item" (click)="toggleMenu()">
+          {{ item.label }}
+        </a>
+      </div>
+      }
+    </nav>
+  </div>
+</div>
