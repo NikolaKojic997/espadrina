@@ -1,4 +1,6 @@
-import { Component, signal, HostListener } from '@angular/core';
+import { Component, signal, HostListener, computed, inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { LanguageService } from './language.service';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +9,9 @@ import { Component, signal, HostListener } from '@angular/core';
   standalone: true
 })
 export class App {
+  private platformId = inject(PLATFORM_ID);
   protected readonly title = signal('Espadrina');
+  langService = inject(LanguageService);
   isMenuOpen = signal(false);
   heroScale = signal(1);
   riverReveal = signal(0);
@@ -18,6 +22,7 @@ export class App {
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
+    if (!isPlatformBrowser(this.platformId)) return;
     const scrollY = window.scrollY;
     
     // Hero zoom logic
@@ -85,11 +90,11 @@ export class App {
     }
   }
 
-  navItems = [
-    { label: 'About us', link: '#about' },
-    { label: 'Your comfort', link: '#comfort' },
-    { label: 'Places', link: '#places' }
-  ];
+  navItems = computed(() => [
+    { label: this.langService.current().nav.links.experience, link: '#experience' },
+    { label: this.langService.current().nav.links.wellness, link: '#wellness' },
+    { label: this.langService.current().nav.links.contact, link: '#contact' }
+  ]);
 
   toggleMenu() {
     this.isMenuOpen.update(v => !v);

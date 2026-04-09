@@ -3,13 +3,19 @@
     <img src="/svg/logo-simbol.svg" alt="Espadrina Logo">
   </div>
   <div class="nav-right">
-    <a href="#booking" class="ghost-btn">Book now</a>
-    <a href="#restaurant" class="ghost-btn">Restaurant</a>
+    <a href="#booking" class="ghost-btn">{{ langService.current().nav.bookNow }}</a>
+    <a href="#restaurant" class="ghost-btn">{{ langService.current().nav.restaurant }}</a>
     <button class="menu-toggle" (click)="toggleMenu()">
       <img src="/svg/Menu.svg" alt="Menu">
     </button>
   </div>
 </header>
+
+<div class="footer-lang-pill" (click)="langService.toggleLanguage()">
+  <div class="pill-slider" [class.en]="langService.currentLang() === 'en'"></div>
+  <span class="pill-label" [class.active]="langService.currentLang() === 'sr'">SR</span>
+  <span class="pill-label" [class.active]="langService.currentLang() === 'en'">EN</span>
+</div>
 
 <main>
   <section class="hero">
@@ -22,14 +28,14 @@
   <section class="timeless-flow">
     <div class="mist-overlay"></div>
     <div class="flow-content">
-      <h2>FIND YOURSELF ALONG THE<br>TIMELESS FLOW OF THE DRINA</h2>
-      <p>On the banks of the Drina, luxury takes on a different meaning. More intimate, more grounded, more real. It is
-        a place to slow down, reconnect with nature, and rediscover the beauty of simplicity, comfort and belonging.</p>
-      <a href="#experience" class="flow-link">Explore Drina</a>
+      <h2>{{ langService.current().flow.title }}</h2>
+      <p>{{ langService.current().flow.desc }}</p>
+      <a href="#experience" class="flow-link">{{ langService.current().flow.cta }}</a>
     </div>
     <div class="flow-visual">
       <img src="/svg/drina.svg" class="drina-path-svg" alt="Drina River Path"
-        [style.clip-path]="'inset(0 0 ' + (100 - riverReveal()) + '% 0)'">
+        [style.clip-path]="'inset(0 0 ' + (100 - riverReveal()) + '% 0)'"
+        [style.opacity]="riverReveal() / 100">
       <div class="location-marker" [style.opacity]="riverReveal() > 95 ? 1 : 0" [style.transform]="'scale(' + (riverReveal() > 95 ? 1 : 0) + ')'"></div>
     </div>
   </section>
@@ -38,14 +44,9 @@
     <div class="escape-box" 
       [style.opacity]="luxuryProgress()"
       [style.transform]="'translateY(' + (100 - luxuryProgress() * 100) + 'px)'">
-      <h2>LUXURY ESCAPE</h2>
-      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
-        dolore magna aliquam erat volutpat.</p>
-      <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea
-        commodo consequat.</p>
-      <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.feugait nulla facilisi.
-      </p>
-      <a href="#contact" class="escape-btn">Find yourself</a>
+      <h2>{{ langService.current().luxury.title }}</h2>
+      <p>{{ langService.current().luxury.desc }}</p>
+      <a href="#contact" class="escape-btn">{{ langService.current().luxury.cta }}</a>
     </div>
   </section>
 
@@ -56,14 +57,9 @@
     <div class="food-box"
       [style.opacity]="foodProgress()"
       [style.transform]="'translateX(' + (100 - foodProgress() * 100) + 'px)'">
-      <h2>TIMELESS FOOD</h2>
-      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
-        dolore magna aliquam erat volutpat.</p>
-      <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea
-        commodo consequat.</p>
-      <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.feugait nulla facilisi.
-      </p>
-      <a href="#restaurant" class="food-link">Find out more</a>
+      <h2>{{ langService.current().food.title }}</h2>
+      <p>{{ langService.current().food.desc }}</p>
+      <a href="#restaurant" class="food-link">{{ langService.current().food.cta }}</a>
     </div>
   </section>
 
@@ -74,14 +70,9 @@
     <div class="spa-box"
       [style.opacity]="spaProgress()"
       [style.transform]="'translateX(' + (-100 + spaProgress() * 100) + 'px)'">
-      <h2>YOUR PERSONAL SPA</h2>
-      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
-        dolore magna aliquam erat volutpat.</p>
-      <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea
-        commodo consequat.</p>
-      <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.feugait nulla facilisi.
-      </p>
-      <a href="#experience" class="spa-link">Find out more</a>
+      <h2>{{ langService.current().spa.title }}</h2>
+      <p>{{ langService.current().spa.desc }}</p>
+      <a href="#experience" class="spa-link">{{ langService.current().spa.cta }}</a>
     </div>
   </section>
 
@@ -92,28 +83,19 @@
     <div class="pool-box"
       [style.opacity]="poolProgress()"
       [style.transform]="'translateX(' + (100 - poolProgress() * 100) + 'px)'">
-      <h2>POOL ON YOU</h2>
-      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
-        dolore magna aliquam erat volutpat.</p>
-      <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea
-        commodo consequat.</p>
-      <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.feugait nulla facilisi.
-      </p>
-      <a href="#experience" class="pool-link">Find out more</a>
+      <h2>{{ langService.current().pool.title }}</h2>
+      <p>{{ langService.current().pool.desc }}</p>
+      <a href="#experience" class="pool-link">{{ langService.current().pool.cta }}</a>
     </div>
   </section>
 
   <section class="endless-inspiration">
     <div class="inspiration-content">
-      <h2>ENDLESS INSPIRATION</h2>
-      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet
-        dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper
-        suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in
-        vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et
-        iusto odio dignissim qui blandit praesent luptatum.</p>
+      <h2>{{ langService.current().inspiration.title }}</h2>
+      <p>{{ langService.current().inspiration.desc }}</p>
     </div>
     <div class="inspiration-footer">
-      <a href="#contact" class="ghost-btn">CONTACT US</a>
+      <a href="#contact" class="ghost-btn">{{ langService.current().inspiration.cta }}</a>
     </div>
   </section>
 
@@ -131,7 +113,7 @@
         <a href="#" class="icon-box" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
       </div>
       <div class="copyright">
-        2026 Espadrina. All Rights Reserved.
+        {{ langService.current().footer.rights }}
       </div>
     </div>
   </footer>
@@ -147,10 +129,10 @@
           <polyline points="12 5 19 12 12 19"></polyline>
         </svg>
       </button>
-      <span class="menu-title">MENU</span>
+      <span class="menu-title">{{ langService.current().nav.menu }}</span>
     </div>
     <nav class="side-nav">
-      @for (item of navItems; track item.label) {
+      @for (item of navItems(); track item.label) {
       <div class="side-nav-item-wrapper">
         <div class="side-nav-divider"></div>
         <a [href]="item.link" class="side-nav-item" (click)="toggleMenu()">
