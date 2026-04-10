@@ -14,20 +14,58 @@ export class LanguageService {
   private http = inject(HttpClient);
   
   private langSignal = signal<Lang>('en');
-  // Initialize with a fallback object to prevent template errors during first load
+  // English is the default hardcoded state
   private translationsSignal = signal<any>({
-    nav: { bookNow: '', restaurant: '', menu: '', links: { home: '' } },
-    flow: { title: '', desc: '', cta: '', comingSoon: '' },
-    luxury: { title: '', desc: '', cta: '' },
-    food: { title: '', desc: '', cta: '', comingSoon: '' },
-    spa: { title: '', desc: '', cta: '' },
-    pool: { title: '', desc: '', cta: '' },
-    inspiration: { title: '', desc: '', cta: '' },
-    footer: { rights: '' }
+    nav: { 
+      bookNow: 'Book now', 
+      restaurant: 'Restaurant', 
+      menu: 'MENU', 
+      links: { 
+        home: 'Home', 
+        experience: 'Experience', 
+        wellness: 'Wellness', 
+        contact: 'Contact' 
+      } 
+    },
+    flow: { 
+      title: 'FIND YOURSELF ALONG THE TIMELESS FLOW OF THE DRINA', 
+      desc: 'On the banks of the Drina, luxury takes on a different meaning. More intimate, more grounded, more real. It is a place to slow down, reconnect with nature, and rediscover the beauty of simplicity, comfort and belonging.', 
+      cta: 'Explore Drina', 
+      comingSoon: 'Booking system is coming soon...' 
+    },
+    luxury: { 
+      title: 'LUXURY ESCAPE', 
+      desc: 'Luxury apartments provide a perfect blend of modern comfort and natural peace, designed for your ultimate relaxation.', 
+      cta: 'Find yourself' 
+    },
+    food: { 
+      title: 'TIMELESS FOOD', 
+      desc: 'Enjoy authentic local flavors, prepared with care from the freshest ingredients of the Drina region.', 
+      cta: 'Find out more', 
+      comingSoon: 'Everything will be implemented soon' 
+    },
+    spa: { 
+      title: 'YOUR PERSONAL SPA', 
+      desc: 'Relax in our exclusive spa center, where natural tranquility meets premium treatments for your body and mind.', 
+      cta: 'Find out more' 
+    },
+    pool: { 
+      title: 'POOL ON YOU', 
+      desc: 'Dive into a refreshing pool with views of the river and mountains, creating memories that last forever.', 
+      cta: 'Find out more' 
+    },
+    inspiration: { 
+      title: 'ENDLESS INSPIRATION', 
+      desc: 'Let the beauty of the Drina inspire you. Our resort is a sanctuary for those seeking authenticity, peace, and unforgettable moments by the sound of the water.', 
+      cta: 'CONTACT US' 
+    },
+    footer: { rights: '2026 Espadrina. All Rights Reserved.' }
   });
 
+  initPromise: Promise<void>;
+  
   constructor() {
-    this.initLanguage();
+    this.initPromise = this.initLanguage();
   }
 
   private async initLanguage() {
