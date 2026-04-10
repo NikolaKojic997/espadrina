@@ -15,57 +15,61 @@ export class LanguageService {
   
   private langSignal = signal<Lang>('en');
   // English is the default hardcoded state
-  private translationsSignal = signal<any>({
-    nav: { 
-      bookNow: 'Book now', 
-      restaurant: 'Restaurant', 
-      menu: 'MENU', 
-      links: { 
-        home: 'Home', 
-        experience: 'Experience', 
-        wellness: 'Wellness', 
-        contact: 'Contact' 
-      } 
-    },
-    flow: { 
-      title: 'FIND YOURSELF ALONG THE TIMELESS FLOW OF THE DRINA', 
-      desc: 'On the banks of the Drina, luxury takes on a different meaning. More intimate, more grounded, more real. It is a place to slow down, reconnect with nature, and rediscover the beauty of simplicity, comfort and belonging.', 
-      cta: 'Explore Drina', 
-      comingSoon: 'Booking system is coming soon...' 
-    },
-    luxury: { 
-      title: 'LUXURY ESCAPE', 
-      desc: 'Luxury apartments provide a perfect blend of modern comfort and natural peace, designed for your ultimate relaxation.', 
-      cta: 'Find yourself' 
-    },
-    food: { 
-      title: 'TIMELESS FOOD', 
-      desc: 'Enjoy authentic local flavors, prepared with care from the freshest ingredients of the Drina region.', 
-      cta: 'Find out more', 
-      comingSoon: 'Everything will be implemented soon' 
-    },
-    spa: { 
-      title: 'YOUR PERSONAL SPA', 
-      desc: 'Relax in our exclusive spa center, where natural tranquility meets premium treatments for your body and mind.', 
-      cta: 'Find out more' 
-    },
-    pool: { 
-      title: 'POOL ON YOU', 
-      desc: 'Dive into a refreshing pool with views of the river and mountains, creating memories that last forever.', 
-      cta: 'Find out more' 
-    },
-    inspiration: { 
-      title: 'ENDLESS INSPIRATION', 
-      desc: 'Let the beauty of the Drina inspire you. Our resort is a sanctuary for those seeking authenticity, peace, and unforgettable moments by the sound of the water.', 
-      cta: 'CONTACT US' 
-    },
-    footer: { rights: '2026 Espadrina. All Rights Reserved.' }
-  });
+  private translationsSignal = signal<any>(this.getDefaultEnglish());
 
   initPromise: Promise<void>;
   
   constructor() {
     this.initPromise = this.initLanguage();
+  }
+
+  private getDefaultEnglish() {
+    return {
+      nav: { 
+        bookNow: 'Book now', 
+        restaurant: 'Restaurant', 
+        menu: 'MENU', 
+        links: { 
+          home: 'Home', 
+          experience: 'Experience', 
+          wellness: 'Wellness', 
+          contact: 'Contact' 
+        } 
+      },
+      flow: { 
+        title: 'FIND YOURSELF ALONG THE TIMELESS FLOW OF THE DRINA', 
+        desc: 'On the banks of the Drina, luxury takes on a different meaning. More intimate, more grounded, more real. It is a place to slow down, reconnect with nature, and rediscover the beauty of simplicity, comfort and belonging.', 
+        cta: 'Explore Drina', 
+        comingSoon: 'Booking system is coming soon...' 
+      },
+      luxury: { 
+        title: 'LUXURY ESCAPE', 
+        desc: 'Luxury apartments provide a perfect blend of modern comfort and natural peace, designed for your ultimate relaxation.', 
+        cta: 'Find yourself' 
+      },
+      food: { 
+        title: 'TIMELESS FOOD', 
+        desc: 'Enjoy authentic local flavors, prepared with care from the freshest ingredients of the Drina region.', 
+        cta: 'Find out more', 
+        comingSoon: 'Everything will be implemented soon' 
+      },
+      spa: { 
+        title: 'YOUR PERSONAL SPA', 
+        desc: 'Relax in our exclusive spa center, where natural tranquility meets premium treatments for your body and mind.', 
+        cta: 'Find out more' 
+      },
+      pool: { 
+        title: 'POOL ON YOU', 
+        desc: 'Dive into a refreshing pool with views of the river and mountains, creating memories that last forever.', 
+        cta: 'Find out more' 
+      },
+      inspiration: { 
+        title: 'ENDLESS INSPIRATION', 
+        desc: 'Let the beauty of the Drina inspire you. Our resort is a sanctuary for those seeking authenticity, peace, and unforgettable moments by the sound of the water.', 
+        cta: 'CONTACT US' 
+      },
+      footer: { rights: '2026 Espadrina. All Rights Reserved.' }
+    };
   }
 
   private async initLanguage() {
@@ -92,20 +96,37 @@ export class LanguageService {
     }
 
     try {
-      // Fetch the properties file from the public directory
       const content = await firstValueFrom(
         this.http.get(`i18n/${lang}.properties`, { responseType: 'text' })
       );
       const parsed = this.parseProperties(content);
-      this.translationsSignal.set(parsed);
+      // Merge with default English to ensure all keys exist
+      const merged = this.deepMerge(this.getDefaultEnglish(), parsed);
+      this.translationsSignal.set(merged);
     } catch (err) {
       console.error(`Failed to load ${lang}.properties`, err);
+      // If it fails and we are switching to non-english, we might want to still show English
+      if (lang !== 'en' && !this.translationsSignal().nav.bookNow) {
+        this.translationsSignal.set(this.getDefaultEnglish());
+      }
     }
   }
 
   toggleLanguage() {
     const nextLang = this.langSignal() === 'en' ? 'sr' : 'en';
     this.setLanguage(nextLang);
+  }
+
+  private deepMerge(target: any, source: any): any {
+    const result = { ...target };
+    for (const key in source) {
+      if (source[key] && typeof source[key] === 'object' && !Array.isArray(source[key])) {
+        result[key] = this.deepMerge(result[key] || {}, source[key]);
+      } else {
+        result[key] = source[key];
+      }
+    }
+    return result;
   }
 
   /**
