@@ -16,10 +16,10 @@ export class LanguageService {
   private langSignal = signal<Lang>('en');
   // Initialize with a fallback object to prevent template errors during first load
   private translationsSignal = signal<any>({
-    nav: { bookNow: '', restaurant: '', menu: '', links: {} },
-    flow: { title: '', desc: '', cta: '' },
+    nav: { bookNow: '', restaurant: '', menu: '', links: { home: '' } },
+    flow: { title: '', desc: '', cta: '', comingSoon: '' },
     luxury: { title: '', desc: '', cta: '' },
-    food: { title: '', desc: '', cta: '' },
+    food: { title: '', desc: '', cta: '', comingSoon: '' },
     spa: { title: '', desc: '', cta: '' },
     pool: { title: '', desc: '', cta: '' },
     inspiration: { title: '', desc: '', cta: '' },

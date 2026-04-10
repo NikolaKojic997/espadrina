@@ -1,10 +1,10 @@
 <header class="header">
   <div class="logo">
-    <img src="/svg/logo-simbol.svg" alt="Espadrina Logo">
+    <a routerLink="/"><img src="/svg/logo-simbol.svg" alt="Espadrina Logo"></a>
   </div>
   <div class="nav-right">
-    <a href="#booking" class="ghost-btn">{{ langService.current().nav.bookNow }}</a>
-    <a href="#restaurant" class="ghost-btn">{{ langService.current().nav.restaurant }}</a>
+    <a routerLink="/booking" class="ghost-btn">{{ langService.current().nav.bookNow }}</a>
+    <a routerLink="/restaurant" class="ghost-btn">{{ langService.current().nav.restaurant }}</a>
     <button class="menu-toggle" (click)="toggleMenu()">
       <img src="/svg/Menu.svg" alt="Menu">
     </button>
@@ -18,86 +18,7 @@
 </div>
 
 <main>
-  <section class="hero">
-    <div class="hero-bg" [style.transform]="'scale(' + heroScale() + ')'"></div>
-    <div class="hero-content">
-      <img src="/svg/tipografija-espadrina.svg" class="hero-title-svg" alt="Espadrina">
-    </div>
-  </section>
-
-  <section class="timeless-flow">
-    <div class="mist-overlay"></div>
-    <div class="flow-content">
-      <h2>{{ langService.current().flow.title }}</h2>
-      <p>{{ langService.current().flow.desc }}</p>
-      <a href="#experience" class="flow-link">{{ langService.current().flow.cta }}</a>
-    </div>
-    <div class="flow-visual">
-      <img src="/svg/drina.svg" class="drina-path-svg" alt="Drina River Path"
-        [style.clip-path]="'inset(0 0 ' + (100 - riverReveal()) + '% 0)'"
-        [style.opacity]="riverReveal() / 100">
-      <div class="location-marker" [style.opacity]="riverReveal() > 95 ? 1 : 0" [style.transform]="'scale(' + (riverReveal() > 95 ? 1 : 0) + ')'"></div>
-    </div>
-  </section>
-
-  <section class="luxury-escape">
-    <div class="escape-box" 
-      [style.opacity]="luxuryProgress()"
-      [style.transform]="'translateY(' + (100 - luxuryProgress() * 100) + 'px)'">
-      <h2>{{ langService.current().luxury.title }}</h2>
-      <p>{{ langService.current().luxury.desc }}</p>
-      <a href="#contact" class="escape-btn">{{ langService.current().luxury.cta }}</a>
-    </div>
-  </section>
-
-  <section class="timeless-food">
-    <div class="food-bg"
-      [style.transform]="'translateX(' + (-100 + foodProgress() * 100) + 'px) scaleX(-1)'">
-    </div>
-    <div class="food-box"
-      [style.opacity]="foodProgress()"
-      [style.transform]="'translateX(' + (100 - foodProgress() * 100) + 'px)'">
-      <h2>{{ langService.current().food.title }}</h2>
-      <p>{{ langService.current().food.desc }}</p>
-      <a href="#restaurant" class="food-link">{{ langService.current().food.cta }}</a>
-    </div>
-  </section>
-
-  <section class="personal-spa">
-    <div class="spa-bg"
-      [style.transform]="'translateX(' + (100 - spaProgress() * 100) + 'px) scaleX(-1)'">
-    </div>
-    <div class="spa-box"
-      [style.opacity]="spaProgress()"
-      [style.transform]="'translateX(' + (-100 + spaProgress() * 100) + 'px)'">
-      <h2>{{ langService.current().spa.title }}</h2>
-      <p>{{ langService.current().spa.desc }}</p>
-      <a href="#experience" class="spa-link">{{ langService.current().spa.cta }}</a>
-    </div>
-  </section>
-
-  <section class="pool-on-you">
-    <div class="pool-bg"
-      [style.transform]="'translateX(' + (-100 + poolProgress() * 100) + 'px)'">
-    </div>
-    <div class="pool-box"
-      [style.opacity]="poolProgress()"
-      [style.transform]="'translateX(' + (100 - poolProgress() * 100) + 'px)'">
-      <h2>{{ langService.current().pool.title }}</h2>
-      <p>{{ langService.current().pool.desc }}</p>
-      <a href="#experience" class="pool-link">{{ langService.current().pool.cta }}</a>
-    </div>
-  </section>
-
-  <section class="endless-inspiration">
-    <div class="inspiration-content">
-      <h2>{{ langService.current().inspiration.title }}</h2>
-      <p>{{ langService.current().inspiration.desc }}</p>
-    </div>
-    <div class="inspiration-footer">
-      <a href="#contact" class="ghost-btn">{{ langService.current().inspiration.cta }}</a>
-    </div>
-  </section>
+  <router-outlet></router-outlet>
 
   <footer class="site-footer">
     <div class="footer-brand">
@@ -135,7 +56,7 @@
       @for (item of navItems(); track item.label) {
       <div class="side-nav-item-wrapper">
         <div class="side-nav-divider"></div>
-        <a [href]="item.link" class="side-nav-item" (click)="toggleMenu()">
+        <a [routerLink]="item.link" class="side-nav-item" (click)="toggleMenu()">
           {{ item.label }}
         </a>
       </div>
