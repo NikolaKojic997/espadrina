@@ -1,0 +1,93 @@
+<div class="split-card animate-in">
+  <!-- Left Column: Payment Form -->
+  <div class="payment-side">
+    <div class="side-header">
+      <div class="title-with-icon">
+        <i class="fas fa-wifi icon-rotate"></i>
+        <h3>{{ langService.current().booking.payment.cardTitle }}</h3>
+      </div>
+      <div class="card-logos">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1280px-Mastercard-logo.svg.png" alt="Mastercard">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/2560px-Visa_Inc._logo.svg.png" alt="Visa">
+      </div>
+    </div>
+
+    <div class="form-container">
+      <div class="input-group">
+        <label>{{ langService.current().booking.payment.cardNumber }}</label>
+        <input type="text" class="luxury-input" placeholder="**** **** **** ****">
+      </div>
+
+      <div class="row">
+        <div class="input-group flex-2">
+          <label>{{ langService.current().booking.payment.expiry }}</label>
+          <div class="select-row">
+            <div class="luxury-select">
+                <span>{{ langService.current().booking.payment.month }}</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="luxury-select">
+                <span>{{ langService.current().booking.payment.year }}</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+          </div>
+        </div>
+        <div class="input-group flex-1">
+          <label>{{ langService.current().booking.payment.cvv }}</label>
+          <input type="text" class="luxury-input">
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label>{{ langService.current().booking.payment.cardHolder }}</label>
+        <input type="text" class="luxury-input">
+      </div>
+
+      <button class="confirm-btn" (click)="onNext.emit()">
+        {{ langService.current().booking.payment.confirm }}
+      </button>
+
+      <button class="back-link" (click)="onBack.emit()">
+        ← {{ langService.current().booking.stages.back }}
+      </button>
+    </div>
+  </div>
+
+  <!-- Right Column: Cart Summary -->
+  <div class="summary-side">
+    <div class="summary-header">
+      <i class="fas fa-briefcase"></i>
+      <h3>{{ langService.current().booking.payment.cartTitle }}</h3>
+    </div>
+
+    <div class="summary-details">
+      <p class="summary-main">{{ langService.current().booking.payment.cartSummary }}</p>
+      <div class="date-range">
+        <span>25 apr 2026</span>
+        <i class="fas fa-caret-right"></i>
+        <span>30 apr 2026</span>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="price-row">
+        <span>{{ langService.current().booking.payment.total }}</span>
+        <span class="price">1.905 €</span>
+      </div>
+      <div class="price-row secondary">
+        <span>{{ langService.current().booking.payment.payOnSite }}</span>
+        <span class="price">1.905 €</span>
+      </div>
+    </div>
+
+    <div class="red-bar">
+      <div class="bar-left">
+        <strong>{{ langService.current().booking.payment.settleNow }}</strong>
+        <p>{{ langService.current().booking.payment.guarantee }}</p>
+      </div>
+      <div class="bar-right">
+        <span class="big-price">0€</span>
+      </div>
+    </div>
+  </div>
+</div>

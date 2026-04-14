@@ -1,6 +1,8 @@
 import { Component, signal, computed, inject, ChangeDetectionStrategy, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router, NavigationEnd } from '@angular/router';
+import { filter, map } from 'rxjs/operators';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { LanguageService } from './language.service';
 
 @Component({
@@ -14,6 +16,21 @@ import { LanguageService } from './language.service';
 })
 export class App {
   langService = inject(LanguageService);
+  router = inject(Router);
+  
+  // Track current URL
+  url = toSignal(
+    this.router.events.pipe(
+      filter((event): event is NavigationEnd => event instanceof NavigationEnd),
+      map(event => event.urlAfterRedirects)
+    ),
+    { initialValue: '/' }
+  );
+
+  isBookingPage = computed(() => {
+    return this.url().includes('/booking');
+  });
+
   isMenuOpen = signal(false);
 
   navItems = computed(() => [

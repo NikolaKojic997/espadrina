@@ -1,0 +1,41 @@
+<div class="booking-flow-container" [style.background-image]="'url(/images/ocean-panoramic-view-from-water-with-visible-border-water-sky-generative-ai.jpg)'">
+  <!-- Dark Overlay Header -->
+  <nav class="booking-header">
+    <div class="header-logo">
+      <a routerLink="/" class="logo-text">{{ langService.current().company.name }}</a>
+    </div>
+    
+    <div class="booking-stages">
+      <div class="stage-item" [class.active]="isActive(1)" [class.completed]="isCompleted(1)">
+        <span>{{ langService.current().booking.stages.stay }}</span>
+        <div class="stage-line"></div>
+      </div>
+      <div class="stage-item" [class.active]="isActive(2)" [class.completed]="isCompleted(2)">
+        <span>{{ langService.current().booking.stages.payment }}</span>
+        <div class="stage-line"></div>
+      </div>
+      <div class="stage-item" [class.active]="isActive(3)">
+        <span>{{ langService.current().booking.stages.confirmation }}</span>
+      </div>
+    </div>
+
+    <div class="header-spacer" style="width: 100px;"></div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="booking-content-wrapper">
+    
+    @if (currentStep() === 1) {
+      <app-booking-stay (onNext)="nextStep()"></app-booking-stay>
+    }
+
+    @if (currentStep() === 2) {
+      <app-booking-payment (onNext)="nextStep()" (onBack)="prevStep()"></app-booking-payment>
+    }
+
+    @if (currentStep() === 3) {
+      <app-booking-confirmation></app-booking-confirmation>
+    }
+
+  </div>
+</div>

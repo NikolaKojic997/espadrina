@@ -1,0 +1,14 @@
+<div class="form-card animate-in">
+  <h2 class="form-title">{{ langService.current().booking.stages.stay }}</h2>
+  <div class="placeholder-content">
+    <div class="input-group">
+      <label>Check-in / Check-out</label>
+      <div class="fake-input">Select dates...</div>
+    </div>
+    <div class="input-group">
+      <label>Guests</label>
+      <div class="fake-input">2 Adults, 0 Children</div>
+    </div>
+  </div>
+  <button class="next-btn" (click)="onNext.emit()">{{ langService.current().booking.stages.payment }} →</button>
+</div>

@@ -68,6 +68,42 @@ export class LanguageService {
         desc: 'Let the beauty of the Drina inspire you. Our resort is a sanctuary for those seeking authenticity, peace, and unforgettable moments by the sound of the water.', 
         cta: 'CONTACT US' 
       },
+      booking: {
+        stages: {
+          stay: 'Your stay',
+          payment: 'Payment details',
+          confirmation: 'Confirmation',
+          back: 'Back'
+        },
+        success: {
+          title: 'YOUR RESERVATION HAS BEEN RECEIVED',
+          subtitle: 'Expect an official confirmation via email'
+        },
+        payment: {
+          cardTitle: 'Payment card',
+          cardNumber: 'Card number',
+          expiry: 'Expiry date',
+          month: 'Month...',
+          year: 'Year...',
+          cvv: 'CVV/CCV',
+          cardHolder: 'Cardholder name',
+          confirm: 'Confirm reservation',
+          cartTitle: 'Cart details',
+          cartSummary: '5 nights, 2 adults',
+          total: 'Total amount',
+          payOnSite: 'Pay on site',
+          settleNow: 'Settle now',
+          guarantee: 'Your credit card number is required as a guarantee'
+        }
+      },
+      lang: {
+        sr: 'SR',
+        en: 'EN'
+      },
+      company: {
+        name: 'ESPADRINA',
+        footerName: 'E S P A D R I N A'
+      },
       footer: { rights: '2026 Espadrina. All Rights Reserved.' }
     };
   }
