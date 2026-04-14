@@ -1,5 +1,5 @@
-<div class="booking-flow-container" [style.background-image]="'url(/images/ocean-panoramic-view-from-water-with-visible-border-water-sky-generative-ai.jpg)'">
-  <!-- Dark Overlay Header -->
+<div class="booking-flow-container">
+  <!-- 1. Header (15%) -->
   <nav class="booking-header">
     <div class="header-logo">
       <a routerLink="/" class="logo-text">{{ langService.current().company.name }}</a>
@@ -8,25 +8,54 @@
     <div class="booking-stages">
       <div class="stage-item" [class.active]="isActive(1)" [class.completed]="isCompleted(1)">
         <span>{{ langService.current().booking.stages.stay }}</span>
-        <div class="stage-line"></div>
       </div>
+      <div class="stage-line"></div>
       <div class="stage-item" [class.active]="isActive(2)" [class.completed]="isCompleted(2)">
         <span>{{ langService.current().booking.stages.payment }}</span>
-        <div class="stage-line"></div>
       </div>
+      <div class="stage-line"></div>
       <div class="stage-item" [class.active]="isActive(3)">
         <span>{{ langService.current().booking.stages.confirmation }}</span>
       </div>
     </div>
 
-    <div class="header-spacer" style="width: 100px;"></div>
+    <div class="header-right">
+      <div class="lang-curr-selector">
+        <span class="selector-item active">SRB</span>
+        <span class="selector-divider">|</span>
+        <span class="selector-item">EUR</span>
+      </div>
+    </div>
   </nav>
 
-  <!-- Main Content -->
+  <!-- 2 & 3. Main Content (Ocean 40% + Pattern 40% = 80%) -->
   <div class="booking-content-wrapper">
     
     @if (currentStep() === 1) {
-      <app-booking-stay (onNext)="nextStep()"></app-booking-stay>
+      <div class="step-container">
+        <!-- Search card centered at the intersection -->
+        <app-booking-stay (onNext)="nextStep()"></app-booking-stay>
+        
+        <!-- Info Columns sitting on the pattern area -->
+        <div class="booking-footer-info">
+          <div class="info-column">
+            <h3>Espadrina</h3>
+            <p>espadrina vojvode misica 17 ljubovija,<br>Srbija</p>
+            <a href="#">Više informacija</a>
+          </div>
+          <div class="info-column">
+            <h3>Kontaktirajte nas</h3>
+            <p>info@espadrina.com<br>www.espadrina.com</p>
+          </div>
+          <div class="info-column">
+            <h3>Sredstva plaćanja</h3>
+            <div class="payment-methods">
+              <img src="/images/mastercard.png" alt="Mastercard" class="payment-icon">
+              <img src="/images/visa.png" alt="Visa" class="payment-icon">
+            </div>
+          </div>
+        </div>
+      </div>
     }
 
     @if (currentStep() === 2) {
@@ -38,4 +67,14 @@
     }
 
   </div>
+
+  <!-- 4. Sub-footer (5%) -->
+  <footer class="booking-sub-footer">
+    <div class="sub-footer-item">2026 Espadrina</div>
+    <div class="sub-footer-group">
+      <a href="#" class="sub-footer-item">Izmeniti ili otkazati rezervaciju</a>
+      <div class="sub-footer-divider"></div>
+      <a href="#" class="sub-footer-item">Pravila o poverljivosti podataka</a>
+    </div>
+  </footer>
 </div>

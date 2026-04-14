@@ -13,11 +13,6 @@
 </header>
 }
 
-<div class="footer-lang-pill" (click)="langService.toggleLanguage()">
-  <div class="pill-slider" [class.en]="langService.currentLang() === 'en'"></div>
-  <span class="pill-label" [class.active]="langService.currentLang() === 'sr'">{{ langService.current().lang.sr }}</span>
-  <span class="pill-label" [class.active]="langService.currentLang() === 'en'">{{ langService.current().lang.en }}</span>
-</div>
 
 <main>
   <router-outlet></router-outlet>
