@@ -75,6 +75,14 @@ export class LanguageService {
           confirmation: 'Confirmation',
           back: 'Back'
         },
+        stay: {
+          arrival: 'CHECK-IN DATE',
+          departure: 'CHECK-OUT DATE',
+          guests: 'NUMBER OF GUESTS',
+          apartments: 'NUMBER OF APARTMENTS',
+          promo: 'Apply promo code',
+          search: 'SEARCH'
+        },
         success: {
           title: 'YOUR RESERVATION HAS BEEN RECEIVED',
           subtitle: 'Expect an official confirmation via email'
@@ -94,6 +102,16 @@ export class LanguageService {
           payOnSite: 'Pay on site',
           settleNow: 'Settle now',
           guarantee: 'Your credit card number is required as a guarantee'
+        },
+        info: {
+          address: 'espadrina vojvode misica 17 ljubovija,<br>Serbia',
+          moreInfo: 'More information',
+          contact: 'Contact us',
+          paymentMethods: 'Payment methods'
+        },
+        footer: {
+          cancel: 'Change or cancel reservation',
+          privacy: 'Privacy policy'
         }
       },
       lang: {

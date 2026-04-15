@@ -20,11 +20,6 @@
     </div>
 
     <div class="header-right">
-      <div class="lang-curr-selector">
-        <span class="selector-item active">SRB</span>
-        <span class="selector-divider">|</span>
-        <span class="selector-item">EUR</span>
-      </div>
     </div>
   </nav>
 
@@ -39,16 +34,16 @@
         <!-- Info Columns sitting on the pattern area -->
         <div class="booking-footer-info">
           <div class="info-column">
-            <h3>Espadrina</h3>
-            <p>espadrina vojvode misica 17 ljubovija,<br>Srbija</p>
-            <a href="#">Više informacija</a>
+            <h3>{{ langService.current().company.name }}</h3>
+            <p [innerHTML]="langService.current().booking.info.address"></p>
+            <a href="#">{{ langService.current().booking.info.moreInfo }}</a>
           </div>
           <div class="info-column">
-            <h3>Kontaktirajte nas</h3>
+            <h3>{{ langService.current().booking.info.contact }}</h3>
             <p>info@espadrina.com<br>www.espadrina.com</p>
           </div>
           <div class="info-column">
-            <h3>Sredstva plaćanja</h3>
+            <h3>{{ langService.current().booking.info.paymentMethods }}</h3>
             <div class="payment-methods">
               <img src="/images/mastercard.png" alt="Mastercard" class="payment-icon">
               <img src="/images/visa.png" alt="Visa" class="payment-icon">
@@ -70,11 +65,11 @@
 
   <!-- 4. Sub-footer (5%) -->
   <footer class="booking-sub-footer">
-    <div class="sub-footer-item">2026 Espadrina</div>
+    <div class="sub-footer-item">2026 {{ langService.current().company.name }}</div>
     <div class="sub-footer-group">
-      <a href="#" class="sub-footer-item">Izmeniti ili otkazati rezervaciju</a>
+      <a href="#" class="sub-footer-item">{{ langService.current().booking.footer.cancel }}</a>
       <div class="sub-footer-divider"></div>
-      <a href="#" class="sub-footer-item">Pravila o poverljivosti podataka</a>
+      <a href="#" class="sub-footer-item">{{ langService.current().booking.footer.privacy }}</a>
     </div>
   </footer>
 </div>

@@ -179,28 +179,6 @@
   justify-content: flex-end;
 
   .lang-curr-selector {
-    border: 1px solid rgba(255, 255, 255, 0.8);
-    padding: 8px 16px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 13px;
-    font-weight: 700;
-    color: #fff;
-
-    .selector-item {
-      cursor: pointer;
-      opacity: 0.6;
-      transition: opacity 0.3s;
-
-      &.active {
-        opacity: 1;
-      }
-
-      &:hover {
-        opacity: 1;
-      }
-    }
   }
 }
 
