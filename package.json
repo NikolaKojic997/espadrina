@@ -10,7 +10,7 @@
     "serve:ssr:espadrina": "node dist/espadrina/server/server.mjs"
   },
   "private": true,
-  "packageManager": "npm@11.5.2",
+  "packageManager": "npm@10.9.7",
   "dependencies": {
     "@angular/animations": "^21.2.0",
     "@angular/common": "^21.2.0",
