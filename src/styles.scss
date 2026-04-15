@@ -31,3 +31,96 @@ body {
   background-color: var(--bg-color);
   -webkit-font-smoothing: antialiased;
 }
+
+// PrimeNG Overrides for Espadrina Theme
+.p-datepicker-panel {
+  background: rgba(245, 241, 235, 0.95) !important; 
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(25, 50, 72, 0.1) !important;
+  font-family: var(--primary-font) !important;
+  box-shadow: 0 15px 40px rgba(25, 50, 72, 0.15) !important;
+  border-radius: 4px !important;
+  padding: 12px !important;
+  margin-top: 10px !important;
+}
+
+/* Make the inline wrapper and input field transparent and borderless imitating plain text */
+.luxury-datepicker, .luxury-datepicker > div {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.luxury-datepicker .p-datepicker-input, .luxury-datepicker .p-inputtext {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  color: #000 !important;
+  font-size: 15px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.5px !important;
+  box-shadow: none !important;
+  cursor: pointer !important;
+  font-family: inherit !important;
+  width: 100% !important;
+}
+
+.luxury-datepicker .p-datepicker-input:focus, .luxury-datepicker .p-inputtext:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.p-datepicker-header {
+  background: transparent !important;
+  border-bottom: 1px solid rgba(25, 50, 72, 0.08) !important;
+  padding-bottom: 12px !important;
+  margin-bottom: 12px !important;
+}
+
+.p-datepicker-title, .p-datepicker-month, .p-datepicker-year {
+  font-weight: 700 !important;
+  color: var(--drina-dark) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px;
+}
+
+.p-datepicker-prev-icon, .p-datepicker-next-icon, .p-datepicker-icon {
+  color: var(--drina-dark) !important;
+}
+
+.p-datepicker-calendar th {
+  color: var(--drina-dark) !important;
+  font-weight: 700 !important;
+  padding: 10px 0 !important;
+  opacity: 0.6;
+  text-transform: uppercase;
+  font-size: 11px;
+}
+
+.p-datepicker-day {
+  color: var(--drina-dark) !important;
+  font-weight: 500 !important;
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: 2px !important;
+  transition: all 0.3s ease !important;
+}
+
+.p-datepicker-day:not(.p-datepicker-day-selected):hover {
+  background: rgba(176, 75, 58, 0.1) !important;
+  color: var(--drina-accent) !important;
+}
+
+.p-datepicker-day.p-datepicker-today {
+  background: transparent !important;
+  color: var(--drina-accent) !important;
+  border: 1px solid var(--drina-accent) !important;
+  font-weight: 700 !important;
+}
+
+.p-datepicker-day.p-datepicker-day-selected {
+  background: var(--drina-accent) !important;
+  color: #fff !important;
+  box-shadow: 0 4px 12px rgba(176, 75, 58, 0.3) !important;
+  border: none !important;
+}

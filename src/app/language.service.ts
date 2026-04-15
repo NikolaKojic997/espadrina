@@ -2,6 +2,7 @@ import { Injectable, signal, computed, inject, PLATFORM_ID } from '@angular/core
 import { isPlatformBrowser } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
+import { PrimeNG } from 'primeng/config';
 
 export type Lang = 'en' | 'sr';
 
@@ -12,6 +13,7 @@ export class LanguageService {
   private readonly LANG_KEY = 'user-lang';
   private platformId = inject(PLATFORM_ID);
   private http = inject(HttpClient);
+  private primeng = inject(PrimeNG);
   
   private langSignal = signal<Lang>('en');
   // English is the default hardcoded state
@@ -21,6 +23,30 @@ export class LanguageService {
   
   constructor() {
     this.initPromise = this.initLanguage();
+  }
+
+  private updatePrimeNGTranslation(lang: Lang) {
+    if (lang === 'sr') {
+      this.primeng.setTranslation({
+        dayNames: ["Nedelja", "Ponedeljak", "Utorak", "Sreda", "Četvrtak", "Petak", "Subota"],
+        dayNamesShort: ["Ned", "Pon", "Uto", "Sre", "Čet", "Pet", "Sub"],
+        dayNamesMin: ["Ne", "Po", "Ut", "Sr", "Če", "Pe", "Su"],
+        monthNames: ["Januar", "Februar", "Mart", "April", "Maj", "Jun", "Jul", "Avgust", "Septembar", "Oktobar", "Novembar", "Decembar"],
+        monthNamesShort: ["Jan", "Feb", "Mar", "Apr", "Maj", "Jun", "Jul", "Avg", "Sep", "Okt", "Nov", "Dec"],
+        today: 'Danas',
+        clear: 'Očisti'
+      });
+    } else {
+      this.primeng.setTranslation({
+        dayNames: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        dayNamesShort: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+        dayNamesMin: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
+        monthNames: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+        monthNamesShort: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        today: 'Today',
+        clear: 'Clear'
+      });
+    }
   }
 
   private getDefaultEnglish() {
@@ -148,6 +174,8 @@ export class LanguageService {
     if (isPlatformBrowser(this.platformId)) {
       localStorage.setItem(this.LANG_KEY, lang);
     }
+
+    this.updatePrimeNGTranslation(lang);
 
     try {
       const content = await firstValueFrom(

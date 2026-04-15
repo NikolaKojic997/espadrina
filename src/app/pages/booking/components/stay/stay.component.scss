@@ -61,7 +61,73 @@
       opacity: 0.6;
     }
   }
+
+  .counter-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    .counter-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      
+      button {
+        background: transparent;
+        border: 1px solid rgba(25, 50, 72, 0.2); // drina-dark border
+        color: var(--drina-dark);
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        padding: 0;
+        line-height: 1;
+        transition: all 0.2s ease;
+        
+        &:hover {
+          background: rgba(176, 75, 58, 0.1);
+          border-color: var(--drina-accent);
+          color: var(--drina-accent);
+        }
+        
+        &:active {
+          transform: scale(0.9);
+        }
+      }
+      
+      span {
+        min-width: 15px;
+        text-align: center;
+        font-weight: 800;
+      }
+    }
+  }
 }
+
+// PrimeNG DatePicker Styling
+:host ::v-deep {
+  .luxury-datepicker {
+    width: 100%;
+
+    .p-datepicker-input {
+      background: transparent !important;
+      border: none !important;
+      padding: 0 !important;
+      color: #000 !important;
+      font-size: 15px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.5px !important;
+      box-shadow: none !important;
+      cursor: pointer;
+      font-family: inherit;
+      width: 100%;
+    }
+  }
+}
+
 
 .promo-section {
   display: flex;
@@ -96,6 +162,56 @@
       height: 16px;
     }
   }
+
+  .promo-input-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    .promo-input {
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid var(--drina-dark);
+      padding: 5px 0;
+      color: #000;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-align: center;
+      width: 180px;
+      font-family: inherit;
+      outline: none;
+      transition: border-color 0.3s ease;
+
+      &::placeholder {
+        color: rgba(0, 0, 0, 0.4);
+        text-transform: uppercase;
+      }
+
+      &:focus {
+        border-bottom-color: var(--drina-accent);
+      }
+    }
+
+    .status-icon {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 18px;
+      height: 18px;
+      
+      &.valid {
+        color: #2e7d32; // green
+        animation: popIn 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28) forwards;
+      }
+    }
+  }
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: translateY(-50%) scale(0.5); }
+  to { opacity: 1; transform: translateY(-50%) scale(1); }
 }
 
 .search-btn {
