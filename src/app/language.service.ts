@@ -153,6 +153,10 @@ export class LanguageService {
           apartmentsText: 'apartments',
           remainingAmount: '<strong>Remaining amount:</strong> The remaining amount of {price} € is payable on site upon arrival.'
         },
+        footer: {
+          cancel: 'Change or cancel reservation',
+          privacy: 'Privacy policy'
+        }
       },
       lang: {
         sr: 'SR',
