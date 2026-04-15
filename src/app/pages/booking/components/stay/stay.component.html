@@ -1,3 +1,4 @@
+@if (!isSearchDone()) {
 <div class="form-card animate-in">
   <div class="form-row">
     <div class="input-group">
@@ -60,8 +61,187 @@
     <div class="line"></div>
   </div>
 
-  <button class="search-btn" (click)="onNext.emit()">
+  <button class="search-btn" (click)="onSearch()">
     <span>{{ langService.current().booking.stay.search }}</span>
     <svg class="arrow-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
   </button>
 </div>
+} @else {
+<div class="details-layout animate-in">
+  <div class="summary-top-bar">
+    <div class="summary-item">
+      <svg viewBox="0 0 24 24" class="s-icon"><path fill="currentColor" d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM5 19V8h14v11H5z"/></svg>
+      <span>{{ checkIn | date:'dd. MMM' }} - {{ checkOut | date:'dd. MMM' }}</span>
+    </div>
+    <div class="summary-line"></div>
+    <div class="summary-item">
+      <svg viewBox="0 0 24 24" class="s-icon"><path fill="currentColor" d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.61.02-.95.05 1.16.84 1.95 1.99 1.95 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+      <span>{{ guests }} {{ langService.current().booking.stay.guestsText }}</span>
+    </div>
+    <div class="summary-line"></div>
+    <div class="summary-item">
+      <svg viewBox="0 0 24 24" class="s-icon"><path fill="currentColor" d="M19 6V4h-2V2H7v2H5v2H3v16h18V6h-2zM7 4h10v2H7V4zm12 16H5V8h14v12zm-7-1h2v-2h-2v2zm0-4h2v-2h-2v2zm-4 4h2v2H8v2zm0-4h2v-2H8v2zm8 4h2v2h-2v2zm0-4h2v2h-2v2z"/></svg>
+      <span>{{ apartments }} {{ langService.current().booking.stay.apartmentsText }}</span>
+    </div>
+    <div class="summary-action" (click)="isSearchDone.set(false)">
+      <span>{{ langService.current().booking.stay.editSearch }}</span>
+    </div>
+  </div>
+
+  <div class="details-content">
+    <div class="left-col">
+      <div class="section-card">
+        <div class="section-header">
+          <h2>{{ langService.current().booking.stay.personalInfo }}</h2>
+        </div>
+        
+        <div class="form-grid">
+          <div class="field">
+            <label>{{ langService.current().booking.stay.title }}</label>
+            <div class="select-wrapper">
+              <select><option>{{ langService.current().booking.stay.mr }}</option><option>{{ langService.current().booking.stay.mrs }}</option></select>
+            </div>
+          </div>
+          <div class="field">
+            <label>{{ langService.current().booking.stay.firstName }}</label>
+            <input type="text">
+          </div>
+          <div class="field">
+            <label>{{ langService.current().booking.stay.lastName }}</label>
+            <input type="text">
+          </div>
+          <div class="field">
+            <label>{{ langService.current().booking.stay.countryCode }}</label>
+            <div class="select-wrapper">
+              <select><option>{{ langService.current().booking.stay.selectCountryCode }}</option></select>
+            </div>
+          </div>
+          <div class="field">
+            <label>{{ langService.current().booking.stay.phoneNumber }}</label>
+            <input type="text">
+          </div>
+          <div class="field full-width">
+            <label>{{ langService.current().booking.stay.email }}</label>
+            <input type="email">
+          </div>
+          <div class="field full-width">
+            <label>{{ langService.current().booking.stay.country }}</label>
+            <div class="select-wrapper">
+              <select><option>{{ langService.current().booking.stay.serbia }}</option></select>
+            </div>
+          </div>
+        </div>
+        
+        <div class="divider"></div>
+
+        <h2>{{ langService.current().booking.stay.prepareStay }}</h2>
+        <p class="subtitle">{{ langService.current().booking.stay.apartment }}<br><small><svg viewBox="0 0 24 24" class="sm-icon"><path fill="currentColor" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg> {{ guests }} {{ langService.current().booking.stay.adults }}</small></p>
+        
+        <div class="guest-list-wrapper">
+          @for (g of guestsArray(); track $index) {
+          <div class="form-grid guest-row">
+            <div class="field">
+              <label [class.hide-on-desktop]="$index > 0">{{ langService.current().booking.stay.title }}</label>
+              <div class="select-wrapper">
+                <select><option>{{ langService.current().booking.stay.mrShort }}</option></select>
+              </div>
+            </div>
+            <div class="field">
+              <label [class.hide-on-desktop]="$index > 0">{{ langService.current().booking.stay.firstName }}</label>
+              <input type="text">
+            </div>
+            <div class="field">
+              <label [class.hide-on-desktop]="$index > 0">{{ langService.current().booking.stay.lastName }}</label>
+              <input type="text">
+            </div>
+            <div class="field">
+              <label [class.hide-on-desktop]="$index > 0">{{ langService.current().booking.stay.age }}</label>
+              <div class="select-wrapper">
+                <select><option>{{ langService.current().booking.stay.adultShort }}</option></select>
+              </div>
+            </div>
+          </div>
+          }
+        </div>
+
+        <div class="form-grid margin-top">
+          <div class="field">
+            <label>{{ langService.current().booking.stay.arrivalTime }}</label>
+            <div class="select-wrapper">
+              <select><option>{{ langService.current().booking.stay.selectArrivalTime }}</option></select>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-grid margin-top">
+          <div class="field full-width">
+             <label>{{ langService.current().booking.stay.specialRequests }}</label>
+             <textarea placeholder=""></textarea>
+             <small class="hint">{{ langService.current().booking.stay.specialRequestsHint }}</small>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <h2>{{ langService.current().booking.stay.termsTitle }}</h2>
+        <div class="terms-text">
+          <p [innerHTML]="langService.current().booking.stay.depositTerms"></p>
+          <p [innerHTML]="remainingAmountText"></p>
+          <p [innerHTML]="langService.current().booking.stay.cancelTerms"></p>
+        </div>
+
+        <div class="checkbox-group">
+           <label class="cb-label"><input type="checkbox"> <span class="cb-text">{{ langService.current().booking.stay.newsletter1 }}</span></label>
+           <label class="cb-label"><input type="checkbox"> <span class="cb-text">{{ langService.current().booking.stay.newsletter2 }}</span></label>
+           <label class="cb-label"><input type="checkbox"> <span class="cb-text">{{ langService.current().booking.stay.acceptTerms }}</span></label>
+        </div>
+        
+        <p class="privacy-note">{{ langService.current().booking.stay.privacyNotice }}</p>
+
+        <button class="book-now-btn" (click)="onNext.emit()">{{ langService.current().booking.stay.bookNowBtn }}</button>
+        <p class="secure-note">{{ langService.current().booking.stay.secureNotice }}</p>
+      </div>
+    </div>
+
+    <div class="right-col">
+      <div class="sidebar-card">
+        <h3><svg viewBox="0 0 24 24" class="s-icon"><path fill="currentColor" d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg> {{ langService.current().booking.stages.stay }}</h3>
+        <p class="stay-duration">{{ langService.current().booking.stay.durationNights }} {{ nights }} {{ langService.current().booking.stay.nightsText }}</p>
+        <div class="dates-row">
+          <span>{{ checkIn | date:'dd MMM yyyy' }}</span>
+          <svg viewBox="0 0 24 24" class="s-icon"><path fill="currentColor" d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/></svg>
+          <span>{{ checkOut | date:'dd MMM yyyy' }}</span>
+        </div>
+        
+        <div class="sidebar-divider"></div>
+
+        <div class="room-details">
+          <h4>{{ langService.current().booking.stay.rooms }}</h4>
+          <div class="room-row" style="margin-bottom: 2px;">
+            <span class="qty">{{ apartments }}x {{ langService.current().booking.stay.apartment }}</span>
+            <span class="price">{{ basePrice | number:'1.0-2' }} €</span>
+          </div>
+          <div style="font-size: 11px; opacity: 0.6; margin-bottom: 15px;">
+            {{ nights }} {{ langService.current().booking.stay.nightsShort }} x 350 €
+          </div>
+          @if (promoStatus() === 'valid') {
+            <div class="room-row" style="color: #81c784;">
+              <span class="qty">{{ langService.current().booking.stay.promoCode }}</span>
+              <span class="price">-{{ basePrice * 0.10 | number:'1.0-2' }} €</span>
+            </div>
+          }
+          <p class="guests-info"><svg viewBox="0 0 24 24" class="sm-icon"><path fill="currentColor" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg> {{ guests }} {{ langService.current().booking.stay.guestsText }}</p>
+          <p class="tariff-info">{{ langService.current().booking.stay.bestTariff }}</p>
+        </div>
+
+        <div class="sidebar-divider"></div>
+
+        <div class="room-row bold">
+          <h4>{{ langService.current().booking.stay.total }}</h4>
+          <span class="price total-price">{{ finalPrice | number:'1.0-2' }} €</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+}

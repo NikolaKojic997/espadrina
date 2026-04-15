@@ -105,4 +105,39 @@ export class StayComponent {
       this.isPromoMode.set(false);
     }
   }
+
+  isSearchDone = signal(false);
+
+  onSearch() {
+    this.isSearchDone.set(true);
+  }
+
+  guestsArray() {
+    return Array.from({ length: this.guests });
+  }
+
+  get nights(): number {
+    if (this.checkIn && this.checkOut) {
+      const diffTime = Math.abs(this.checkOut.getTime() - this.checkIn.getTime());
+      return Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    }
+    return 0;
+  }
+
+  get basePrice(): number {
+    return this.apartments * this.nights * 350;
+  }
+
+  get finalPrice(): number {
+    const discount = this.promoStatus() === 'valid' ? 0.10 : 0;
+    return this.basePrice * (1 - discount);
+  }
+
+  get remainingAmountText(): string {
+    const template = this.langService.current().booking?.stay?.remainingAmount;
+    if (template) {
+      return template.replace('{{price}}', this.finalPrice.toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 2 }));
+    }
+    return '';
+  }
 }
