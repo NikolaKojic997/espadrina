@@ -166,7 +166,36 @@ export class LanguageService {
         name: 'ESPADRINA',
         footerName: 'E S P A D R I N A'
       },
-      footer: { rights: '2026 Espadrina. All Rights Reserved.' }
+      footer: { rights: '2026 Espadrina. All Rights Reserved.' },
+      restaurant: {
+        hero: {
+          subtitle: 'our hidden gem',
+          scroll: 'scroll for more'
+        },
+        wine: {
+          title: 'LOCAL DRINKS & WINES',
+          desc: 'Discover a selection of the best local wines and drinks that perfectly accompany our gastronomic creations.'
+        },
+        ingredients: {
+          title: 'Where local natures\nfood meets modern\nculinary exellence',
+          desc: 'We layer Surinamese-Hindustani spices, French precision and Dutch seasonal produce into\ndishes that feel both familiar and daring. Every plate tells a story and ends with a smile..'
+        },
+        chef: {
+          title_meet: 'MEET',
+          title_our: 'OUR',
+          title_chef: 'CHEF',
+          name: 'CHEF GAGA',
+          desc: 'At Espadrina, water is part of every moment of the stay.\n\nFrom private terrace pools and the main outdoor pool to the spa experience and the riverside beach, the entire setting is designed to keep you connected to freshness, calm, and the rhythm of nature.\n\nDrina remains at the heart of the landscape — present in the view, the atmosphere, and the feeling of being fully removed from the everyday.'
+        },
+        menu: {
+          title: 'WHERE EVERY DISH IS REMINDER OF PEACE',
+          cta: 'View our menu'
+        },
+        dessert: {
+          title: 'SWEET MOMENTS',
+          desc: 'Finish your meal with our hand-made desserts that combine traditional recipes with modern pastry making.'
+        }
+      }
     };
   }
 
@@ -245,7 +274,7 @@ export class LanguageService {
       if (index === -1) continue;
 
       const key = trimmed.substring(0, index).trim();
-      const value = trimmed.substring(index + 1).trim();
+      const value = trimmed.substring(index + 1).trim().replace(/\\n/g, '\n');
 
       // Handle nested keys like nav.links.experience
       const parts = key.split('.');

@@ -1,0 +1,55 @@
+<div class="restaurant-page">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content" [style.transform]="'translateX(' + translateXText() + 'px)'">
+      <h1 class="fade-in">{{ langService.current().nav.restaurant }}</h1>
+      <p class="subtitle fade-in">{{ langService.current().restaurant.hero.subtitle }}</p>
+    </div>
+
+    <div class="hero-plate-container">
+      <img src="/images/tanjir.png" alt="Rotating Plate" class="hero-plate"
+        [style.transform]="'translateX(' + translateX() + 'px) rotate(' + rotation() + 'deg)'">
+    </div>
+
+    <div class="scroll-for-more">
+      <span>{{ langService.current().restaurant.hero.scroll }}</span>
+    </div>
+  </section>
+
+  <!-- Ingredients / Local Products -->
+  <section class="ingredients-section">
+    <div class="ingredients-content fade-in">
+      <h2 class="section-title">{{ langService.current().restaurant.ingredients.title }}</h2>
+      <p>{{ langService.current().restaurant.ingredients.desc }}</p>
+    </div>
+  </section>
+  <!-- Menu Section -->
+  <section class="menu-section">
+    <div class="menu-card">
+      <h2>{{ langService.current().restaurant.menu.title }}</h2>
+      <button class="btn-menu">{{ langService.current().restaurant.menu.cta }}</button>
+    </div>
+  </section>
+
+  <!-- Chef Section -->
+  <section class="chef-section">
+    <div class="chef-container">
+      <h2 class="chef-header fade-in">
+        <span>{{ langService.current().restaurant.chef.title_meet }}</span>
+        <span>{{ langService.current().restaurant.chef.title_our }}</span>
+        <span>{{ langService.current().restaurant.chef.title_chef }}</span>
+      </h2>
+      <div class="chef-grid">
+        <div class="chef-text" [style.transform]="'translateX(' + chefTranslateTextX() + 'px)'">
+          <h3>{{ langService.current().restaurant.chef.name }}</h3>
+          <p>{{ langService.current().restaurant.chef.desc }}</p>
+        </div>
+        <div class="chef-image" [style.transform]="'translateX(' + chefTranslateX() + 'px)'">
+          <img src="/svg/Restoran Stranica-02.svg" alt="Chef Gaga">
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

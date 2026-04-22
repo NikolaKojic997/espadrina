@@ -5,7 +5,9 @@
   </div>
   <div class="nav-right">
     <a routerLink="/booking" class="ghost-btn">{{ langService.current().nav.bookNow }}</a>
+    @if (!isRestaurantPage()) {
     <a routerLink="/restaurant" class="ghost-btn">{{ langService.current().nav.restaurant }}</a>
+    }
     <button class="menu-toggle" (click)="toggleMenu()">
       <img src="/svg/Menu.svg" alt="Menu">
     </button>

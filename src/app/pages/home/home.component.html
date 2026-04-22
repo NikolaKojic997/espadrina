@@ -39,7 +39,7 @@
     [style.transform]="'translateX(' + (100 - foodProgress() * 100) + 'px)'">
     <h2>{{ langService.current().food.title }}</h2>
     <p>{{ langService.current().food.desc }}</p>
-    <a href="#restaurant" class="food-link">{{ langService.current().food.cta }}</a>
+    <a routerLink="/restaurant" class="food-link">{{ langService.current().food.cta }}</a>
   </div>
 </section>
 
