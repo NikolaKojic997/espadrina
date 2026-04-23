@@ -21,7 +21,11 @@
   <!-- Ingredients / Local Products -->
   <section class="ingredients-section">
     <div class="ingredients-content fade-in">
-      <h2 class="section-title">{{ langService.current().restaurant.ingredients.title }}</h2>
+      <h2 class="section-title" 
+          [style.opacity]="ingredientsProgress()"
+          [style.transform]="'translateY(' + (20 * (1 - ingredientsProgress())) + 'px)'">
+        {{ langService.current().restaurant.ingredients.title }}
+      </h2>
       <p>{{ langService.current().restaurant.ingredients.desc }}</p>
     </div>
   </section>
@@ -37,9 +41,9 @@
   <section class="chef-section">
     <div class="chef-container">
       <h2 class="chef-header fade-in">
-        <span>{{ langService.current().restaurant.chef.title_meet }}</span>
-        <span>{{ langService.current().restaurant.chef.title_our }}</span>
-        <span>{{ langService.current().restaurant.chef.title_chef }}</span>
+        <span>MEET</span>
+        <span>OUR</span>
+        <span>CHEF</span>
       </h2>
       <div class="chef-grid">
         <div class="chef-text" [style.transform]="'translateX(' + chefTranslateTextX() + 'px)'">

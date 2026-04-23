@@ -2,11 +2,13 @@ import { Component, signal, HostListener, inject, PLATFORM_ID, ChangeDetectionSt
 import { isPlatformBrowser, CommonModule } from '@angular/common';
 import { LanguageService } from '../../language.service';
 
+import { RouterModule } from '@angular/router';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeComponent {

@@ -17,11 +17,17 @@ export class RestaurantComponent {
   chefTranslateX = signal(400);
   chefTranslateTextX = signal(-400);
   wineRotation = signal(180);
+  ingredientsProgress = signal(0);
 
   @HostListener('window:scroll')
   onWindowScroll() {
     const scroll = window.scrollY;
     const vh = typeof window !== 'undefined' ? window.innerHeight : 0;
+
+    // Ingredients reveal logic
+    const ingStart = vh * 0.4;
+    const ingEnd = vh * 1.1; 
+    this.ingredientsProgress.set(Math.max(0, Math.min((scroll - ingStart) / (ingEnd - ingStart), 1)));
 
     // Rotate 1 degree for every 5 pixels scrolled
     this.rotation.set(scroll / 5);

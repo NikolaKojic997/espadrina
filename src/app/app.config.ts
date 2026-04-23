@@ -1,5 +1,5 @@
 import { ApplicationConfig, provideBrowserGlobalErrorListeners, APP_INITIALIZER } from '@angular/core';
-import { provideRouter } from '@angular/router';
+
 import { provideHttpClient } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { providePrimeNG } from 'primeng/config';
@@ -32,10 +32,12 @@ const EspadrinaPreset = definePreset(Aura, {
     }
 });
 
+import { provideRouter, withInMemoryScrolling } from '@angular/router';
+
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
-    provideRouter(routes), 
+    provideRouter(routes, withInMemoryScrolling({ scrollPositionRestoration: 'top' })), 
     provideClientHydration(withEventReplay()),
     provideHttpClient(),
     provideAnimationsAsync(),
