@@ -14,6 +14,7 @@
 
 :root {
   --primary-font: 'Montserrat', sans-serif;
+  --secondary-font: 'Montserrat', sans-serif;
   --bg-color: #fdfdfd;
   --text-color: #2c2c2c;
   --accent-color: #4a90e2;
@@ -23,13 +24,20 @@
   --drina-beige: #faf1eb;
 }
 
-body {
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body, button, input, select, textarea {
   margin: 0;
   padding: 0;
   font-family: var(--primary-font);
   color: var(--text-color);
-  background-color: var(--bg-color);
   -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background-color: var(--bg-color);
 }
 
 // PrimeNG Overrides for Espadrina Theme

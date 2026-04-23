@@ -145,8 +145,6 @@
     text-align: center;
     background: #fdf6f0; 
     overflow: hidden;
-    transform: translateZ(0); 
-    backface-visibility: hidden;
 
     .ingredients-content {
       position: relative;
@@ -166,8 +164,8 @@
         text-transform: uppercase;
 
         background-image: url('/images/shopping-trolley-cart-different-fresh-fruits-vegetables-layout-assortment-fresh-fruits-vegetables-healthy-food-background-shopping-food-supermarket.jpg');
-        background-size: 100vw auto;
-        background-position: center center;
+        background-size: cover;
+        background-position: center;
         background-attachment: fixed;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -334,6 +332,91 @@
           background: #8e4439;
           transform: translateY(-3px);
           box-shadow: 0 15px 30px rgba(166, 82, 70, 0.4);
+        }
+      }
+    }
+  }
+
+  .wine-map-section {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    color: white;
+    background-color: #111;
+
+    .wine-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.7);
+      will-change: transform;
+      transition: transform 0.1s ease-out;
+    }
+
+    .wine-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, transparent 30%, rgba(0,0,0,0.4) 100%);
+    }
+
+    .wine-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+
+      .wine-title {
+        font-size: clamp(36px, 8vw, 84px);
+        font-weight: 950;
+        letter-spacing: 0.05em;
+        margin-bottom: 25px;
+        text-transform: uppercase;
+        line-height: 1;
+      }
+
+      .wine-desc {
+        font-size: clamp(14px, 1.5vw, 17px);
+        max-width: 600px;
+        margin-bottom: 40px;
+        line-height: 1.6;
+        opacity: 0.95;
+        font-weight: 400;
+        letter-spacing: 0.5px;
+        white-space: pre-line;
+      }
+
+      .btn-wine-selection {
+        background: transparent;
+        color: white;
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        padding: 16px 36px;
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        text-transform: lowercase;
+        letter-spacing: 1px;
+
+        &:hover {
+          background: white;
+          color: #111;
+          transform: scale(1.05);
         }
       }
     }

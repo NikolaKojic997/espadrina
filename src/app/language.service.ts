@@ -14,13 +14,13 @@ export class LanguageService {
   private platformId = inject(PLATFORM_ID);
   private http = inject(HttpClient);
   private primeng = inject(PrimeNG);
-  
+
   private langSignal = signal<Lang>('en');
   // English is the default hardcoded state
   private translationsSignal = signal<any>(this.getDefaultEnglish());
 
   initPromise: Promise<void>;
-  
+
   constructor() {
     this.initPromise = this.initLanguage();
   }
@@ -51,48 +51,48 @@ export class LanguageService {
 
   private getDefaultEnglish() {
     return {
-      nav: { 
-        bookNow: 'Book now', 
-        restaurant: 'Restaurant', 
-        menu: 'MENU', 
-        links: { 
-          home: 'Home', 
-          experience: 'Experience', 
-          wellness: 'Wellness', 
-          contact: 'Contact' 
-        } 
+      nav: {
+        bookNow: 'Book now',
+        restaurant: 'Restaurant',
+        menu: 'MENU',
+        links: {
+          home: 'Home',
+          experience: 'Experience',
+          wellness: 'Wellness',
+          contact: 'Contact'
+        }
       },
-      flow: { 
-        title: 'FIND YOURSELF ALONG THE TIMELESS FLOW OF THE DRINA', 
-        desc: 'On the banks of the Drina, luxury takes on a different meaning. More intimate, more grounded, more real. It is a place to slow down, reconnect with nature, and rediscover the beauty of simplicity, comfort and belonging.', 
-        cta: 'Explore Drina', 
-        comingSoon: 'Booking system is coming soon...' 
+      flow: {
+        title: 'FIND YOURSELF ALONG THE TIMELESS FLOW OF THE DRINA',
+        desc: 'On the banks of the Drina, luxury takes on a different meaning. More intimate, more grounded, more real. It is a place to slow down, reconnect with nature, and rediscover the beauty of simplicity, comfort and belonging.',
+        cta: 'Explore Drina',
+        comingSoon: 'Booking system is coming soon...'
       },
-      luxury: { 
-        title: 'LUXURY ESCAPE', 
-        desc: 'Luxury apartments provide a perfect blend of modern comfort and natural peace, designed for your ultimate relaxation.', 
-        cta: 'Find yourself' 
+      luxury: {
+        title: 'LUXURY ESCAPE',
+        desc: 'Luxury apartments provide a perfect blend of modern comfort and natural peace, designed for your ultimate relaxation.',
+        cta: 'Find yourself'
       },
-      food: { 
-        title: 'TIMELESS FOOD', 
-        desc: 'Enjoy authentic local flavors, prepared with care from the freshest ingredients of the Drina region.', 
-        cta: 'Find out more', 
-        comingSoon: 'Everything will be implemented soon' 
+      food: {
+        title: 'TIMELESS FOOD',
+        desc: 'Enjoy authentic local flavors, prepared with care from the freshest ingredients of the Drina region.',
+        cta: 'Find out more',
+        comingSoon: 'Everything will be implemented soon'
       },
-      spa: { 
-        title: 'YOUR PERSONAL SPA', 
-        desc: 'Relax in our exclusive spa center, where natural tranquility meets premium treatments for your body and mind.', 
-        cta: 'Find out more' 
+      spa: {
+        title: 'YOUR PERSONAL SPA',
+        desc: 'Relax in our exclusive spa center, where natural tranquility meets premium treatments for your body and mind.',
+        cta: 'Find out more'
       },
-      pool: { 
-        title: 'POOL ON YOU', 
-        desc: 'Dive into a refreshing pool with views of the river and mountains, creating memories that last forever.', 
-        cta: 'Find out more' 
+      pool: {
+        title: 'POOL ON YOU',
+        desc: 'Dive into a refreshing pool with views of the river and mountains, creating memories that last forever.',
+        cta: 'Find out more'
       },
-      inspiration: { 
-        title: 'ENDLESS INSPIRATION', 
-        desc: 'Let the beauty of the Drina inspire you. Our resort is a sanctuary for those seeking authenticity, peace, and unforgettable moments by the sound of the water.', 
-        cta: 'CONTACT US' 
+      inspiration: {
+        title: 'ENDLESS INSPIRATION',
+        desc: 'Let the beauty of the Drina inspire you. Our resort is a sanctuary for those seeking authenticity, peace, and unforgettable moments by the sound of the water.',
+        cta: 'CONTACT US'
       },
       booking: {
         stages: {
@@ -199,8 +199,9 @@ export class LanguageService {
           scroll: 'scroll for more'
         },
         wine: {
-          title: 'LOCAL DRINKS & WINES',
-          desc: 'Discover a selection of the best local wines and drinks that perfectly accompany our gastronomic creations.'
+          title: 'WINE MAP',
+          desc: 'Drina remains at the heart of the landscape — present\n in the view, the atmosphere, and the feeling of being\n fully removed from the everyday.',
+          cta: 'View wine selection'
         },
         ingredients: {
           title: 'Where local natures\nfood meets modern\nculinary exellence',
@@ -238,7 +239,7 @@ export class LanguageService {
 
   // Computed signal that returns the current dictionary
   current = computed(() => this.translationsSignal());
-  
+
   // Expose current language
   currentLang = computed(() => this.langSignal());
 

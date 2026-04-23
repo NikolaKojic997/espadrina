@@ -14,8 +14,9 @@ export class RestaurantComponent {
   rotation = signal(0);
   translateX = signal(0);
   translateXText = signal(0);
-  chefTranslateX = signal(400); 
+  chefTranslateX = signal(400);
   chefTranslateTextX = signal(-400);
+  wineRotation = signal(180);
 
   @HostListener('window:scroll')
   onWindowScroll() {
@@ -30,7 +31,7 @@ export class RestaurantComponent {
     this.translateXText.set(-scroll / 1.5);
 
     // Chef section animations (Trigger as we approach 3rd section)
-    const startTrigger = vh * 1.8; 
+    const startTrigger = vh * 1.8;
     const endTrigger = vh * 2.8;
 
     if (scroll > startTrigger) {
@@ -40,6 +41,14 @@ export class RestaurantComponent {
     } else {
       this.chefTranslateX.set(400);
       this.chefTranslateTextX.set(-400);
+    }
+
+    // Wine section rotation (after Chef section)
+    const wineStartTrigger = vh * 2.8;
+    if (scroll > wineStartTrigger) {
+      this.wineRotation.set(180 + (scroll - wineStartTrigger) / 8);
+    } else {
+      this.wineRotation.set(180);
     }
   }
 }

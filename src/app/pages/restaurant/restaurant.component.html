@@ -52,4 +52,17 @@
       </div>
     </div>
   </section>
+
+  <!-- Wine Map Section -->
+  <section class="wine-map-section">
+    <div class="wine-bg" 
+         [style.background-image]="'url(/images/vino.jpg)'"
+         [style.transform]="'rotate(' + wineRotation() + 'deg) scale(1.5)'"></div>
+    <div class="wine-overlay"></div>
+    <div class="wine-content fade-in">
+      <h2 class="wine-title">{{ langService.current().restaurant.wine.title }}</h2>
+      <p class="wine-desc">{{ langService.current().restaurant.wine.desc }}</p>
+      <button class="btn-wine-selection">{{ langService.current().restaurant.wine.cta }}</button>
+    </div>
+  </section>
 </div>
