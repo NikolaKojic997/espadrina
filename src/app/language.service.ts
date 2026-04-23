@@ -153,6 +153,32 @@ export class LanguageService {
           apartmentsText: 'apartments',
           remainingAmount: '<strong>Remaining amount:</strong> The remaining amount of {price} € is payable on site upon arrival.'
         },
+        info: {
+          address: 'espadrina vojvode misica 17 ljubovija,<br>Serbia',
+          moreInfo: 'More information',
+          contact: 'Contact us',
+          paymentMethods: 'Payment methods'
+        },
+        payment: {
+          cardTitle: 'Payment card',
+          cardNumber: 'Card number',
+          expiry: 'Expiry date',
+          month: 'Month...',
+          year: 'Year...',
+          cvv: 'CVV/CCV',
+          cardHolder: 'Cardholder name',
+          confirm: 'Confirm reservation',
+          cartTitle: 'Cart details',
+          cartSummary: '5 nights, 2 adults',
+          total: 'Total amount',
+          payOnSite: 'Pay on site',
+          settleNow: 'Settle now',
+          guarantee: 'Your credit card number is required as a guarantee'
+        },
+        success: {
+          title: 'YOUR RESERVATION HAS BEEN RECEIVED',
+          subtitle: 'Expect an official confirmation via email'
+        },
         footer: {
           cancel: 'Change or cancel reservation',
           privacy: 'Privacy policy'
@@ -226,7 +252,7 @@ export class LanguageService {
 
     try {
       const content = await firstValueFrom(
-        this.http.get(`i18n/${lang}.properties`, { responseType: 'text' })
+        this.http.get(`/i18n/${lang}.properties`, { responseType: 'text' })
       );
       const parsed = this.parseProperties(content);
       // Merge with default English to ensure all keys exist
