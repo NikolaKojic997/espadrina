@@ -81,6 +81,104 @@
   min-height: 500px;
 }
 
+// Global widget overrides
+::ng-deep #wbproot {
+  font-family: 'Montserrat', sans-serif !important;
+
+  * {
+    font-family: 'Montserrat', sans-serif !important;
+  }
+
+  // Force colors on all potential primary buttons
+  .MuiButton-containedPrimary,
+  .MuiButton-contained.MuiButton-containedPrimary,
+  .MuiButton-root[variant="contained"][color="primary"],
+  button[class*="MuiButton-containedPrimary"] {
+    background-color: var(--drina-accent) !important;
+    color: white !important;
+
+    &:hover {
+      background-color: rgba(176, 75, 58, 0.8) !important;
+    }
+  }
+
+  // Set background opacity for forms/cards
+  .MuiPaper-root, 
+  .MuiCard-root {
+    background-color: rgba(255, 255, 255, 0.8) !important;
+  }
+
+  // Target only the active step container as requested
+  .booking-stepper .step.active {
+    background: var(--drina-accent) !important;
+    color: #fff !important;
+
+    .numbers {
+      background-color: #fff !important;
+      color: var(--drina-dark) !important;
+      // Ensure it's a perfect circle and not distorted
+      width: 24px !important;
+      height: 24px !important;
+      min-width: 24px !important;
+      border-radius: 50% !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      margin-right: 10px !important;
+      flex-shrink: 0 !important;
+      z-index: 5 !important;
+    }
+  }
+
+  // Datepicker (Mobiscroll) overrides
+  .mbsc-datepicker {
+    font-family: 'Montserrat', sans-serif !important;
+
+    // Primary accent color (Selected state - Dark version)
+    .mbsc-selected .mbsc-calendar-cell-text,
+    .mbsc-selected .mbsc-calendar-day-text {
+      background-color: var(--drina-dark) !important;
+      color: #fff !important;
+      border-color: var(--drina-dark) !important;
+    }
+
+    // Today highlight (Outline/Border)
+    .mbsc-calendar-today {
+      border: 1px solid var(--drina-dark) !important;
+      color: var(--drina-dark) !important;
+      background: transparent !important;
+    }
+
+    // Hover states (Scaled dark color)
+    .mbsc-calendar-cell:hover .mbsc-calendar-day-text,
+    .mbsc-calendar-button:hover {
+      background-color: rgba(25, 50, 72, 0.1) !important;
+      color: var(--drina-dark) !important;
+      opacity: 1 !important;
+    }
+
+    // Buttons and interactive elements (Default state)
+    .mbsc-button-flat,
+    .mbsc-calendar-button {
+      color: var(--drina-dark) !important;
+    }
+
+    // Selected range highlight
+    .mbsc-range-day {
+      background-color: rgba(25, 50, 72, 0.05) !important;
+    }
+
+    // Calendar labels and text
+    .mbsc-calendar-label-background {
+      background-color: var(--drina-dark) !important;
+    }
+
+    .mbsc-calendar-label-text {
+      color: #fff !important;
+    }
+  }
+}
+
 .booking-sub-footer {
   height: 5vh;
   width: 100%;
