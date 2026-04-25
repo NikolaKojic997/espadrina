@@ -63,8 +63,10 @@
   </div>
 </div>
 
+@if (!isBookingPage()) {
 <div class="fixed-lang-switch">
   <button [class.active]="langService.currentLang() === 'en'" (click)="langService.setLanguage('en')">EN</button>
   <span class="divider">|</span>
   <button [class.active]="langService.currentLang() === 'sr'" (click)="langService.setLanguage('sr')">SRB</button>
 </div>
+}

@@ -6,17 +6,7 @@
     </div>
     
     <div class="booking-stages">
-      <div class="stage-item" [class.active]="isActive(1)" [class.completed]="isCompleted(1)">
-        <span>{{ langService.current().booking.stages.stay }}</span>
-      </div>
-      <div class="stage-line"></div>
-      <div class="stage-item" [class.active]="isActive(2)" [class.completed]="isCompleted(2)">
-        <span>{{ langService.current().booking.stages.payment }}</span>
-      </div>
-      <div class="stage-line"></div>
-      <div class="stage-item" [class.active]="isActive(3)">
-        <span>{{ langService.current().booking.stages.confirmation }}</span>
-      </div>
+      <!-- Stages removed as WebBookingPro handles the flow -->
     </div>
 
     <div class="header-right">
@@ -26,40 +16,9 @@
   <!-- 2 & 3. Main Content (Ocean 40% + Pattern 40% = 80%) -->
   <div class="booking-content-wrapper">
     
-    @if (currentStep() === 1) {
-      <div class="step-container">
-        <!-- Search card centered at the intersection -->
-        <app-booking-stay (onNext)="nextStep()"></app-booking-stay>
-        
-        <!-- Info Columns sitting on the pattern area -->
-        <div class="booking-footer-info">
-          <div class="info-column">
-            <h3>{{ langService.current().company.name }}</h3>
-            <p [innerHTML]="langService.current().booking.info.address"></p>
-            <a href="#">{{ langService.current().booking.info.moreInfo }}</a>
-          </div>
-          <div class="info-column">
-            <h3>{{ langService.current().booking.info.contact }}</h3>
-            <p>info@espadrina.com<br>www.espadrina.com</p>
-          </div>
-          <div class="info-column">
-            <h3>{{ langService.current().booking.info.paymentMethods }}</h3>
-            <div class="payment-methods">
-              <img src="/images/mastercard.png" alt="Mastercard" class="payment-icon">
-              <img src="/images/visa.png" alt="Visa" class="payment-icon">
-            </div>
-          </div>
-        </div>
-      </div>
-    }
-
-    @if (currentStep() === 2) {
-      <app-booking-payment (onNext)="nextStep()" (onBack)="prevStep()"></app-booking-payment>
-    }
-
-    @if (currentStep() === 3) {
-      <app-booking-confirmation></app-booking-confirmation>
-    }
+    <div class="widget-container">
+      <div id="wbproot" class="notranslate"></div>
+    </div>
 
   </div>
 

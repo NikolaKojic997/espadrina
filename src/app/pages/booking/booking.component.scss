@@ -32,7 +32,7 @@
     background-image: url('/svg/patern.svg');
     background-repeat: repeat;
     background-position: center;
-    background-size: 400px;
+    background-size: 1200px; // Zoomed in 3x (from 400px)
     z-index: 2;
     pointer-events: none;
   }
@@ -67,74 +67,18 @@
   }
 }
 
-.step-container {
+.widget-container {
   width: 100%;
-  max-width: 1100px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: auto; // Centers vertically if small, stays top if tall
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 500px;
+  position: relative;
+  z-index: 5;
 }
 
-.booking-footer-info {
+#wbproot {
   width: 100%;
-  max-width: 1100px;
-  display: flex;
-  justify-content: space-between;
-  margin-top: 80px;
-  padding: 0;
-
-  .info-column {
-    flex: 1;
-
-    h3 {
-      font-size: 24px;
-      font-weight: 700;
-      margin-bottom: 25px;
-      text-transform: none;
-    }
-
-    p {
-      font-size: 15px;
-      line-height: 1.6;
-      opacity: 0.8;
-      margin-bottom: 15px;
-    }
-
-    a {
-      color: #fff;
-      font-size: 15px;
-      text-decoration: underline;
-      opacity: 0.8;
-    }
-
-    .payment-methods {
-      display: flex;
-      align-items: center;
-      gap: 25px;
-      margin-top: 15px;
-
-      .payment-icon {
-        height: 35px;
-        width: auto;
-        display: block;
-        object-fit: contain;
-        filter: brightness(1.2);
-
-        &[alt="Visa"] {
-          filter: brightness(0) invert(1);
-        }
-      }
-    }
-
-    // Align last column to the right for perfect edge alignment
-    &:last-child {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      text-align: right;
-    }
-  }
+  min-height: 500px;
 }
 
 .booking-sub-footer {
