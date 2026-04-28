@@ -1,0 +1,76 @@
+<div class="wellness-page">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-bg" 
+         [style.background-image]="'url(/images/zen-drop-water-wave-abstract-bizarre-background-wallpaper.jpg)'"
+         [style.transform]="'scale(' + heroScale() + ') translateX(0.5%) translateY(calc(-12% + ' + (heroTranslateX() * 0.3) + 'px))'"></div>
+    <div class="hero-overlay"></div>
+    
+    <div class="hero-content">
+      <h1 class="fade-in">{{ langService.current().wellness.hero.title }}</h1>
+      <p class="subtitle fade-in">{{ langService.current().wellness.hero.subtitle }}</p>
+    </div>
+
+    <div class="scroll-for-more">
+      <span>{{ langService.current().wellness.hero.scroll }}</span>
+    </div>
+  </section>
+
+  <!-- Spa Details Section -->
+  <section class="spa-details-section">
+    <div class="spa-details-content fade-in">
+      <h2 class="section-title"
+          [style.opacity]="spaProgress()"
+          [style.transform]="'translateY(' + (20 * (1 - spaProgress())) + 'px)'">
+        {{ langService.current().wellness.spa.title }}
+      </h2>
+      <p>{{ langService.current().wellness.spa.desc }}</p>
+    </div>
+  </section>
+
+  <!-- Treatments Section -->
+  <section class="treatments-section">
+    <div class="treatments-card"
+         [style.transform]="'translateY(' + treatmentsTranslateY() + 'px)'"
+         [style.opacity]="treatmentsOpacity()">
+      <h2 style="white-space: pre-line;">{{ langService.current().wellness.treatments.title }}</h2>
+      <p>{{ langService.current().wellness.treatments.desc }}</p>
+      <button class="btn-treatments">{{ langService.current().wellness.treatments.cta }}</button>
+    </div>
+  </section>
+
+  <!-- Ice Room Section -->
+  <section class="ice-room-section">
+    <div class="ice-room-header">
+      <h2 class="ice-room-title fade-in">
+        <span>ICE</span>
+        <span>ROOM</span>
+      </h2>
+    </div>
+
+    <div class="ice-room-content">
+      <div class="iceberg-container" 
+           [style.transform]="'translateX(' + icebergTranslateX() + 'px)'"
+           [style.opacity]="iceRoomOpacity()">
+        <img src="/images/iceberg-isolated-transparent-background.jpg" alt="Iceberg" class="iceberg-img">
+      </div>
+      
+      <div class="ice-room-text" 
+           [style.transform]="'translateX(' + iceRoomTextTranslateX() + 'px)'"
+           [style.opacity]="iceRoomOpacity()">
+        <p>{{ langService.current().wellness.iceRoom.desc }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pool Section -->
+  <section class="pool-section">
+    <div class="pool-bg" [style.transform]="'scale(' + poolScale() + ')'"></div>
+    <div class="pool-content fade-in">
+      <h2 style="white-space: pre-line;">{{ langService.current().wellness.pool.title }}</h2>
+      <p>{{ langService.current().wellness.pool.desc }}</p>
+      <button class="btn-pool">{{ langService.current().wellness.pool.cta }}</button>
+    </div>
+  </section>
+
+</div>

@@ -19,6 +19,7 @@
 
         img {
             height: 100%;
+            transition: filter 0.3s ease;
         }
     }
 
@@ -54,6 +55,29 @@
             img {
                 width: 30px;
                 filter: brightness(0) invert(1);
+                transition: filter 0.3s ease;
+            }
+        }
+    }
+
+    &.dark-header {
+        .logo img {
+            filter: brightness(0) saturate(100%) invert(14%) sepia(21%) saturate(2203%) hue-rotate(174deg) brightness(96%) contrast(92%);
+        }
+
+        .nav-right {
+            .ghost-btn {
+                border-color: var(--drina-dark);
+                color: var(--drina-dark);
+
+                &:hover {
+                    background: var(--drina-dark);
+                    color: white;
+                }
+            }
+
+            .menu-toggle img {
+                filter: brightness(0) saturate(100%) invert(14%) sepia(21%) saturate(2203%) hue-rotate(174deg) brightness(96%) contrast(92%);
             }
         }
     }

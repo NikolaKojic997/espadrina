@@ -1,0 +1,375 @@
+.wellness-page {
+  background-color: var(--drina-beige);
+  color: var(--drina-dark);
+  overflow-x: hidden;
+
+  .hero-section {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    color: white;
+    overflow: hidden;
+
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      transition: transform 0.1s ease-out;
+      will-change: transform;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 50%);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: absolute;
+      bottom: 50px;
+      left: 5%;
+      z-index: 2;
+      transition: transform 0.1s ease-out;
+      will-change: transform;
+
+      h1 {
+        font-size: clamp(32px, 5vw, 68px);
+        font-weight: 800;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        margin: 0;
+        line-height: 1;
+      }
+
+      .subtitle {
+        font-size: clamp(18px, 2.2vw, 28px);
+        font-weight: 400;
+        margin: 10px 0 0 0;
+        opacity: 0.95;
+        letter-spacing: 0;
+        color: #ffffff;
+      }
+    }
+
+    @media (max-width: 968px) {
+      .hero-content {
+        left: 5%;
+        bottom: 40px;
+      }
+    }
+
+    .scroll-for-more {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 14px;
+      font-weight: 300;
+      text-transform: lowercase;
+      letter-spacing: 1px;
+      opacity: 0.8;
+      text-align: center;
+      z-index: 2;
+      color: white;
+
+      &::after {
+        content: '';
+        display: block;
+        width: 1px;
+        height: 40px;
+        background: white;
+        margin: 10px auto 0;
+        opacity: 0.5;
+      }
+    }
+  }
+
+  .spa-details-section {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(rgba(253, 246, 240, 0.9), rgba(253, 246, 240, 0.9)), 
+                url('/images/lower-antelope-seahorse-arizona-united-states-vertical-photography.jpg') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+    overflow: hidden;
+
+    .spa-details-content {
+      position: relative;
+      z-index: 1;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 40px;
+
+      .section-title {
+        font-size: clamp(32px, 6vw, 90px);
+        font-weight: 900;
+        line-height: 1.1;
+        margin-bottom: 50px;
+        letter-spacing: -1px;
+        display: inline-block;
+        white-space: pre-line;
+        text-transform: uppercase;
+
+        background-image: url('/images/lower-antelope-seahorse-arizona-united-states-vertical-photography.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        color: transparent;
+        display: block;
+        margin: 0 auto 60px;
+        filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
+        transition: opacity 0.1s ease-out, transform 0.1s ease-out;
+        will-change: opacity, transform;
+      }
+
+      p {
+        font-size: clamp(15px, 1.3vw, 19px);
+        line-height: 1.6;
+        font-weight: 400;
+        margin: 0 auto;
+        color: var(--drina-dark);
+        opacity: 0.85;
+        letter-spacing: 0.5px;
+        max-width: 600px;
+      }
+    }
+  }
+
+  .treatments-section {
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('/images/bath-sauna-accessories-steam-room.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    .treatments-card {
+      background: rgba(255, 255, 255, 0.75);
+      padding: 80px 60px;
+      text-align: center;
+      max-width: 900px;
+      width: 90%;
+      box-shadow: 0 40px 120px rgba(0, 0, 0, 0.3);
+      border-radius: 4px;
+
+      h2 {
+        font-size: clamp(32px, 5vw, 56px);
+        font-weight: 800;
+        color: #a65246;
+        margin-bottom: 25px;
+        line-height: 1.2;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      p {
+        font-size: 17px;
+        line-height: 1.6;
+        color: #333;
+        margin-bottom: 45px;
+        max-width: 650px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .btn-treatments {
+        background: #a65246;
+        color: white;
+        padding: 18px 45px;
+        border: none;
+        font-size: 14px;
+        font-weight: 700;
+        cursor: pointer;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        border-radius: 2px;
+
+        &:hover {
+          background: #8e4439;
+          transform: translateY(-3px);
+          box-shadow: 0 15px 30px rgba(166, 82, 70, 0.4);
+        }
+      }
+    }
+  }
+
+  .ice-room-section {
+    position: relative;
+    height: 100vh;
+    background: #fdf6f0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+
+    .ice-room-header {
+      width: 100%;
+      z-index: 1;
+
+      h2.ice-room-title {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        font-size: clamp(40px, 20vw, 320px);
+        font-weight: 950;
+        color: #1a2b3c;
+        text-transform: uppercase;
+        letter-spacing: -2px;
+        line-height: 0.75;
+        margin: 0;
+        padding: 0;
+        
+        span {
+          display: inline-block;
+        }
+      }
+    }
+
+    .ice-room-content {
+      position: relative;
+      height: 100%;
+      width: 100%;
+      z-index: 2;
+    }
+
+    .iceberg-container {
+      position: absolute;
+      bottom: -10vh;
+      left: -5%;
+      width: 60%;
+      max-width: 900px;
+      height: auto;
+      will-change: transform;
+
+      .iceberg-img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        mix-blend-mode: multiply;
+        transform: scale(1.2) translate(12%, -17%);
+      }
+    }
+
+    .ice-room-text {
+      position: absolute;
+      bottom: 10vh;
+      right: 5%;
+      width: 35%;
+      max-width: 450px;
+      text-align: right;
+      will-change: transform;
+
+      p {
+        font-size: clamp(16px, 1.3vw, 20px);
+        line-height: 1.5;
+        font-weight: 400;
+        color: #333;
+      }
+    }
+  }
+
+  .pool-section {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    background: #000;
+
+    .pool-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('/images/freepik_ultra-realistic-architect_2876622557.png');
+      background-size: cover;
+      background-position: center;
+      z-index: 1;
+      will-change: transform;
+    }
+
+    .pool-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      padding: 0 40px;
+
+      h2 {
+        font-size: clamp(36px, 5.5vw, 70px);
+        font-weight: 900;
+        color: #fdf6f0;
+        margin-bottom: 25px;
+        line-height: 1.1;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      p {
+        font-size: clamp(15px, 1.3vw, 19px);
+        line-height: 1.6;
+        color: rgba(253, 246, 240, 0.9);
+        margin-bottom: 40px;
+      }
+
+      .btn-pool {
+        background: transparent;
+        color: #fdf6f0;
+        border: 1px solid rgba(253, 246, 240, 0.5);
+        padding: 16px 45px;
+        font-size: 14px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background: rgba(253, 246, 240, 0.1);
+          border-color: #fdf6f0;
+        }
+      }
+    }
+  }
+
+}
+
+.fade-in {
+  animation: fadeIn 1.2s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

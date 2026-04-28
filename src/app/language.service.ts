@@ -222,6 +222,32 @@ export class LanguageService {
           title: 'SWEET MOMENTS',
           desc: 'Finish your meal with our hand-made desserts that combine traditional recipes with modern pastry making.'
         }
+      },
+      wellness: {
+        hero: {
+          title: 'WELLNESS & SPA',
+          subtitle: 'Rituals of Stillness',
+          scroll: 'scroll for more'
+        },
+        spa: {
+          title: 'WHERE WARMTH, WATER\nAND SILENCE MEET',
+          desc: 'Espadrina wellness is designed as a slow return to balance - through heat, steam, mineral water and the quiet contrast of ice. A private sanctuary dedicated to rest.',
+          cta: 'Find out more'
+        },
+        treatments: {
+          title: 'TWO SAUNAS,\nONE QUIET FIRE',
+          desc: 'Dry heat, warm timber and a deep sense of privacy. The sauna ritual is designed for release - a place to let the day leave the body.',
+          cta: 'View our offers'
+        },
+        pool: {
+          title: 'A POOL MADE\nFOR DEEP REST',
+          desc: 'Magnesium-rich water, soft movement and a calming water cascade create a moment that feels both cleansing and deeply grounding.',
+          cta: 'Explore ritual'
+        },
+        iceRoom: {
+          title: 'ICE ROOM',
+          desc: 'The cold room brings contrast after heat. Surrounded by ice, the body wakes up slowly, circulation is refreshed, and the ritual gains its clean, energising finish.'
+        }
       }
     };
   }
