@@ -74,15 +74,19 @@ export class LanguageService {
         cta: 'Find yourself'
       },
       food: {
-        title: 'TIMELESS FOOD',
-        desc: 'Enjoy authentic local flavors, prepared with care from the freshest ingredients of the Drina region.',
+        title: 'WILD ELEGANCE',
+        desc: 'At Espadrina, gastronomy follows the rhythm of nature.',
+        desc2: 'Inspired by the Drina River, its seasonal shifts, and the richness of the local landscape, we create a menu that brings together a contemporary culinary approach and authentic regional flavors.',
+        desc3: 'Through carefully selected ingredients and close collaboration with local producers, every dish becomes part of an experience that feels fresh, thoughtful and deeply connected to its setting.',
         cta: 'Find out more',
         comingSoon: 'Everything will be implemented soon'
       },
       spa: {
-        title: 'YOUR PERSONAL SPA',
-        desc: 'Relax in our exclusive spa center, where natural tranquility meets premium treatments for your body and mind.',
-        cta: 'Find out more'
+        title: 'QUIET RENEWAL',
+        desc: 'At Espadrina, wellness is designed as a return to balance.',
+        desc2: 'From the warmth of the sauna and the comfort of the jacuzzi to the deeply restorative experience of our magnesium pool, every element is created to calm the body, clear the mind, and invite a slower rhythm.',
+        desc3: 'Here, relaxation becomes more than a moment of escape, it becomes part of the way you reconnect with yourself.',
+        cta: 'Enter the spa'
       },
       pool: {
         title: 'POOL ON YOU',

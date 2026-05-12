@@ -19,6 +19,7 @@ export class HomeComponent {
   riverReveal = signal(0);
   luxuryProgress = signal(0);
   foodProgress = signal(0);
+  foodRotation = signal(0);
   spaProgress = signal(0);
   poolProgress = signal(0);
 
@@ -65,6 +66,13 @@ export class HomeComponent {
       let progress = (start - rect.top) / (start - end);
       progress = Math.min(Math.max(progress, 0), 1);
       this.foodProgress.set(progress);
+
+      // Rotation: same logic as restaurant page (1 deg per 5px scrolled within section)
+      // Stop rotating once the plate has reached its final position
+      if (rect.top <= viewportHeight && progress < 1) {
+        const sectionScrolled = scrollY - (scrollY + rect.top - viewportHeight);
+        this.foodRotation.set(Math.max(0, sectionScrolled) / 5);
+      }
     }
 
     // SPA section logic

@@ -16,7 +16,9 @@
     <img src="/svg/drina.svg" class="drina-path-svg" alt="Drina River Path"
       [style.clip-path]="'inset(0 0 ' + (100 - riverReveal()) + '% 0)'"
       [style.opacity]="riverReveal() / 100">
-    <div class="location-marker" [style.opacity]="riverReveal() > 95 ? 1 : 0" [style.transform]="'scale(' + (riverReveal() > 95 ? 1 : 0) + ')'"></div>
+    <img src="/svg/PIN.svg" class="location-marker" alt="Location pin"
+      [style.opacity]="riverReveal() > 95 ? 1 : 0"
+      [style.transform]="'scale(' + (riverReveal() > 95 ? 1 : 0) + ')'">
   </div>
 </section>
 
@@ -31,28 +33,36 @@
 </section>
 
 <section class="timeless-food">
-  <div class="food-bg"
-    [style.transform]="'translateX(' + (-100 + foodProgress() * 100) + 'px) scaleX(-1)'">
-  </div>
-  <div class="food-box"
+  <div class="food-plate-col"
     [style.opacity]="foodProgress()"
-    [style.transform]="'translateX(' + (100 - foodProgress() * 100) + 'px)'">
+    [style.transform]="'translateX(' + (-300 + foodProgress() * 300) + 'px) rotate(' + foodRotation() + 'deg)'">
+    <img src="/images/tanjir-shadow.png" class="food-plate" alt="Plate">
+  </div>
+  <div class="food-text-col"
+    [style.opacity]="foodProgress()"
+    [style.transform]="'translateX(' + (300 - foodProgress() * 300) + 'px)'">
     <h2>{{ langService.current().food.title }}</h2>
     <p>{{ langService.current().food.desc }}</p>
+    <p>{{ langService.current().food.desc2 }}</p>
+    <p>{{ langService.current().food.desc3 }}</p>
     <a routerLink="/restaurant" class="food-link">{{ langService.current().food.cta }}</a>
   </div>
 </section>
 
 <section class="personal-spa">
-  <div class="spa-bg"
-    [style.transform]="'translateX(' + (100 - spaProgress() * 100) + 'px) scaleX(-1)'">
-  </div>
-  <div class="spa-box"
+  <div class="spa-text-col"
     [style.opacity]="spaProgress()"
-    [style.transform]="'translateX(' + (-100 + spaProgress() * 100) + 'px)'">
+    [style.transform]="'translateX(' + (-300 + spaProgress() * 300) + 'px)'">
     <h2>{{ langService.current().spa.title }}</h2>
     <p>{{ langService.current().spa.desc }}</p>
+    <p>{{ langService.current().spa.desc2 }}</p>
+    <p>{{ langService.current().spa.desc3 }}</p>
     <a href="#experience" class="spa-link">{{ langService.current().spa.cta }}</a>
+  </div>
+  <div class="spa-image-col"
+    [style.opacity]="spaProgress()"
+    [style.transform]="'translateX(' + (300 - spaProgress() * 300) + 'px)'">
+    <img src="/images/sauna home.png" class="spa-image" alt="Sauna">
   </div>
 </section>
 
