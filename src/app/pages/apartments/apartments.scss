@@ -117,23 +117,13 @@
         font-size: clamp(32px, 6vw, 90px);
         font-weight: 900;
         line-height: 1.1;
-        margin-bottom: 50px;
         letter-spacing: -1px;
-        display: inline-block;
         white-space: pre-line;
         text-transform: uppercase;
-
-        background-image: url('/images/apartments_hero_bg.jpg');
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        color: transparent;
         display: block;
         margin: 0 auto 60px;
-        filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
+        color: var(--drina-dark);
+        opacity: 0.5;
         transition: opacity 0.1s ease-out, transform 0.1s ease-out;
         will-change: opacity, transform;
       }
@@ -430,24 +420,43 @@
 
     // Details
     .details-section {
-      height: auto;
-      min-height: 100svh;
-      padding: 80px 0;
+      height: 100svh;
+      min-height: unset;
+      padding: 0;
       background-attachment: scroll;
 
       .details-content {
+        height: 100%;
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr;
         padding: 0 24px;
+        box-sizing: border-box;
 
         .section-title {
+          grid-row: 2;
+          align-self: center;
+          justify-self: center;
           font-size: clamp(28px, 9vw, 48px);
-          margin: 0 auto 36px;
+          margin: 0;
           letter-spacing: 0;
-          background-attachment: scroll;
+          text-align: center;
+          background: none;
+          -webkit-background-clip: unset;
+          background-clip: unset;
+          -webkit-text-fill-color: unset;
+          color: var(--drina-dark);
+          opacity: 0.5;
         }
 
         p {
+          grid-row: 3;
+          align-self: center;
+          justify-self: center;
           font-size: 15px;
           letter-spacing: 0;
+          text-align: center;
+          opacity: 0.85;
+          margin: 0;
         }
       }
     }
@@ -475,9 +484,8 @@
         }
 
         .btn-villas {
-          padding: 15px 32px;
-          font-size: 13px;
-          width: 100%;
+          padding: 12px 28px;
+          font-size: 12px;
         }
       }
     }
@@ -503,10 +511,8 @@
         }
 
         .btn-interior {
-          padding: 14px 32px;
-          font-size: 13px;
-          width: 100%;
-          text-align: center;
+          padding: 12px 28px;
+          font-size: 12px;
         }
       }
     }
@@ -517,6 +523,8 @@
 
       .hottub-bg {
         background-attachment: scroll;
+        background-size: 220%;
+        background-position: 52% -100%;
       }
 
       .hottub-content {
@@ -533,10 +541,8 @@
         }
 
         .btn-hottub {
-          padding: 14px 32px;
-          font-size: 13px;
-          width: 100%;
-          text-align: center;
+          padding: 12px 28px;
+          font-size: 12px;
         }
       }
     }

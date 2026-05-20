@@ -618,14 +618,15 @@
         background-color: var(--drina-dark);
         padding: 100px 0;
         text-align: center;
+        overflow-x: hidden;
 
         .brand-text {
             font-family: var(--primary-font);
             color: var(--drina-beige);
-            font-size: 52px;
+            font-size: clamp(16px, 5vw, 52px);
             margin: 0;
-            letter-spacing: 25px;
-            font-weight: 500; // Slightly bolder for better presence
+            letter-spacing: clamp(4px, 2vw, 25px);
+            font-weight: 500;
             text-transform: uppercase;
         }
     }
@@ -865,5 +866,35 @@
         right: 20px;
         bottom: 20px;
         padding: 6px 12px;
+    }
+
+    .site-footer {
+        .footer-brand {
+            padding: 40px 16px;
+        }
+
+        .footer-bottom {
+            flex-direction: column;
+            gap: 20px;
+            padding: 30px 24px;
+            text-align: center;
+
+            .social-icons {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+
+                .icon-box {
+                    width: 34px;
+                    height: 34px;
+                    font-size: 14px;
+                }
+            }
+
+            .copyright {
+                font-size: 12px;
+                letter-spacing: 0.3px;
+            }
+        }
     }
 }
