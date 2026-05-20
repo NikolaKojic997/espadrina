@@ -88,18 +88,32 @@
 
     @media (max-width: 968px) {
       flex-direction: column;
-      height: auto;
-      padding: 140px 20px 80px;
+      height: 100vh;
+      padding: 80px 0 0 0; // Account for the header
 
       .hero-content {
         width: 100%;
-        margin-bottom: 60px;
-        flex: none;
+        margin-bottom: 0;
+        flex: 0 0 40%;
+        align-items: center;
+        justify-content: flex-end;
+        text-align: center;
+        padding: 0 20px;
+
+        h1 {
+          font-size: clamp(32px, 10vw, 48px);
+        }
+
+        .subtitle {
+          font-size: clamp(18px, 6vw, 24px);
+        }
       }
 
       .hero-plate-container {
         width: 100%;
-        flex: none;
+        flex: 0 0 60%;
+        align-items: center;
+        justify-content: center;
         
         .hero-plate {
           width: 80%;
@@ -108,7 +122,7 @@
       }
       
       .hero-bg {
-        background-image: radial-gradient(circle at 50% 80%, rgba(30, 45, 60, 0.6) 0%, transparent 60%);
+        background-image: radial-gradient(circle at 50% 75%, rgba(30, 45, 60, 0.6) 0%, transparent 60%);
       }
     }
 
@@ -152,6 +166,14 @@
       max-width: 1400px;
       margin: 0 auto;
       padding: 0 40px;
+      width: 100%;
+
+      @media (max-width: 968px) {
+        padding: 0 20px;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
 
       .section-title {
         font-size: clamp(28px, 6.5vw, 90px);
@@ -172,12 +194,24 @@
         -webkit-text-fill-color: transparent;
         background-clip: text;
         color: transparent;
-        display: block;
         margin: 0 auto 60px;
         line-height: 0.95;
         filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
         transition: opacity 0.1s ease-out, transform 0.1s ease-out;
         will-change: opacity, transform;
+
+        @media (max-width: 968px) {
+          flex: 0 0 80%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 0;
+          line-height: 1.1;
+          font-size: clamp(42px, 14vw, 80px);
+          white-space: normal;
+          word-spacing: 100vw; /* Forces almost every word to a new line */
+          padding: 0 10px;
+        }
       }
 
       p {
@@ -189,6 +223,14 @@
         opacity: 0.8;
         letter-spacing: 0.5px;
         white-space: pre-line;
+
+        @media (max-width: 968px) {
+          flex: 0 0 20%;
+          display: flex;
+          align-items: flex-start;
+          justify-content: center;
+          margin: 0;
+        }
       }
     }
   }
@@ -203,9 +245,19 @@
     padding: 0 0 40px 0;
     overflow: hidden;
 
+    @media (max-width: 968px) {
+      padding: 0;
+    }
+
     .chef-container {
       width: 100%;
       margin: 0 auto;
+
+      @media (max-width: 968px) {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+      }
     }
 
     .chef-header {
@@ -225,6 +277,13 @@
       span {
         display: inline-block;
       }
+
+      @media (max-width: 968px) {
+        flex: 0 0 10%;
+        margin: 0;
+        align-items: center;
+        padding: 0 10px; // A bit of padding so it's not strictly at edges
+      }
     }
 
     .chef-grid {
@@ -236,8 +295,11 @@
       margin-top: -80px; // Lift up the content
 
       @media (max-width: 968px) {
-        grid-template-columns: 1fr;
-        gap: 40px;
+        display: flex;
+        flex-direction: column;
+        flex: 0 0 90%;
+        margin-top: 0;
+        gap: 0;
       }
     }
 
@@ -249,6 +311,13 @@
       transition: transform 0.2s ease-out;
       will-change: transform;
 
+      @media (max-width: 968px) {
+        flex: 0 0 44.44%; /* 40% of the total 100vh, 40/90 = 44.44% */
+        padding: 0 20px;
+        text-align: center;
+        justify-content: center;
+      }
+
       h3 {
         width: 100%;
         max-width: 600px;
@@ -256,17 +325,26 @@
         font-size: clamp(28px, 4vw, 42px);
         font-weight: 850;
         color: #a65246;
-        margin-bottom: 25px;
+        margin-bottom: 15px; /* Reduced from 25px for better mobile fit */
         text-transform: uppercase;
         letter-spacing: 1px;
+
+        @media (max-width: 968px) {
+          text-align: center;
+          margin-bottom: 10px;
+        }
       }
       p {
-        font-size: clamp(16px, 1.2vw, 18px);
-        line-height: 1.7;
+        font-size: clamp(14px, 1.2vw, 18px); /* slightly smaller base font */
+        line-height: 1.5;
         color: var(--drina-dark);
         opacity: 0.95;
         max-width: 600px;
         white-space: pre-line;
+
+        @media (max-width: 968px) {
+          text-align: center;
+        }
       }
     }
 
@@ -275,6 +353,14 @@
       justify-content: center;
       transition: transform 0.2s ease-out;
       will-change: transform;
+      
+      @media (max-width: 968px) {
+        flex: 0 0 55.55%; /* 50% of the total 100vh, 50/90 = 55.55% */
+        align-items: center;
+        justify-content: center;
+        order: -1;
+      }
+
       img {
         width: 110%; // Slightly overflow for a more artistic look
         max-width: none; // Allow it to exceed 100% of the small flex container
@@ -282,10 +368,12 @@
         max-height: 90vh;
         object-fit: contain;
         filter: drop-shadow(0 20px 40px rgba(0,0,0,0.05));
-      }
-      @media (max-width: 968px) {
-        justify-content: center;
-        order: -1;
+
+        @media (max-width: 968px) {
+          width: auto;
+          height: 100%;
+          max-height: 100%;
+        }
       }
     }
   }
@@ -310,6 +398,10 @@
       box-shadow: 0 40px 120px rgba(0, 0, 0, 0.3);
       border-radius: 4px;
 
+      @media (max-width: 968px) {
+        padding: 50px 20px;
+      }
+
       h2 {
         font-size: clamp(28px, 4.5vw, 48px);
         font-weight: 900;
@@ -318,6 +410,13 @@
         line-height: 1.25;
         text-transform: uppercase;
         letter-spacing: 2px;
+      }
+
+      .menu-buttons {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        flex-wrap: wrap;
       }
 
       .btn-menu {
@@ -332,6 +431,13 @@
         letter-spacing: 2.5px;
         transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         border-radius: 2px;
+
+        @media (max-width: 968px) {
+          padding: 15px 30px;
+          font-size: 12px;
+          width: 100%;
+          max-width: 250px;
+        }
 
         &:hover {
           background: #8e4439;
@@ -363,6 +469,11 @@
       filter: brightness(0.7);
       will-change: transform;
       transition: transform 0.1s ease-out;
+
+      @media (max-width: 968px) {
+        background-image: url('/images/vino 1.jpg') !important;
+        transform: none !important;
+      }
     }
 
     .wine-overlay {
@@ -440,5 +551,56 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+.pdf-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .pdf-close-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    background: #a65246;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 10000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.3s;
+
+    &:hover {
+      background: #8e4439;
+    }
+  }
+
+  .pdf-container {
+    width: 90%;
+    height: 90%;
+    background: white;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+
+    embed {
+      border: none;
+      display: block;
+    }
   }
 }

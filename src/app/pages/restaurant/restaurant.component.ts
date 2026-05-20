@@ -1,5 +1,6 @@
 import { Component, inject, signal, HostListener, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser, CommonModule } from '@angular/common';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { LanguageService } from '../../language.service';
 
 @Component({
@@ -16,8 +17,11 @@ export class RestaurantComponent {
   translateXText = signal(0);
   chefTranslateX = signal(400);
   chefTranslateTextX = signal(-400);
-  wineRotation = signal(180);
+  wineTransform = signal('rotate(180deg) scale(1.5)');
   ingredientsProgress = signal(0);
+  wineTextProgress = signal(1);
+  activePdfUrl = signal<SafeResourceUrl | null>(null);
+  private sanitizer = inject(DomSanitizer);
 
   @HostListener('window:scroll')
   onWindowScroll() {
@@ -29,12 +33,14 @@ export class RestaurantComponent {
     const ingEnd = vh * 1.1; 
     this.ingredientsProgress.set(Math.max(0, Math.min((scroll - ingStart) / (ingEnd - ingStart), 1)));
 
+    const isDesktop = typeof window !== 'undefined' && window.innerWidth > 968;
+
     // Rotate 1 degree for every 5 pixels scrolled
     this.rotation.set(scroll / 5);
     // Move to the right as we scroll down
-    this.translateX.set(scroll / 1.5);
+    this.translateX.set(isDesktop ? scroll / 1.5 : 0);
     // Move text to the left as we scroll down
-    this.translateXText.set(-scroll / 1.5);
+    this.translateXText.set(isDesktop ? -scroll / 1.5 : 0);
 
     // Chef section animations (Trigger as we approach 3rd section)
     const startTrigger = vh * 1.8;
@@ -51,10 +57,28 @@ export class RestaurantComponent {
 
     // Wine section rotation (after Chef section)
     const wineStartTrigger = vh * 2.8;
-    if (scroll > wineStartTrigger) {
-      this.wineRotation.set(180 + (scroll - wineStartTrigger) / 8);
+    if (isDesktop) {
+      this.wineTextProgress.set(1); // fully visible on desktop
+      if (scroll > wineStartTrigger) {
+        const rotation = 180 + (scroll - wineStartTrigger) / 8;
+        this.wineTransform.set(`rotate(${rotation}deg) scale(1.5)`);
+      } else {
+        this.wineTransform.set('rotate(180deg) scale(1.5)');
+      }
     } else {
-      this.wineRotation.set(180);
+      this.wineTransform.set('none');
+      const wineTextStart = vh * 3.2;
+      const wineTextEnd = vh * 3.8; 
+      this.wineTextProgress.set(Math.max(0, Math.min((scroll - wineTextStart) / (wineTextEnd - wineTextStart), 1)));
     }
+  }
+
+  openPdf(url: string) {
+    const urlWithParams = url + '#toolbar=0&navpanes=0';
+    this.activePdfUrl.set(this.sanitizer.bypassSecurityTrustResourceUrl(urlWithParams));
+  }
+
+  closePdf() {
+    this.activePdfUrl.set(null);
   }
 }
