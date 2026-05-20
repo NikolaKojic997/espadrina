@@ -862,6 +862,67 @@
 }
 
 @media (max-width: 768px) {
+    .header {
+        padding: 0 20px;
+        height: 80px;
+
+        .logo {
+            height: 30px;
+        }
+
+        .nav-right {
+            gap: 10px;
+
+            .ghost-btn {
+                padding: 8px 12px;
+                font-size: 11px;
+                letter-spacing: 1px;
+            }
+
+            .menu-toggle {
+                margin-left: 5px;
+
+                img {
+                    width: 24px;
+                }
+            }
+        }
+    }
+
+    .timeless-food {
+        flex-direction: column;
+        justify-content: flex-end;
+        padding-bottom: 60px;
+
+        .food-plate-col {
+            display: none;
+        }
+
+        .food-text-col {
+            flex: unset;
+            width: 100%;
+            align-items: center;
+            text-align: center;
+            padding: 0 24px;
+
+            h2 {
+                text-align: center;
+            }
+
+            p {
+                text-align: center;
+            }
+
+            .food-link {
+                display: block;
+                width: fit-content;
+                margin-left: auto;
+                margin-right: auto;
+                text-align: center;
+            }
+        }
+    }
+
     .fixed-lang-switch {
         right: 20px;
         bottom: 20px;

@@ -21,6 +21,7 @@ export class ApartmentsComponent {
 
   villasTranslateY = signal(100);
   villasOpacity = signal(0);
+  hottubRotation = signal(180);
 
   @HostListener('window:scroll')
   onWindowScroll() {
@@ -57,6 +58,12 @@ export class ApartmentsComponent {
       this.interiorScale.set(1.5);
     }
 
-
+    // Hottub section rotation
+    const hottubStartTrigger = vh * 3.2;
+    if (scroll > hottubStartTrigger) {
+      this.hottubRotation.set(180 + (scroll - hottubStartTrigger) / 8);
+    } else {
+      this.hottubRotation.set(180);
+    }
   }
 }

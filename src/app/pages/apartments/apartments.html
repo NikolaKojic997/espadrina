@@ -1,16 +1,15 @@
 <div class="apartments-page">
   <!-- Hero Section -->
   <section class="hero-section">
-    <div class="hero-bg" 
-         [style.background-image]="'url(/images/apartments_hero_bg.jpg)'"
-         [style.transform]="'scale(' + heroScale() + ')'"></div>
+    <div class="hero-bg" [style.background-image]="'url(/images/apartments_hero_bg.jpg)'"
+      [style.transform]="'scale(' + heroScale() + ')'"></div>
     <div class="hero-overlay"></div>
 
     <div class="hero-content">
       <h1>{{ langService.current().apartments.hero.title }}</h1>
       <p class="subtitle">{{ langService.current().apartments.hero.subtitle }}</p>
     </div>
-    
+
     <div class="scroll-for-more">
       <span>{{ langService.current().apartments.hero.scroll }}</span>
     </div>
@@ -19,9 +18,8 @@
   <!-- Details Section -->
   <section class="details-section">
     <div class="details-content fade-in">
-      <h2 class="section-title"
-          [style.opacity]="detailsProgress()"
-          [style.transform]="'translateY(' + (20 * (1 - detailsProgress())) + 'px)'">
+      <h2 class="section-title" [style.opacity]="detailsProgress()"
+        [style.transform]="'translateY(' + (20 * (1 - detailsProgress())) + 'px)'">
         {{ langService.current().apartments.details.title }}
       </h2>
       <p>{{ langService.current().apartments.details.desc }}</p>
@@ -30,12 +28,11 @@
 
   <!-- Villas Section -->
   <section class="villas-section">
-    <div class="villas-card"
-         [style.transform]="'translateY(' + villasTranslateY() + 'px)'"
-         [style.opacity]="villasOpacity()">
+    <div class="villas-card" [style.transform]="'translateY(' + villasTranslateY() + 'px)'"
+      [style.opacity]="villasOpacity()">
       <h2 style="white-space: pre-line;">{{ langService.current().apartments.villas.title }}</h2>
       @if (langService.current().apartments.villas.desc) {
-        <p>{{ langService.current().apartments.villas.desc }}</p>
+      <p>{{ langService.current().apartments.villas.desc }}</p>
       }
       <button class="btn-villas">{{ langService.current().apartments.villas.cta }}</button>
     </div>
@@ -43,22 +40,20 @@
 
   <!-- Interior Section -->
   <section class="interior-section">
-    <div class="interior-bg" 
-         [style.background-image]="'url(/images/apartments_morning_bg.jpg)'"
-         [style.transform]="'scale(' + interiorScale() + ')'"></div>
+    <div class="interior-bg" [style.background-image]="'url(/images/apartments_morning_bg.jpg)'"
+      [style.transform]="'scale(' + interiorScale() + ')'"></div>
     <div class="interior-content fade-in">
       <h2>{{ langService.current().apartments.interior.title }}</h2>
       <p>{{ langService.current().apartments.interior.desc }}</p>
       @if (langService.current().apartments.interior.cta) {
-        <button routerLink="/booking" class="btn-interior">{{ langService.current().apartments.interior.cta }}</button>
+      <button routerLink="/booking" class="btn-interior">{{ langService.current().apartments.interior.cta }}</button>
       }
     </div>
   </section>
 
   <!-- Hottub Section -->
   <section class="hottub-section">
-    <div class="hottub-bg" 
-         [style.background-image]="'url(/images/djakuzi.png)'"></div>
+    <div class="hottub-bg" [style.background-image]="'url(/images/djakuzi.png)'"></div>
     <div class="hottub-content fade-in">
       <h2>{{ langService.current().apartments.hottub.title }}</h2>
       <p>{{ langService.current().apartments.hottub.desc }}</p>
