@@ -1,5 +1,5 @@
 @if (!isBookingPage()) {
-<header class="header" [class.dark-header]="isWellnessPage()">
+<header class="header" [class.dark-header]="isWellnessPage() || isApartmentsPage()">
   <div class="logo">
     <a routerLink="/"><img src="/svg/logo-simbol.svg" alt="Espadrina Logo"></a>
   </div>

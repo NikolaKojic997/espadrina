@@ -256,8 +256,8 @@ export class LanguageService {
       },
       apartments: {
         hero: {
-          title: 'LUXURY APARTMENTS',
-          subtitle: 'A sanctuary on the river',
+          title: 'APARTMENTS',
+          subtitle: 'Your Privacy on another level',
           scroll: 'scroll for more'
         },
         details: {

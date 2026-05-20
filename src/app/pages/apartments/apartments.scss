@@ -39,11 +39,12 @@
 
     .hero-content {
       position: absolute;
-      bottom: 50px;
-      left: 5%;
+      bottom: 100px;
+      left: 50%;
+      transform: translateX(-50%);
       z-index: 2;
-      transition: transform 0.1s ease-out;
-      will-change: transform;
+      text-align: center;
+      width: 90%;
 
       h1 {
         font-size: clamp(32px, 5vw, 68px);
@@ -52,10 +53,11 @@
         text-transform: uppercase;
         margin: 0;
         line-height: 1;
+        color: white;
       }
 
       .subtitle {
-        font-size: clamp(18px, 2.2vw, 28px);
+        font-size: clamp(16px, 2vw, 24px);
         font-weight: 400;
         margin: 10px 0 0 0;
         opacity: 0.95;
@@ -64,12 +66,6 @@
       }
     }
 
-    @media (max-width: 968px) {
-      .hero-content {
-        left: 5%;
-        bottom: 40px;
-      }
-    }
 
     .scroll-for-more {
       position: absolute;
@@ -419,6 +415,7 @@
 
       .hero-bg {
         background-attachment: scroll;
+        background-position: 30% 60%;
       }
 
       .scroll-for-more {

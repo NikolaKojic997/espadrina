@@ -5,6 +5,11 @@
          [style.background-image]="'url(/images/apartments_hero_bg.jpg)'"
          [style.transform]="'scale(' + heroScale() + ')'"></div>
     <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <h1>{{ langService.current().apartments.hero.title }}</h1>
+      <p class="subtitle">{{ langService.current().apartments.hero.subtitle }}</p>
+    </div>
     
     <div class="scroll-for-more">
       <span>{{ langService.current().apartments.hero.scroll }}</span>
