@@ -34,8 +34,8 @@
     <div class="menu-card">
       <h2>{{ langService.current().restaurant.menu.title }}</h2>
       <div class="menu-buttons">
-        <button class="btn-menu" (click)="openPdf('/images/Meni%20za%20hranu%20final.pdf')">{{ langService.currentLang() === 'sr' ? 'Meni za hranu' : 'Food Menu' }}</button>
-        <button class="btn-menu" (click)="openPdf('/images/meni%20za%20pice%20final.pdf')">{{ langService.currentLang() === 'sr' ? 'Karta pića' : 'Drink Menu' }}</button>
+        <button class="btn-menu" (click)="openPdf('/images/meni-hrana.pdf')">{{ langService.currentLang() === 'sr' ? 'Meni za hranu' : 'Food Menu' }}</button>
+        <button class="btn-menu" (click)="openPdf('/images/meni-pice.pdf')">{{ langService.currentLang() === 'sr' ? 'Karta pića' : 'Drink Menu' }}</button>
       </div>
     </div>
   </section>
@@ -71,7 +71,7 @@
          [style.transform]="'translateY(' + (20 * (1 - wineTextProgress())) + 'px)'">
       <h2 class="wine-title">{{ langService.current().restaurant.wine.title }}</h2>
       <p class="wine-desc">{{ langService.current().restaurant.wine.desc }}</p>
-      <button class="btn-wine-selection" (click)="openPdf('/images/vinska%20karta%20final%20v2.pdf')">{{ langService.current().restaurant.wine.cta }}</button>
+      <button class="btn-wine-selection" (click)="openPdf('/images/vinska-karta.pdf')">{{ langService.current().restaurant.wine.cta }}</button>
     </div>
   </section>
 
