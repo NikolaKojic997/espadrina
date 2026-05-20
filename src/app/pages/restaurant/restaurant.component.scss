@@ -4,7 +4,7 @@
   overflow-x: hidden;
 
   .hero-section {
-    height: 100vh;
+    height: 100svh;
     position: relative;
     display: flex;
     justify-content: center;
@@ -19,7 +19,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: #11151a; 
+      background: #11151a;
       background-image: radial-gradient(circle at 75% 50%, rgba(30, 45, 60, 0.6) 0%, transparent 60%);
     }
 
@@ -88,13 +88,13 @@
 
     @media (max-width: 968px) {
       flex-direction: column;
-      height: 100vh;
+      height: 100svh;
       padding: 80px 0 0 0; // Account for the header
 
       .hero-content {
         width: 100%;
         margin-bottom: 0;
-        flex: 0 0 40%;
+        flex: 0 0 35%;
         align-items: center;
         justify-content: flex-end;
         text-align: center;
@@ -114,13 +114,13 @@
         flex: 0 0 60%;
         align-items: center;
         justify-content: center;
-        
+
         .hero-plate {
           width: 80%;
           max-width: 400px;
         }
       }
-      
+
       .hero-bg {
         background-image: radial-gradient(circle at 50% 75%, rgba(30, 45, 60, 0.6) 0%, transparent 60%);
       }
@@ -152,12 +152,12 @@
 
   .ingredients-section {
     position: relative;
-    height: 100vh;
+    height: 100svh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: #fdf6f0; 
+    background: #fdf6f0;
     overflow: hidden;
 
     .ingredients-content {
@@ -170,7 +170,7 @@
 
       @media (max-width: 968px) {
         padding: 0 20px;
-        height: 100vh;
+        height: 100svh;
         display: flex;
         flex-direction: column;
       }
@@ -185,8 +185,8 @@
         white-space: pre-line;
         text-transform: uppercase;
 
-        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-                          url('/images/shopping-trolley-cart-different-fresh-fruits-vegetables-layout-assortment-fresh-fruits-vegetables-healthy-food-background-shopping-food-supermarket.jpg');
+        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+          url('/images/shopping-trolley-cart-different-fresh-fruits-vegetables-layout-assortment-fresh-fruits-vegetables-healthy-food-background-shopping-food-supermarket.jpg');
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
@@ -196,7 +196,7 @@
         color: transparent;
         margin: 0 auto 60px;
         line-height: 0.95;
-        filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
+        filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1));
         transition: opacity 0.1s ease-out, transform 0.1s ease-out;
         will-change: opacity, transform;
 
@@ -209,7 +209,8 @@
           line-height: 1.1;
           font-size: clamp(42px, 14vw, 80px);
           white-space: normal;
-          word-spacing: 100vw; /* Forces almost every word to a new line */
+          word-spacing: 100vw;
+          /* Forces almost every word to a new line */
           padding: 0 10px;
         }
       }
@@ -236,7 +237,7 @@
   }
 
   .chef-section {
-    height: 100vh;
+    height: 100svh;
     background: #fdf6f0;
     display: flex;
     flex-direction: column;
@@ -256,7 +257,7 @@
       @media (max-width: 968px) {
         display: flex;
         flex-direction: column;
-        height: 100vh;
+        height: 100svh;
       }
     }
 
@@ -272,8 +273,8 @@
       line-height: 0.75;
       margin-top: 0;
       margin-bottom: 80px;
-      padding: 0; 
-      
+      padding: 0;
+
       span {
         display: inline-block;
       }
@@ -291,7 +292,7 @@
       grid-template-columns: 1fr 1fr;
       gap: 60px;
       align-items: center;
-      padding: 0; 
+      padding: 0;
       margin-top: -80px; // Lift up the content
 
       @media (max-width: 968px) {
@@ -312,7 +313,8 @@
       will-change: transform;
 
       @media (max-width: 968px) {
-        flex: 0 0 44.44%; /* 40% of the total 100vh, 40/90 = 44.44% */
+        flex: 0 0 44.44%;
+        /* 40% of the total 100vh, 40/90 = 44.44% */
         padding: 0 20px;
         text-align: center;
         justify-content: center;
@@ -325,7 +327,8 @@
         font-size: clamp(28px, 4vw, 42px);
         font-weight: 850;
         color: #a65246;
-        margin-bottom: 15px; /* Reduced from 25px for better mobile fit */
+        margin-bottom: 15px;
+        /* Reduced from 25px for better mobile fit */
         text-transform: uppercase;
         letter-spacing: 1px;
 
@@ -334,8 +337,10 @@
           margin-bottom: 10px;
         }
       }
+
       p {
-        font-size: clamp(14px, 1.2vw, 18px); /* slightly smaller base font */
+        font-size: clamp(14px, 1.2vw, 18px);
+        /* slightly smaller base font */
         line-height: 1.5;
         color: var(--drina-dark);
         opacity: 0.95;
@@ -353,9 +358,10 @@
       justify-content: center;
       transition: transform 0.2s ease-out;
       will-change: transform;
-      
+
       @media (max-width: 968px) {
-        flex: 0 0 55.55%; /* 50% of the total 100vh, 50/90 = 55.55% */
+        flex: 0 0 55.55%;
+        /* 50% of the total 100vh, 50/90 = 55.55% */
         align-items: center;
         justify-content: center;
         order: -1;
@@ -367,7 +373,7 @@
         height: auto;
         max-height: 90vh;
         object-fit: contain;
-        filter: drop-shadow(0 20px 40px rgba(0,0,0,0.05));
+        filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.05));
 
         @media (max-width: 968px) {
           width: auto;
@@ -379,7 +385,7 @@
   }
 
   .menu-section {
-    height: 100vh;
+    height: 100svh;
     position: relative;
     display: flex;
     align-items: center;
@@ -449,7 +455,7 @@
   }
 
   .wine-map-section {
-    height: 100vh;
+    height: 100svh;
     position: relative;
     display: flex;
     align-items: center;
@@ -482,7 +488,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: radial-gradient(circle at center, transparent 30%, rgba(0,0,0,0.4) 100%);
+      background: radial-gradient(circle at center, transparent 30%, rgba(0, 0, 0, 0.4) 100%);
     }
 
     .wine-content {
@@ -548,6 +554,7 @@
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
