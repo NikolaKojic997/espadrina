@@ -248,6 +248,9 @@
 
     @media (max-width: 968px) {
       padding: 0;
+      height: auto;
+      min-height: 100svh;
+      padding-bottom: 40px;
     }
 
     .chef-container {
@@ -257,7 +260,8 @@
       @media (max-width: 968px) {
         display: flex;
         flex-direction: column;
-        height: 100svh;
+        height: auto;
+        min-height: 100svh;
       }
     }
 
@@ -280,10 +284,10 @@
       }
 
       @media (max-width: 968px) {
-        flex: 0 0 10%;
+        flex: none;
         margin: 0;
         align-items: center;
-        padding: 0 10px; // A bit of padding so it's not strictly at edges
+        padding: 40px 10px 20px 10px; // A bit of padding so it's not strictly at edges
       }
     }
 
@@ -298,9 +302,9 @@
       @media (max-width: 968px) {
         display: flex;
         flex-direction: column;
-        flex: 1 1 90%;
+        flex: none;
         margin-top: 0;
-        gap: 0;
+        gap: 30px;
         min-height: 0; /* CRITICAL for iOS Safari to allow children to shrink */
       }
     }
@@ -314,7 +318,8 @@
       will-change: transform;
 
       @media (max-width: 968px) {
-        flex: 0 0 44.44%;
+        flex: none;
+        height: auto;
         padding: 0 20px;
         text-align: center;
         justify-content: center;
@@ -361,7 +366,8 @@
       will-change: transform;
 
       @media (max-width: 968px) {
-        flex: 0 0 50%;
+        flex: none;
+        height: 45vh;
         align-items: center;
         justify-content: center;
         order: -1;
