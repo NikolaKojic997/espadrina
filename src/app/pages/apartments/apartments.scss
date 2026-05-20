@@ -321,7 +321,7 @@
       width: 100%;
       height: 100%;
       background-size: cover;
-      background-position: center 44.3%;
+      background-position: center center;
       z-index: 1;
       opacity: 1;
     }
@@ -523,8 +523,8 @@
 
       .hottub-bg {
         background-attachment: scroll;
-        background-size: 220%;
-        background-position: 52% -100%;
+        background-size: cover;
+        background-position: center center;
       }
 
       .hottub-content {
