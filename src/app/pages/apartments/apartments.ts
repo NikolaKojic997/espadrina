@@ -18,6 +18,7 @@ export class ApartmentsComponent {
   heroTranslateTextX = signal(0);
   detailsProgress = signal(0);
   interiorScale = signal(1.5);
+
   villasTranslateY = signal(100);
   villasOpacity = signal(0);
 
@@ -55,5 +56,7 @@ export class ApartmentsComponent {
     } else {
       this.interiorScale.set(1.5);
     }
+
+
   }
 }

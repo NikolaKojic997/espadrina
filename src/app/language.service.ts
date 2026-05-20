@@ -273,6 +273,11 @@ export class LanguageService {
           title: 'SLOW MORNING\nATMOSPHERE',
           desc: 'Soft light, warm interiors, and the quiet feeling of a morning with nowhere to rush. Each apartment is designed to make the day begin gently with comfort, privacy, and a sense of calm that stays with you.',
           cta: ''
+        },
+        hottub: {
+          title: 'HOTTUB',
+          desc: 'A quiet open-air ritual designed for slow mornings, warm evenings, and complete privacy.',
+          cta: 'BOOK NOW'
         }
       }
     };
