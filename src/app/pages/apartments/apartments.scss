@@ -408,3 +408,179 @@
     transform: translateY(0);
   }
 }
+
+// ─── MOBILE RESPONSIVE ────────────────────────────────────────────────────────
+@media (max-width: 768px) {
+  .apartments-page {
+
+    // Hero
+    .hero-section {
+      height: 100svh;
+
+      .hero-bg {
+        background-attachment: scroll;
+      }
+
+      .scroll-for-more {
+        font-size: 12px;
+        bottom: 20px;
+
+        &::after {
+          height: 28px;
+        }
+      }
+    }
+
+    // Details
+    .details-section {
+      height: auto;
+      min-height: 100svh;
+      padding: 80px 0;
+      background-attachment: scroll;
+
+      .details-content {
+        padding: 0 24px;
+
+        .section-title {
+          font-size: clamp(28px, 9vw, 48px);
+          margin: 0 auto 36px;
+          letter-spacing: 0;
+          background-attachment: scroll;
+        }
+
+        p {
+          font-size: 15px;
+          letter-spacing: 0;
+        }
+      }
+    }
+
+    // Villas
+    .villas-section {
+      height: auto;
+      min-height: 100svh;
+      background-attachment: scroll;
+      padding: 60px 16px;
+
+      .villas-card {
+        padding: 40px 24px;
+        width: 100%;
+
+        h2 {
+          font-size: clamp(24px, 7vw, 40px);
+          margin-bottom: 20px;
+          letter-spacing: 1px;
+        }
+
+        p {
+          font-size: 15px;
+          margin-bottom: 32px;
+        }
+
+        .btn-villas {
+          padding: 15px 32px;
+          font-size: 13px;
+          width: 100%;
+        }
+      }
+    }
+
+    // Interior
+    .interior-section {
+      height: 100svh;
+
+      .interior-bg {
+        background-attachment: scroll;
+      }
+
+      .interior-content {
+        padding: 10vh 24px;
+
+        h2 {
+          font-size: clamp(26px, 7vw, 42px);
+          letter-spacing: 1px;
+        }
+
+        p {
+          font-size: 15px;
+        }
+
+        .btn-interior {
+          padding: 14px 32px;
+          font-size: 13px;
+          width: 100%;
+          text-align: center;
+        }
+      }
+    }
+
+    // Hottub
+    .hottub-section {
+      height: 100svh;
+
+      .hottub-bg {
+        background-attachment: scroll;
+      }
+
+      .hottub-content {
+        padding: 0 24px;
+
+        h2 {
+          font-size: clamp(26px, 7vw, 42px);
+          letter-spacing: 1px;
+        }
+
+        p {
+          font-size: 15px;
+          margin: 18px 0 28px 0;
+        }
+
+        .btn-hottub {
+          padding: 14px 32px;
+          font-size: 13px;
+          width: 100%;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .apartments-page {
+
+    .details-section {
+      .details-content {
+        .section-title {
+          font-size: clamp(24px, 10vw, 38px);
+        }
+      }
+    }
+
+    .villas-section {
+      .villas-card {
+        padding: 36px 20px;
+
+        h2 {
+          font-size: clamp(22px, 8vw, 34px);
+        }
+      }
+    }
+
+    .interior-section {
+      .interior-content {
+        h2 {
+          font-size: clamp(22px, 8vw, 36px);
+        }
+      }
+    }
+
+    .hottub-section {
+      .hottub-content {
+        h2 {
+          font-size: clamp(22px, 8vw, 36px);
+        }
+      }
+    }
+  }
+}
