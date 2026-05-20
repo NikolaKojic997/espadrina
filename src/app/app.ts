@@ -39,10 +39,15 @@ export class App {
     return this.url().includes('/wellness');
   });
 
+  isApartmentsPage = computed(() => {
+    return this.url().includes('/apartments');
+  });
+
   isMenuOpen = signal(false);
 
   navItems = computed(() => [
     { label: this.langService.current().nav.links.home, link: '/' },
+    { label: this.langService.current().nav.links.apartments, link: '/apartments' },
     { label: this.langService.current().nav.restaurant, link: '/restaurant' },
     { label: this.langService.current().nav.links.experience, link: '/#experience' },
     { label: this.langService.current().nav.links.wellness, link: '/wellness' },

@@ -57,6 +57,7 @@ export class LanguageService {
         menu: 'MENU',
         links: {
           home: 'Home',
+          apartments: 'Apartments',
           experience: 'Experience',
           wellness: 'Wellness',
           contact: 'Contact'
@@ -251,6 +252,27 @@ export class LanguageService {
         iceRoom: {
           title: 'ICE ROOM',
           desc: 'The cold room brings contrast after heat. Surrounded by ice, the body wakes up slowly, circulation is refreshed, and the ritual gains its clean, energising finish.'
+        }
+      },
+      apartments: {
+        hero: {
+          title: 'LUXURY APARTMENTS',
+          subtitle: 'A sanctuary on the river',
+          scroll: 'scroll for more'
+        },
+        details: {
+          title: 'YOUR COMFORT\nYOUR PRIVACY\nYOUR PEACE',
+          desc: 'Each apartment offers a thoughtfully designed interior, a private terrace, a hydromassage tub, and a view that gently slows the rhythm of the day.\n\nHere, a stay is not just about accommodation, but about the feeling of having a world of your own quietly set apart from everything unnecessary.'
+        },
+        villas: {
+          title: 'STEP INTO YOUR OWN QUIET WORLD',
+          desc: '',
+          cta: 'Enter Gallery'
+        },
+        interior: {
+          title: 'SLOW MORNING\nATMOSPHERE',
+          desc: 'Soft light, warm interiors, and the quiet feeling of a morning with nowhere to rush. Each apartment is designed to make the day begin gently with comfort, privacy, and a sense of calm that stays with you.',
+          cta: ''
         }
       }
     };
