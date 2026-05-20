@@ -1,4 +1,4 @@
-import { Component, inject, signal, HostListener, PLATFORM_ID } from '@angular/core';
+import { Component, inject, signal, HostListener, PLATFORM_ID, OnInit } from '@angular/core';
 import { isPlatformBrowser, CommonModule } from '@angular/common';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { LanguageService } from '../../language.service';
@@ -10,7 +10,7 @@ import { LanguageService } from '../../language.service';
   standalone: true,
   imports: [CommonModule]
 })
-export class RestaurantComponent {
+export class RestaurantComponent implements OnInit {
   langService = inject(LanguageService);
   rotation = signal(0);
   translateX = signal(0);
@@ -22,11 +22,18 @@ export class RestaurantComponent {
   wineTextProgress = signal(1);
   activePdfUrl = signal<SafeResourceUrl | null>(null);
   private sanitizer = inject(DomSanitizer);
+  private initialVh = 0;
+
+  ngOnInit() {
+    if (typeof window !== 'undefined') {
+      this.initialVh = window.innerHeight;
+    }
+  }
 
   @HostListener('window:scroll')
   onWindowScroll() {
     const scroll = window.scrollY;
-    const vh = typeof window !== 'undefined' ? window.innerHeight : 0;
+    const vh = this.initialVh || (typeof window !== 'undefined' ? window.innerHeight : 0);
 
     // Ingredients reveal logic
     const ingStart = vh * 0.4;
@@ -74,6 +81,14 @@ export class RestaurantComponent {
   }
 
   openPdf(url: string) {
+    if (typeof window !== 'undefined') {
+      const isMobile = window.innerWidth <= 968;
+      if (isMobile) {
+        // Fallback for mobile devices that don't support PDF embedding well
+        window.location.href = url;
+        return;
+      }
+    }
     const urlWithParams = url + '#toolbar=0&navpanes=0';
     this.activePdfUrl.set(this.sanitizer.bypassSecurityTrustResourceUrl(urlWithParams));
   }
