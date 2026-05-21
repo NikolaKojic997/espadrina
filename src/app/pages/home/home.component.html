@@ -13,12 +13,9 @@
     <a href="#experience" class="flow-link">{{ langService.current().flow.cta }}</a>
   </div>
   <div class="flow-visual">
-    <img src="/svg/drina.svg" class="drina-path-svg" alt="Drina River Path"
+    <img src="/svg/drina-1.svg" class="drina-path-svg" alt="Drina River Path"
       [style.clip-path]="'inset(0 0 ' + (100 - riverReveal()) + '% 0)'"
       [style.opacity]="riverReveal() / 100">
-    <img src="/svg/PIN.svg" class="location-marker" alt="Location pin"
-      [style.opacity]="riverReveal() > 95 ? 1 : 0"
-      [style.transform]="'scale(' + (riverReveal() > 95 ? 1 : 0) + ')'">
   </div>
 </section>
 

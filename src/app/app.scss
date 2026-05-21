@@ -196,7 +196,6 @@
             width: auto;
             margin-right: 5%;
             opacity: 1;
-            filter: drop-shadow(-5px 5px 15px rgba(0, 0, 0, 0.1));
             will-change: clip-path;
             transition: clip-path 0.1s linear;
         }
@@ -953,6 +952,152 @@
             .copyright {
                 font-size: 12px;
                 letter-spacing: 0.3px;
+            }
+        }
+    }
+
+    /* Nova responzivnost za pocetnu */
+    .hero {
+        .hero-content {
+            width: 85%;
+        }
+    }
+
+    .timeless-flow {
+        display: block;
+        position: relative;
+        height: 100svh;
+        overflow: hidden;
+        
+        .mist-overlay {
+            mask-image: linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 0) 70%);
+            -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 0) 70%);
+            background-position: center bottom;
+        }
+        
+        .flow-content {
+            position: relative;
+            z-index: 3;
+            width: 85%;
+            padding: 7vh 20px 40px; /* Podignuto gore (smanjen padding-top na 7vh) */
+            text-align: left;
+            
+            h2 {
+                font-size: clamp(24px, 7vw, 30px); /* Smanjena slova naslova */
+                margin-bottom: 25px;
+                line-height: 1.15;
+                font-weight: 800;
+            }
+            p {
+                font-size: 13px; /* Smanjena slova paragrafa */
+                margin-bottom: 15px;
+                max-width: 100%;
+            }
+            .flow-link {
+                margin-top: 5px;
+                display: inline-block;
+                font-size: 15px; /* Malo smanjen i link */
+            }
+        }
+        
+        .flow-visual {
+            position: absolute;
+            top: 0; /* Reka kreće od samog vrha ekrana */
+            right: -10%;
+            width: 80%;
+            height: 100%; /* Ide celom visinom */
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-start;
+            z-index: 2;
+            pointer-events: none;
+            
+            .drina-path-svg {
+                height: 105%; /* Malo više od 100 da bi sigurno kačilo gornju ivicu */
+                width: auto;
+                margin-top: -2%;
+            }
+        }
+    }
+
+    .luxury-escape {
+        padding: 20px;
+        background-attachment: scroll;
+        
+        .escape-box {
+            padding: 40px 20px;
+            
+            h2 {
+                font-size: 32px;
+                margin-bottom: 25px;
+            }
+            p {
+                font-size: 15px;
+            }
+        }
+    }
+
+    .personal-spa {
+        flex-direction: column;
+        
+        .spa-text-col {
+            flex: unset;
+            padding: 80px 20px 40px;
+            text-align: center;
+            align-items: center;
+            
+            h2 {
+                font-size: 32px;
+                margin-bottom: 20px;
+            }
+            p {
+                font-size: 15px;
+            }
+        }
+        
+        .spa-image-col {
+            flex: unset;
+            height: 40vh;
+            
+            .spa-image {
+                width: 150%;
+                margin-left: -25%;
+                margin-bottom: -10%;
+            }
+        }
+    }
+
+    .pool-on-you {
+        flex-direction: column;
+        justify-content: flex-end;
+        
+        .pool-box {
+            padding: 50px 20px;
+            text-align: center;
+            
+            h2 {
+                font-size: 32px;
+                margin-bottom: 20px;
+            }
+            p {
+                font-size: 15px;
+            }
+        }
+    }
+
+    .endless-inspiration {
+        min-height: 150svh;
+        padding: 10vh 20px 5vh;
+        
+        .inspiration-content {
+            margin-top: 20px;
+            
+            h2 {
+                font-size: 32px;
+                margin-bottom: 30px;
+            }
+            p {
+                font-size: 15px;
             }
         }
     }
