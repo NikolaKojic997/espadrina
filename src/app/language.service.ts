@@ -205,8 +205,8 @@ export class LanguageService {
         },
         wine: {
           title: 'WINE MAP',
-          desc: 'Drina remains at the heart of the landscape — present\n in the view, the atmosphere, and the feeling of being\n fully removed from the everyday.',
-          cta: 'View wine selection'
+          desc: 'Espadrina’s wine list carefully brings together local and international labels, selected to complement the cuisine, the atmosphere, and the rhythm of the place.',
+          cta: 'View wine map'
         },
         ingredients: {
           title: 'Where local natures\nfood meets modern\nculinary exellence',

@@ -186,8 +186,7 @@
         white-space: pre-line;
         text-transform: uppercase;
 
-        background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-          url('/images/shopping-trolley-cart-different-fresh-fruits-vegetables-layout-assortment-fresh-fruits-vegetables-healthy-food-background-shopping-food-supermarket.jpg');
+        background-image: url('/images/shopping-trolley-cart-different-fresh-fruits-vegetables-layout-assortment-fresh-fruits-vegetables-healthy-food-background-shopping-food-supermarket.jpg');
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
@@ -280,6 +279,11 @@
       margin-top: 0;
       margin-bottom: 80px;
       padding: 0;
+
+      &.centered {
+        justify-content: center;
+        gap: 0.3em;
+      }
 
       span {
         display: inline-block;
@@ -551,7 +555,6 @@
         font-weight: 600;
         cursor: pointer;
         transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-        text-transform: lowercase;
         letter-spacing: 1px;
 
         &:hover {

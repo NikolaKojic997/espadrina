@@ -42,10 +42,12 @@
   <!-- Chef Section -->
   <section class="chef-section">
     <div class="chef-container">
-      <h2 class="chef-header fade-in">
-        <span>MEET</span>
-        <span>OUR</span>
-        <span>CHEF</span>
+      <h2 class="chef-header fade-in" [class.centered]="!langService.current().restaurant.chef.title_meet">
+        @if (langService.current().restaurant.chef.title_meet) {
+          <span>{{ langService.current().restaurant.chef.title_meet }}</span>
+        }
+        <span>{{ langService.current().restaurant.chef.title_our }}</span>
+        <span>{{ langService.current().restaurant.chef.title_chef }}</span>
       </h2>
       <div class="chef-grid">
         <div class="chef-text" [style.transform]="'translateX(' + chefTranslateTextX() + 'px)'">
