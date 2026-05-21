@@ -70,8 +70,8 @@ export class LanguageService {
         comingSoon: 'Booking system is coming soon...'
       },
       luxury: {
-        title: 'LUXURY ESCAPE',
-        desc: 'Luxury apartments provide a perfect blend of modern comfort and natural peace, designed for your ultimate relaxation.',
+        title: 'WHO ARE WE?',
+        desc: 'At Espadrina, nature, privacy and comfort come together in a retreat designed for slower days and deeper rest.\n\nSet near the Drina River, the estate brings together spacious apartments, private terraces, wellness experiences, outdoor pools and a restaurant shaped by the landscape around it.\n\nEvery stay is created to feel calm, considered and complete a place to withdraw from the noise, without giving up the pleasures of comfort, good food and thoughtful design.',
         cta: 'About apartment'
       },
       food: {
@@ -98,6 +98,16 @@ export class LanguageService {
         title: 'ENDLESS INSPIRATION',
         desc: 'Let the beauty of the Drina inspire you. Our resort is a sanctuary for those seeking authenticity, peace, and unforgettable moments by the sound of the water.',
         cta: 'CONTACT US'
+      },
+      contact: {
+        title: 'CONTACT',
+        desc: 'Feel free to contact us for all information and reservations.',
+        phones: 'Phones',
+        reception: 'Reception',
+        restaurant: 'Restaurant',
+        email: 'Email',
+        address: 'Address',
+        openMap: 'Open on map'
       },
       booking: {
         stages: {

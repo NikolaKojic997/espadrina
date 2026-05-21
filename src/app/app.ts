@@ -50,7 +50,7 @@ export class App {
     { label: this.langService.current().nav.links.apartments, link: '/apartments' },
     { label: this.langService.current().nav.restaurant, link: '/restaurant' },
     { label: this.langService.current().nav.links.wellness, link: '/wellness' },
-    { label: this.langService.current().nav.links.contact, link: '/#contact' }
+    { label: this.langService.current().nav.links.contact, link: '/contact' }
   ]);
 
   toggleMenu() {

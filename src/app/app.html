@@ -17,26 +17,21 @@
 <main>
   <router-outlet></router-outlet>
 
-  @if (!isBookingPage()) {
   <footer class="site-footer">
     <div class="footer-brand">
       <img src="/svg/tipografija-espadrina.svg" alt="Espadrina" class="brand-logo">
     </div>
     <div class="footer-bottom">
       <div class="social-icons">
-        <a href="#" class="icon-box" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
         <a href="https://www.instagram.com/espadrina/" target="_blank" rel="noopener noreferrer" class="icon-box" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="#" class="icon-box" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-        <a href="#" class="icon-box" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-        <a href="#" class="icon-box" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-        <a href="#" class="icon-box" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="mailto:recepcija@espadrina.com" class="icon-box" aria-label="Email"><i class="fas fa-envelope"></i></a>
       </div>
       <div class="copyright">
         {{ langService.current().footer.rights }}
       </div>
     </div>
   </footer>
-  }</main>
+</main>
 
 <div class="side-menu-overlay" [class.open]="isMenuOpen()" (click)="toggleMenu()">
   <div class="side-menu-content" (click)="$event.stopPropagation()">

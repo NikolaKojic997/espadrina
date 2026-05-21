@@ -4,6 +4,7 @@ import { BookingComponent } from './pages/booking/booking.component';
 import { RestaurantComponent } from './pages/restaurant/restaurant.component';
 import { WellnessComponent } from './pages/wellness/wellness';
 import { ApartmentsComponent } from './pages/apartments/apartments';
+import { Contact } from './pages/contact/contact';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -11,5 +12,6 @@ export const routes: Routes = [
   { path: 'restaurant', component: RestaurantComponent },
   { path: 'wellness', component: WellnessComponent },
   { path: 'apartments', component: ApartmentsComponent },
+  { path: 'contact', component: Contact },
   { path: '**', redirectTo: '' }
 ];

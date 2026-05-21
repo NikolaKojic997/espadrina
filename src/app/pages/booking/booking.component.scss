@@ -278,6 +278,16 @@
       order: 3;
       width: 100%;
       margin-top: 15px;
+      flex-wrap: wrap;
+      gap: 10px;
+
+      .stage-item {
+        font-size: 11px;
+      }
+
+      .stage-line {
+        width: 30px;
+      }
     }
   }
 
@@ -289,8 +299,19 @@
   .booking-sub-footer {
     flex-direction: column;
     height: auto;
-    padding: 20px;
-    gap: 10px;
+    padding: 20px 10px;
+    gap: 15px;
+    text-align: center;
+
+    .sub-footer-group {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .sub-footer-divider {
+      display: none;
+    }
   }
 
   .booking-footer-info {
