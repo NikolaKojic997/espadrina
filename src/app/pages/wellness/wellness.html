@@ -19,7 +19,7 @@
 
   <!-- Spa Details Section -->
   <section class="spa-details-section">
-    <div class="spa-details-content fade-in">
+    <div class="spa-details-content">
       <h2 class="section-title" [style.opacity]="spaProgress()"
         [style.transform]="'translateY(' + (20 * (1 - spaProgress())) + 'px)'">
         {{ langService.current().wellness.spa.title }}
@@ -34,7 +34,7 @@
       [style.opacity]="treatmentsOpacity()">
       <h2 style="white-space: pre-line;">{{ langService.current().wellness.treatments.title }}</h2>
       <p>{{ langService.current().wellness.treatments.desc }}</p>
-      <button class="btn-treatments">{{ langService.current().wellness.treatments.cta }}</button>
+      <button routerLink="/booking" class="btn-treatments">{{ langService.current().wellness.treatments.cta }}</button>
     </div>
   </section>
 
@@ -66,7 +66,7 @@
     <div class="pool-content fade-in">
       <h2 style="white-space: pre-line;">{{ langService.current().wellness.pool.title }}</h2>
       <p>{{ langService.current().wellness.pool.desc }}</p>
-      <button class="btn-pool">{{ langService.current().wellness.pool.cta }}</button>
+      <button routerLink="/booking" class="btn-pool">{{ langService.current().wellness.pool.cta }}</button>
     </div>
   </section>
 

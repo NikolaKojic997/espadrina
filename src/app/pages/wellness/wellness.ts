@@ -2,17 +2,20 @@ import { Component, inject, signal, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LanguageService } from '../../language.service';
 
+import { RouterModule } from '@angular/router';
+
 @Component({
   selector: 'app-wellness',
   templateUrl: './wellness.html',
   styleUrl: './wellness.scss',
   standalone: true,
-  imports: [CommonModule]
+  imports: [CommonModule, RouterModule]
 })
 export class WellnessComponent {
   langService = inject(LanguageService);
   
-  heroScale = signal(1.7);
+  isDesktop = typeof window === 'undefined' || window.innerWidth > 968;
+  heroScale = signal(this.isDesktop ? 1.7 : 1.3);
   heroTranslateX = signal(0);
   heroTranslateTextX = signal(0);
   spaProgress = signal(0);
@@ -28,12 +31,14 @@ export class WellnessComponent {
   onWindowScroll() {
     const scroll = window.scrollY;
     const vh = typeof window !== 'undefined' ? window.innerHeight : 0;
+    this.isDesktop = typeof window === 'undefined' || window.innerWidth > 968;
 
     // Hero section
     this.heroTranslateX.set(scroll / 1.5);
     this.heroTranslateTextX.set(-scroll / 1.5);
-    // Zoom out the background from 1.7 down to 1
-    this.heroScale.set(Math.max(1, 1.7 - (scroll / 800)));
+    // Zoom out the background from initial scale down to 1
+    const initialScale = this.isDesktop ? 1.7 : 1.3;
+    this.heroScale.set(Math.max(1, initialScale - (scroll / 800)));
 
     // Spa section logic
     const spaStart = vh * 0.4;

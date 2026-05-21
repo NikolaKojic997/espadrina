@@ -66,8 +66,13 @@
 
     @media (max-width: 968px) {
       .hero-content {
-        left: 5%;
-        bottom: 40px;
+        left: 50%;
+        bottom: auto;
+        top: 70%;
+        transform: translateX(-50%);
+        text-align: center;
+        width: 100%;
+        padding: 0 20px;
       }
     }
 
@@ -127,14 +132,7 @@
         white-space: pre-line;
         text-transform: uppercase;
 
-        background-image: url('/images/lower-antelope-seahorse-arizona-united-states-vertical-photography.jpg');
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-        color: transparent;
+        color: var(--drina-dark);
         display: block;
         margin: 0 auto 60px;
         filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1));
@@ -372,5 +370,174 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+@media (max-width: 968px) {
+  .wellness-page {
+    .spa-details-section {
+      .spa-details-content {
+        padding: 0 20px;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .section-title {
+          margin-bottom: 0;
+        }
+        
+        p {
+          position: absolute;
+          bottom: 10%;
+          left: 0;
+          width: 100%;
+          padding: 0 20px;
+        }
+      }
+    }
+
+    .treatments-section {
+      .treatments-card {
+        padding: 40px 20px;
+        h2 {
+          font-size: clamp(22px, 7vw, 36px);
+          margin-bottom: 15px;
+        }
+        p {
+          font-size: 14px;
+          margin-bottom: 30px;
+          line-height: 1.5;
+        }
+        .btn-treatments {
+          padding: 12px 28px;
+          font-size: 12px;
+        }
+      }
+    }
+
+    .ice-room-section {
+      display: flex;
+      flex-direction: column;
+      height: 100svh;
+      padding: 0;
+
+      .ice-room-header {
+        height: 20%;
+        width: 100%;
+        margin-top: 0;
+        display: flex;
+        align-items: flex-end; /* Da bi naslov bio blize tekstu */
+        justify-content: center;
+        z-index: 3;
+        
+        h2.ice-room-title {
+          display: flex;
+          flex-direction: row; /* Naslov u jednom redu */
+          justify-content: center;
+          gap: 15px;
+          align-items: center;
+          line-height: 1;
+          margin-bottom: 0;
+          font-size: clamp(36px, 15vw, 60px);
+          font-weight: 300; /* Tanak font kao na slici */
+          letter-spacing: 0;
+        }
+      }
+
+      .ice-room-content {
+        height: 80%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .ice-room-text {
+        height: 37.5%; /* 30% od ukupnih 100% */
+        width: 100%;
+        order: 1;
+        position: relative;
+        bottom: 0;
+        right: 0;
+        display: flex;
+        align-items: center; /* Centriran tekst po visini */
+        justify-content: center;
+        text-align: center;
+        padding: 0 20px;
+        background: transparent; /* Bez bele pozadine */
+        z-index: 2;
+
+        p {
+          font-size: 14px;
+          font-weight: 400;
+          color: #333;
+          margin: 0;
+          max-width: 320px; /* Da bi se lepo prelomilo kao na slici */
+        }
+      }
+
+      .iceberg-container {
+        height: 62.5%; /* 50% od ukupnih 100% */
+        width: 100%;
+        order: 2;
+        position: relative;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        margin-top: 0;
+        overflow: hidden;
+        
+        .iceberg-img {
+          height: 100%;
+          width: auto;
+          object-fit: cover;
+          object-position: bottom center;
+          transform: scale(1.05); /* Skala blago veca da popuni ivice */
+        }
+      }
+    }
+
+    .pool-section {
+      .pool-bg {
+        background-image: url('/images/freepik_ultra-realistic-architect_2876622557.jpg');
+        background-position: center;
+        background-size: cover;
+      }
+      
+      .pool-content {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 18vh 20px 15vh 20px; /* Ostavlja prostor gore i dole za ivicu bazena */
+        
+        h2 {
+          font-weight: 300; /* Tanak font za naslov */
+          font-size: clamp(36px, 13vw, 60px);
+          letter-spacing: 0;
+          margin-bottom: auto; /* Gura ostali sadrzaj na dno */
+          line-height: 1.1;
+        }
+
+        p {
+          font-size: 13px;
+          font-weight: 400;
+          line-height: 1.6;
+          margin-bottom: 30px;
+          max-width: 340px;
+        }
+
+        .btn-pool {
+          padding: 14px 35px;
+          font-size: 13px;
+          text-transform: none; /* Ne forsira velika slova (Explore ritual) */
+          letter-spacing: 0;
+          border-color: rgba(253, 246, 240, 0.6);
+        }
+      }
+    }
   }
 }
