@@ -13,8 +13,9 @@
     <span class="flow-link">{{ langService.current().flow.cta }}</span>
   </div>
   <div class="flow-visual">
-    <img src="/svg/drina-1.svg" class="drina-path-svg" alt="Drina River Path"
+    <img src="/svg/reka.svg" class="drina-path-svg" alt="Drina River Path"
       [style.clip-path]="'inset(0 0 ' + (100 - riverReveal()) + '% 0)'"
+      [style.-webkit-clip-path]="'inset(0 0 ' + (100 - riverReveal()) + '% 0)'"
       [style.opacity]="riverReveal() / 100">
   </div>
 </section>

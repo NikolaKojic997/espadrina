@@ -23,6 +23,13 @@ export class HomeComponent {
   spaProgress = signal(0);
   poolProgress = signal(0);
 
+  ngAfterViewInit() {
+    if (isPlatformBrowser(this.platformId)) {
+      // Trigger scroll event on load to initialize animations properly
+      setTimeout(() => this.onWindowScroll(), 100);
+    }
+  }
+
   @HostListener('window:scroll', [])
   onWindowScroll() {
     if (!isPlatformBrowser(this.platformId)) return;

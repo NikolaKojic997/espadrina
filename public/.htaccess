@@ -1,0 +1,25 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Ako fajl, direktorijum ili link fizički postoje, serviraj ih normalno
+  RewriteCond %{REQUEST_FILENAME} -s [OR]
+  RewriteCond %{REQUEST_FILENAME} -l [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^.*$ - [NC,L]
+
+  # U suprotnom, sve prosledi na index.html (Angular routing)
+  RewriteRule ^(.*) /index.html [NC,L]
+</IfModule>
+
+<IfModule mod_mime.c>
+  # Osiguraj da server prepoznaje SVG
+  AddType image/svg+xml .svg
+  AddType image/svg+xml .svgz
+  AddEncoding gzip .svgz
+</IfModule>
+
+<FilesMatch "\.(svg|svgz|png|jpg|jpeg|gif|ico)$">
+  # Podesi keširanje i obezbedi da slike ne budu blokirane
+  Header set Access-Control-Allow-Origin "*"
+</FilesMatch>
