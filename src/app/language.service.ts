@@ -227,7 +227,7 @@ export class LanguageService {
           title_our: 'OUR',
           title_chef: 'CHEF',
           name: 'CHEF GAGA',
-          desc: 'At Espadrina, water is part of every moment of the stay.\n\nFrom private terrace pools and the main outdoor pool to the spa experience and the riverside beach, the entire setting is designed to keep you connected to freshness, calm, and the rhythm of nature.\n\nDrina remains at the heart of the landscape — present in the view, the atmosphere, and the feeling of being fully removed from the everyday.'
+          desc: 'With a passion for local ingredients and innovative techniques, our head chef crafts dishes that represent the perfect blend of traditional flavors and modern fine dining. Every plate is carefully designed to tell the story of this region, elevating it to an entirely new culinary level.'
         },
         menu: {
           title: 'WHERE EVERY DISH IS REMINDER OF PEACE',
