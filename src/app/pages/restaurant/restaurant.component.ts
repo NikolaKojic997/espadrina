@@ -74,8 +74,8 @@ export class RestaurantComponent implements OnInit {
       }
     } else {
       this.wineTransform.set('none');
-      const wineTextStart = vh * 3.6;
-      const wineTextEnd = vh * 4.2; 
+      const wineTextStart = vh * 4.2;
+      const wineTextEnd = vh * 4.8; 
       this.wineTextProgress.set(Math.max(0, Math.min((scroll - wineTextStart) / (wineTextEnd - wineTextStart), 1)));
     }
   }
