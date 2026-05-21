@@ -71,8 +71,8 @@ export class ApartmentsComponent {
     if (isDesktop) {
       this.hottubTextProgress.set(1);
     } else {
-      const hottubTextStart = vh * 3.4;
-      const hottubTextEnd = vh * 4.0;
+      const hottubTextStart = vh * 3.0;
+      const hottubTextEnd = vh * 4.2;
       this.hottubTextProgress.set(Math.max(0, Math.min((scroll - hottubTextStart) / (hottubTextEnd - hottubTextStart), 1)));
     }
   }
