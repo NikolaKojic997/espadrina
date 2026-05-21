@@ -22,11 +22,13 @@ export class ApartmentsComponent {
   villasTranslateY = signal(100);
   villasOpacity = signal(0);
   hottubRotation = signal(180);
+  hottubTextProgress = signal(1);
 
   @HostListener('window:scroll')
   onWindowScroll() {
     const scroll = window.scrollY;
     const vh = typeof window !== 'undefined' ? window.innerHeight : 0;
+    const isDesktop = typeof window !== 'undefined' && window.innerWidth > 968;
 
     // Hero zoom logic (same as home page)
     const heroScale = 1 + (scroll / 1000) * 0.3;
@@ -64,6 +66,14 @@ export class ApartmentsComponent {
       this.hottubRotation.set(180 + (scroll - hottubStartTrigger) / 8);
     } else {
       this.hottubRotation.set(180);
+    }
+
+    if (isDesktop) {
+      this.hottubTextProgress.set(1);
+    } else {
+      const hottubTextStart = vh * 4.2;
+      const hottubTextEnd = vh * 4.8;
+      this.hottubTextProgress.set(Math.max(0, Math.min((scroll - hottubTextStart) / (hottubTextEnd - hottubTextStart), 1)));
     }
   }
 }

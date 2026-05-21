@@ -494,6 +494,11 @@
     .interior-section {
       height: 100svh;
 
+      &::after {
+        height: 50vh;
+        background: linear-gradient(to top, rgba(253, 246, 240, 1) 0%, rgba(253, 246, 240, 0.9) 40%, transparent 100%);
+      }
+
       .interior-bg {
         background-attachment: scroll;
       }
