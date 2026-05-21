@@ -417,6 +417,10 @@
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+    
+    @media (max-width: 968px) {
+      background-attachment: scroll;
+    }
 
     .menu-card {
       background: rgba(255, 255, 255, 0.665459);
