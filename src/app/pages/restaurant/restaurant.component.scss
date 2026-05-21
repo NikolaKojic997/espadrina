@@ -112,7 +112,7 @@
       .hero-plate-container {
         width: 100%;
         flex: 0 0 70%;
-        align-items: center;
+        align-items: baseline;
         justify-content: center;
 
         .hero-plate {
@@ -152,7 +152,7 @@
 
   .ingredients-section {
     position: relative;
-    height: 100svh;
+    min-height: 100svh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -169,10 +169,11 @@
       width: 100%;
 
       @media (max-width: 968px) {
-        padding: 0 20px;
-        height: 100svh;
+        padding: 40px 20px;
+        min-height: 100svh;
         display: flex;
         flex-direction: column;
+        justify-content: center;
       }
 
       .section-title {
@@ -201,11 +202,11 @@
         will-change: opacity, transform;
 
         @media (max-width: 968px) {
-          flex: 0 0 80%;
+          flex: 1;
           display: flex;
           align-items: center;
           justify-content: center;
-          margin: 0;
+          margin: 0 0 20px 0;
           line-height: 1.1;
           font-size: clamp(42px, 14vw, 80px);
           white-space: normal;
@@ -226,11 +227,12 @@
         white-space: pre-line;
 
         @media (max-width: 968px) {
-          flex: 0 0 20%;
+          flex: none;
           display: flex;
           align-items: flex-start;
           justify-content: center;
           margin: 0;
+          padding-bottom: 20px;
         }
       }
     }
@@ -305,7 +307,8 @@
         flex: none;
         margin-top: 0;
         gap: 30px;
-        min-height: 0; /* CRITICAL for iOS Safari to allow children to shrink */
+        min-height: 0;
+        /* CRITICAL for iOS Safari to allow children to shrink */
       }
     }
 
@@ -323,7 +326,8 @@
         padding: 0 20px;
         text-align: center;
         justify-content: center;
-        min-height: 0; /* Prevents text from pushing flex container size */
+        min-height: 0;
+        /* Prevents text from pushing flex container size */
       }
 
       h3 {
@@ -372,7 +376,8 @@
         justify-content: center;
         order: -1;
         min-height: 0;
-        position: relative; /* Anchor for absolute image */
+        position: relative;
+        /* Anchor for absolute image */
         width: 100%;
       }
 
@@ -389,7 +394,8 @@
           height: 100%;
           max-width: 100%;
           max-height: 100%;
-          position: absolute; /* Forces image to be exactly the size of its parent */
+          position: absolute;
+          /* Forces image to be exactly the size of its parent */
           top: 0;
           left: 0;
         }
