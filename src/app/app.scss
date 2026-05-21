@@ -248,6 +248,7 @@
             line-height: 1.6;
             color: #444;
             margin-bottom: 25px;
+            white-space: pre-line; /* Omogućava pravilne paragrafe iz \n koda */
 
             &:last-of-type {
                 margin-bottom: 40px;
@@ -1025,14 +1026,66 @@
         background-attachment: scroll;
         
         .escape-box {
-            padding: 40px 20px;
+            padding: 8vw 5vw;
+            width: 90%;
+            margin: 0 auto;
             
             h2 {
-                font-size: 32px;
-                margin-bottom: 25px;
+                font-size: clamp(24px, 8vw, 36px);
+                margin-bottom: 5vw;
             }
             p {
-                font-size: 15px;
+                font-size: 10px;
+                text-align: justify;
+                margin-bottom: 6vw;
+                white-space: pre-line; /* Omogućava da \n iz prevoda prelama tekst u nove redove */
+            }
+            .escape-btn {
+                font-size: 11px;
+                padding: 10px 20px;
+            }
+        }
+    }
+
+    .timeless-food {
+        flex-direction: column-reverse; /* Okreće redosled, pa je tekst prvi a slika dole */
+        
+        .food-text-col {
+            flex: 0 0 50%;
+            height: 50%;
+            padding: 8vh 25px 0;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            
+            h2 {
+                font-size: clamp(20px, 6vw, 26px);
+                margin-bottom: 20px;
+                letter-spacing: 2px;
+            }
+            p {
+                font-size: clamp(10px, 3.2vw, 12px);
+                margin-bottom: 12px;
+                line-height: 1.5;
+            }
+            .food-link {
+                margin-top: 15px;
+                font-size: 13px;
+            }
+        }
+        
+        .food-plate-col {
+            flex: 0 0 50%;
+            height: 50%;
+            padding: 10px;
+            display: flex;
+            align-items: center; /* Centrirano po vertikali */
+            justify-content: center;
+            
+            .food-plate {
+                max-width: 55%;
+                max-height: 80%;
+                object-fit: contain;
             }
         }
     }
@@ -1041,28 +1094,40 @@
         flex-direction: column;
         
         .spa-text-col {
-            flex: unset;
-            padding: 80px 20px 40px;
+            flex: 0 0 65%;
+            height: 65%;
+            padding: 15vh 25px 0;
             text-align: center;
             align-items: center;
+            justify-content: flex-start;
             
             h2 {
-                font-size: 32px;
-                margin-bottom: 20px;
+                font-size: clamp(18px, 5vw, 22px);
+                margin-bottom: 18px;
+                letter-spacing: 2px;
             }
             p {
-                font-size: 15px;
+                font-size: 10px;
+                margin-bottom: 15px;
+                line-height: 1.5;
+            }
+            .spa-link {
+                margin-top: 15px;
+                font-size: 11px;
             }
         }
         
         .spa-image-col {
-            flex: unset;
-            height: 40vh;
+            flex: 0 0 35%;
+            height: 35%;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
             
             .spa-image {
-                width: 150%;
-                margin-left: -25%;
-                margin-bottom: -10%;
+                width: 175%;
+                margin-left: -75%;
+                margin-bottom: -7%;
             }
         }
     }
