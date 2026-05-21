@@ -22,7 +22,8 @@ export class ApartmentsComponent {
   villasTranslateY = signal(100);
   villasOpacity = signal(0);
   hottubRotation = signal(180);
-  hottubTextProgress = signal(1);
+  hottubOpacity = signal(0);
+  hottubTranslateY = signal(100);
 
   @HostListener('window:scroll')
   onWindowScroll() {
@@ -69,11 +70,19 @@ export class ApartmentsComponent {
     }
 
     if (isDesktop) {
-      this.hottubTextProgress.set(1);
+      this.hottubOpacity.set(1);
+      this.hottubTranslateY.set(0);
     } else {
-      const hottubTextStart = vh * 3.0;
-      const hottubTextEnd = vh * 4.2;
-      this.hottubTextProgress.set(Math.max(0, Math.min((scroll - hottubTextStart) / (hottubTextEnd - hottubTextStart), 1)));
+      const hottubTextStart = vh * 3.2;
+      const hottubTextEnd = vh * 4.0;
+      if (scroll > hottubTextStart) {
+        const progress = Math.min((scroll - hottubTextStart) / (hottubTextEnd - hottubTextStart), 1);
+        this.hottubTranslateY.set(100 * (1 - progress));
+        this.hottubOpacity.set(progress);
+      } else {
+        this.hottubTranslateY.set(100);
+        this.hottubOpacity.set(0);
+      }
     }
   }
 }

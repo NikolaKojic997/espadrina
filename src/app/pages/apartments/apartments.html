@@ -55,8 +55,8 @@
   <section class="hottub-section">
     <div class="hottub-bg" [style.background-image]="'url(/images/djakuzi.png)'"></div>
     <div class="hottub-content"
-         [style.opacity]="hottubTextProgress()"
-         [style.transform]="'translateY(' + (20 * (1 - hottubTextProgress())) + 'px)'">
+         [style.transform]="'translateY(' + hottubTranslateY() + 'px)'"
+         [style.opacity]="hottubOpacity()">
       <h2>{{ langService.current().apartments.hottub.title }}</h2>
       <p>{{ langService.current().apartments.hottub.desc }}</p>
       <button routerLink="/booking" class="btn-hottub">{{ langService.current().apartments.hottub.cta }}</button>
