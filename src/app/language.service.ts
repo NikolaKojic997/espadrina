@@ -72,7 +72,7 @@ export class LanguageService {
       luxury: {
         title: 'LUXURY ESCAPE',
         desc: 'Luxury apartments provide a perfect blend of modern comfort and natural peace, designed for your ultimate relaxation.',
-        cta: 'Find yourself'
+        cta: 'About apartment'
       },
       food: {
         title: 'WILD ELEGANCE',

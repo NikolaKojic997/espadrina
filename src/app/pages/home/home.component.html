@@ -10,7 +10,7 @@
   <div class="flow-content">
     <h2>{{ langService.current().flow.title }}</h2>
     <p>{{ langService.current().flow.desc }}</p>
-    <a href="#experience" class="flow-link">{{ langService.current().flow.cta }}</a>
+    <span class="flow-link">{{ langService.current().flow.cta }}</span>
   </div>
   <div class="flow-visual">
     <img src="/svg/drina-1.svg" class="drina-path-svg" alt="Drina River Path"
@@ -25,7 +25,7 @@
     [style.transform]="'translateY(' + (100 - luxuryProgress() * 100) + 'px)'">
     <h2>{{ langService.current().luxury.title }}</h2>
     <p>{{ langService.current().luxury.desc }}</p>
-    <a href="#contact" class="escape-btn">{{ langService.current().luxury.cta }}</a>
+    <a routerLink="/apartments" class="escape-btn">{{ langService.current().luxury.cta }}</a>
   </div>
 </section>
 
@@ -76,7 +76,7 @@
   </div>
 </section>
 
-<section class="endless-inspiration">
+<!-- <section class="endless-inspiration">
   <div class="inspiration-content">
     <h2>{{ langService.current().inspiration.title }}</h2>
     <p>{{ langService.current().inspiration.desc }}</p>
@@ -84,4 +84,4 @@
   <div class="inspiration-footer">
     <a href="#contact" class="ghost-btn">{{ langService.current().inspiration.cta }}</a>
   </div>
-</section>
+</section> -->
