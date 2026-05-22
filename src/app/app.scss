@@ -111,7 +111,16 @@
         width: 80%;
         max-width: 1000px;
         display: flex;
+        flex-direction: column;
+        align-items: center;
         justify-content: center;
+
+        .hero-logo-svg {
+            width: 120px;
+            height: auto;
+            margin-bottom: 25px;
+            filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.4));
+        }
 
         .hero-title-svg {
             width: 100%;
@@ -963,6 +972,11 @@
     .hero {
         .hero-content {
             width: 85%;
+
+            .hero-logo-svg {
+                width: 70px;
+                margin-bottom: 15px;
+            }
         }
     }
 
