@@ -1,41 +1,16 @@
 .booking-flow-container {
   width: 100%;
-  height: 100svh;
-  background: url('/images/ocean-panoramic-view-from-water-with-visible-border-water-sky-generative-ai.jpg') no-repeat center top / cover;
+  min-height: 100svh;
+  background-color: var(--drina-dark);
+  background-image: url('/svg/patern.svg');
+  background-repeat: repeat;
+  background-position: center;
+  background-size: 1200px;
   position: relative;
   display: flex;
   flex-direction: column;
   color: #fff;
   font-family: 'Montserrat', sans-serif;
-  overflow: hidden;
-
-  // Dark overlay starting at 55% (the intersection)
-  &::before {
-    content: '';
-    position: absolute;
-    top: 55%;
-    left: 0;
-    right: 0;
-    bottom: 5%;
-    background-color: rgba(25, 50, 72, 0.95);
-    z-index: 1;
-  }
-
-  // Pattern overlay in the same 40% space
-  &::after {
-    content: '';
-    position: absolute;
-    top: 55%;
-    left: 0;
-    right: 0;
-    bottom: 5%;
-    background-image: url('/svg/patern.svg');
-    background-repeat: repeat;
-    background-position: center;
-    background-size: 1200px; // Zoomed in 3x (from 400px)
-    z-index: 2;
-    pointer-events: none;
-  }
 }
 
 .booking-header {
@@ -50,21 +25,14 @@
 }
 
 .booking-content-wrapper {
-  height: 80vh;
+  min-height: 85vh;
   display: flex;
   align-items: flex-start;
   justify-content: center;
   position: relative;
   z-index: 10;
-  overflow-y: auto;
-  padding: 40px 20px;
+  padding: 40px 20px 100px; /* Added more bottom padding for breathing room */
   box-sizing: border-box;
-
-  /* Hide scrollbar for a cleaner look but keep functionality */
-  scrollbar-width: none;
-  &::-webkit-scrollbar {
-    display: none;
-  }
 }
 
 .widget-container {
@@ -294,6 +262,7 @@
   .booking-content-wrapper {
     height: auto;
     min-height: 70vh;
+    padding-top: 70px;
   }
 
   .booking-sub-footer {

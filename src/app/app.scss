@@ -32,6 +32,7 @@
             padding: 10px 25px;
             border: 1px solid white;
             color: white;
+            background: rgba(0, 0, 0, 0.15);
             text-decoration: none;
             font-size: 13px;
             font-weight: 600;
@@ -69,6 +70,7 @@
             .ghost-btn {
                 border-color: var(--drina-dark);
                 color: var(--drina-dark);
+                background: rgba(255, 255, 255, 0.4);
 
                 &:hover {
                     background: var(--drina-dark);
@@ -78,6 +80,28 @@
 
             .menu-toggle img {
                 filter: brightness(0) saturate(100%) invert(14%) sepia(21%) saturate(2203%) hue-rotate(174deg) brightness(96%) contrast(92%);
+            }
+        }
+    }
+
+    &.accent-header {
+        .logo img {
+            filter: brightness(0) saturate(100%) invert(35%) sepia(28%) saturate(1598%) hue-rotate(325deg) brightness(92%) contrast(87%);
+        }
+
+        .nav-right {
+            .ghost-btn {
+                border-color: var(--drina-accent);
+                color: var(--drina-accent);
+
+                &:hover {
+                    background: var(--drina-accent);
+                    color: white;
+                }
+            }
+
+            .menu-toggle img {
+                filter: brightness(0) saturate(100%) invert(35%) sepia(28%) saturate(1598%) hue-rotate(325deg) brightness(92%) contrast(87%);
             }
         }
     }

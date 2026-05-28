@@ -1,26 +1,27 @@
-@if (!isBookingPage()) {
 <header class="header" [class.dark-header]="isWellnessPage() || isApartmentsPage()">
   <div class="logo">
     <a routerLink="/"><img src="/svg/logo-simbol.svg" alt="Espadrina Logo"></a>
   </div>
   <div class="nav-right">
+    @if (!isBookingPage()) {
     <a routerLink="/booking" class="ghost-btn">{{ langService.current().nav.bookNow }}</a>
-
+    }
     <button class="menu-toggle" (click)="toggleMenu()">
       <img src="/svg/Menu.svg" alt="Menu">
     </button>
   </div>
 </header>
-}
 
 
 <main>
   <router-outlet></router-outlet>
 
   <footer class="site-footer">
+    @if (!isBookingPage()) {
     <div class="footer-brand">
       <img src="/svg/tipografija-espadrina.svg" alt="Espadrina" class="brand-logo">
     </div>
+    }
     <div class="footer-bottom">
       <div class="social-icons">
         <a href="https://www.instagram.com/espadrina/" target="_blank" rel="noopener noreferrer" class="icon-box" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
