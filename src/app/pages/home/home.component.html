@@ -1,7 +1,7 @@
 <section class="hero">
   <div class="hero-bg" [style.transform]="'scale(' + heroScale() + ')'"></div>
   <div class="hero-content">
-    <img src="/svg/logo-simbol.svg" class="hero-logo-svg" alt="Espadrina Symbol">
+    <!-- <img src="/svg/logo-simbol.svg" class="hero-logo-svg" alt="Espadrina Symbol"> -->
     <img src="/svg/tipografija-espadrina.svg" class="hero-title-svg" alt="Espadrina">
   </div>
 </section>
@@ -49,19 +49,14 @@
 </section>
 
 <section class="personal-spa">
-  <div class="spa-text-col"
+  <div class="escape-box" 
     [style.opacity]="spaProgress()"
-    [style.transform]="'translateX(' + (-300 + spaProgress() * 300) + 'px)'">
+    [style.transform]="'translateY(' + (100 - spaProgress() * 100) + 'px)'">
     <h2>{{ langService.current().spa.title }}</h2>
     <p>{{ langService.current().spa.desc }}</p>
     <p>{{ langService.current().spa.desc2 }}</p>
     <p>{{ langService.current().spa.desc3 }}</p>
-    <a routerLink="/wellness" class="spa-link">{{ langService.current().spa.cta }}</a>
-  </div>
-  <div class="spa-image-col"
-    [style.opacity]="spaProgress()"
-    [style.transform]="'translateX(' + (300 - spaProgress() * 300) + 'px)'">
-    <img src="/images/sauna-home.png" class="spa-image" alt="Sauna">
+    <a routerLink="/wellness" class="escape-btn">{{ langService.current().spa.cta }}</a>
   </div>
 </section>
 

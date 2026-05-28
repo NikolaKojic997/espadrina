@@ -71,7 +71,7 @@ export class LanguageService {
       },
       luxury: {
         title: 'WHO ARE WE?',
-        desc: 'At Espadrina, nature, privacy and comfort come together in a retreat designed for slower days and deeper rest.\n\nSet near the Drina River, the estate brings together spacious apartments, private terraces, wellness experiences, outdoor pools and a restaurant shaped by the landscape around it.\n\nEvery stay is created to feel calm, considered and complete a place to withdraw from the noise, without giving up the pleasures of comfort, good food and thoughtful design.',
+        desc: 'At Espadrina, nature and comfort unite in a retreat designed for deep rest.\n\nSet by the Drina River, our estate offers spacious apartments, wellness experiences, and a landscape-inspired restaurant.\n\nA perfect escape from the noise, without sacrificing the pleasures of fine food and thoughtful design.',
         cta: 'About apartment'
       },
       food: {

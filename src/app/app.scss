@@ -225,7 +225,7 @@
 .luxury-escape {
     height: 100svh;
     width: 100%;
-    background: url('/images/kuce-na-drini-11-1.jpg') no-repeat center center;
+    background: url('/images/home-apartm.jpg') no-repeat center center;
     background-size: cover;
     background-attachment: fixed;
     display: flex;
@@ -293,17 +293,7 @@
     background: url('/images/HRANA-HOME-PAGE.jpg') no-repeat center center;
     background-size: cover;
 
-    &::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 22%;
-        background: linear-gradient(to bottom, transparent, #8d3930);
-        pointer-events: none;
-        z-index: 10;
-    }
+
 
     .food-plate-col {
         flex: 0 0 50%;
@@ -366,83 +356,62 @@
 
 
 .personal-spa {
-    position: relative;
     height: 100svh;
-    display: flex;
-    align-items: stretch;
-    overflow: hidden;
-    background: url('/images/DASKE.jpg') no-repeat center center;
+    width: 100%;
+    background: url('/images/sauna.jpg') no-repeat center center;
     background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    box-sizing: border-box;
 
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 22%;
-        background: linear-gradient(to bottom, #8d3930, transparent);
-        pointer-events: none;
-        z-index: 10;
-    }
-
-    .spa-text-col {
-        flex: 0 0 50%;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        padding: 7% 5% 0 5%;
-        will-change: transform, opacity;
+    .escape-box {
+        background-color: rgba(245, 245, 240, 0.9);
+        opacity: 0.9;
+        max-width: 800px;
+        padding: 80px 60px;
+        text-align: center;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
         transition: transform 0.1s linear, opacity 0.1s linear;
+        will-change: transform, opacity;
 
         h2 {
-            font-size: clamp(32px, 4vw, 52px);
-            color: white;
-            margin: 0 0 28px 0;
-            font-weight: 800;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            text-shadow: 0 2px 12px rgba(0,0,0,0.3);
+            font-size: 48px;
+            color: var(--drina-dark);
+            margin-bottom: 40px;
+            font-weight: 700;
+            letter-spacing: 2px;
         }
 
         p {
-            font-size: 15px;
-            line-height: 1.75;
-            color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 14px;
-            text-shadow: 0 1px 6px rgba(0,0,0,0.25);
-        }
+            font-size: 18px;
+            line-height: 1.6;
+            color: #444;
+            margin-bottom: 25px;
+            white-space: pre-line; /* Omogućava pravilne paragrafe iz \n koda */
 
-        .spa-link {
-            display: inline-block;
-            color: white;
-            text-decoration: underline;
-            font-weight: 400;
-            font-size: 16px;
-            margin-top: 20px;
-            letter-spacing: 0.5px;
-            transition: opacity 0.3s;
-
-            &:hover {
-                opacity: 0.65;
+            &:last-of-type {
+                margin-bottom: 40px;
             }
         }
-    }
 
-    .spa-image-col {
-        flex: 0 0 50%;
-        display: flex;
-        justify-content: center;
-        align-items: flex-end;
-        will-change: transform, opacity;
-        transition: transform 0.1s linear, opacity 0.1s linear;
+        .escape-btn {
+            display: inline-block;
+            padding: 12px 35px;
+            border: 1px solid var(--drina-accent);
+            color: var(--drina-accent);
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
 
-        .spa-image {
-            width: clamp(2040px, 300%, 3600px);
-            height: auto;
-            display: block;
-            margin-left: -200%;
-            margin-bottom: -25%;
+            &:hover {
+                background: var(--drina-accent);
+                color: white;
+            }
         }
     }
 }
@@ -996,8 +965,10 @@
             position: relative;
             z-index: 3;
             width: 85%;
-            padding: 7vh 20px 40px; /* Podignuto gore (smanjen padding-top na 7vh) */
+            height: 50svh;
+            padding: 7vh 20px 0;
             text-align: left;
+            justify-content: flex-start;
             
             h2 {
                 font-size: clamp(24px, 7vw, 30px); /* Smanjena slova naslova */
@@ -1008,7 +979,7 @@
             p {
                 font-size: 13px; /* Smanjena slova paragrafa */
                 margin-bottom: 15px;
-                max-width: 100%;
+                max-width: 80%;
             }
             .flow-link {
                 margin-top: 5px;
@@ -1032,7 +1003,9 @@
             .drina-path-svg {
                 height: 105%; /* Malo više od 100 da bi sigurno kačilo gornju ivicu */
                 width: auto;
-                margin-top: -2%;
+                margin-top: 15%;
+                transform: scale(0.8) translateX(-5%);
+                transform-origin: right center;
             }
         }
     }
@@ -1107,43 +1080,27 @@
     }
 
     .personal-spa {
-        flex-direction: column;
+        padding: 20px;
+        background-attachment: scroll;
         
-        .spa-text-col {
-            flex: 0 0 65%;
-            height: 65%;
-            padding: 15vh 25px 0;
-            text-align: center;
-            align-items: center;
-            justify-content: flex-start;
+        .escape-box {
+            padding: 8vw 5vw;
+            width: 90%;
+            margin: 0 auto;
             
             h2 {
-                font-size: clamp(18px, 5vw, 22px);
-                margin-bottom: 18px;
-                letter-spacing: 2px;
+                font-size: clamp(24px, 8vw, 36px);
+                margin-bottom: 5vw;
             }
             p {
                 font-size: 10px;
-                margin-bottom: 15px;
-                line-height: 1.5;
+                text-align: justify;
+                margin-bottom: 6vw;
+                white-space: pre-line;
             }
-            .spa-link {
-                margin-top: 15px;
+            .escape-btn {
                 font-size: 11px;
-            }
-        }
-        
-        .spa-image-col {
-            flex: 0 0 35%;
-            height: 35%;
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
-            
-            .spa-image {
-                width: 175%;
-                margin-left: -75%;
-                margin-bottom: -7%;
+                padding: 10px 20px;
             }
         }
     }
