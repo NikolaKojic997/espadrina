@@ -32,7 +32,7 @@
             padding: 10px 25px;
             border: 1px solid white;
             color: white;
-            background: rgba(0, 0, 0, 0.15);
+            background: transparent;
             text-decoration: none;
             font-size: 13px;
             font-weight: 600;
@@ -70,7 +70,7 @@
             .ghost-btn {
                 border-color: var(--drina-dark);
                 color: var(--drina-dark);
-                background: rgba(255, 255, 255, 0.4);
+                background: transparent;
 
                 &:hover {
                     background: var(--drina-dark);
@@ -80,6 +80,14 @@
 
             .menu-toggle img {
                 filter: brightness(0) saturate(100%) invert(14%) sepia(21%) saturate(2203%) hue-rotate(174deg) brightness(96%) contrast(92%);
+            }
+        }
+    }
+
+    &.apartments-header {
+        .nav-right {
+            .ghost-btn {
+                background: rgba(255, 255, 255, 0.4);
             }
         }
     }

@@ -3,14 +3,16 @@
   <section class="hero-section">
     <div class="hero-bg"></div>
     <div class="hero-overlay"></div>
-    <div class="hero-content" [style.transform]="'translateX(' + translateXText() + 'px)'">
+    <div class="hero-content" 
+         [style.opacity]="heroOpacity()"
+         [style.transform]="'translate(' + translateXText() + 'px, ' + translateYText() + 'px)'">
       <h1 class="fade-in">{{ langService.current().nav.restaurant }}</h1>
       <p class="subtitle fade-in">{{ langService.current().restaurant.hero.subtitle }}</p>
     </div>
 
-    <div class="hero-plate-container">
+    <div class="hero-plate-container" [style.opacity]="heroOpacity()">
       <img src="/images/tanjir.png" alt="Rotating Plate" class="hero-plate"
-        [style.transform]="'translateX(' + translateX() + 'px) rotate(' + rotation() + 'deg)'">
+        [style.transform]="'translate(' + translateX() + 'px, ' + translateY() + 'px) rotate(' + rotation() + 'deg)'">
     </div>
 
     <div class="scroll-for-more">
@@ -26,12 +28,13 @@
           [style.transform]="'translateY(' + (20 * (1 - ingredientsProgress())) + 'px)'">
         {{ langService.current().restaurant.ingredients.title }}
       </h2>
-      <p>{{ langService.current().restaurant.ingredients.desc }}</p>
     </div>
   </section>
   <!-- Menu Section -->
   <section class="menu-section">
-    <div class="menu-card">
+    <div class="menu-card"
+         [style.opacity]="menuProgress()"
+         [style.transform]="'translateY(' + (40 * (1 - menuProgress())) + 'px)'">
       <h2>{{ langService.current().restaurant.menu.title }}</h2>
       <div class="menu-buttons">
         <button class="btn-menu" (click)="openPdf('/images/meni-hrana.pdf')">{{ langService.currentLang() === 'sr' ? 'Meni za hranu' : 'Food Menu' }}</button>

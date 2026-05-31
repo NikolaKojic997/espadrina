@@ -15,6 +15,7 @@
 :root {
   --primary-font: 'Montserrat', sans-serif;
   --secondary-font: 'Montserrat', sans-serif;
+  --p-font-family: 'Montserrat', sans-serif;
   --bg-color: #fdfdfd;
   --text-color: #2c2c2c;
   --accent-color: #4a90e2;
@@ -22,6 +23,11 @@
   --drina-dark: #193248;
   --drina-accent: #b04b3a;
   --drina-beige: #faf1eb;
+
+  // Normalized Typography Scales (3 distinct levels)
+  --fs-lg: clamp(30px, 4.5vw, 48px);   // Large: Hero titles, main section headers
+  --fs-md: clamp(18px, 2.2vw, 22px);   // Medium: Subheaders, card titles, section subtitles, highlighted text
+  --fs-sm: 15px;                       // Small/Regular: Body text, copy, links, button labels, forms
 }
 
 *, *::before, *::after {
@@ -35,6 +41,15 @@ body, button, input, select, textarea {
   color: var(--text-color);
   -webkit-font-smoothing: antialiased;
 }
+
+// Global typography overrides for font-family and font-size
+html, body, button, input, select, textarea, p, span, div, a, h1, h2, h3, h4, h5, h6, label, li, td, th, option {
+  &:not(.fa):not(.fas):not(.far):not(.fab):not(.pi):not([class*="fa-"]):not([class*="pi-"]) {
+    font-family: var(--primary-font) !important;
+  }
+}
+
+
 
 body {
   background-color: var(--bg-color);

@@ -14,11 +14,15 @@ export class RestaurantComponent implements OnInit {
   langService = inject(LanguageService);
   rotation = signal(0);
   translateX = signal(0);
+  translateY = signal(0);
   translateXText = signal(0);
+  translateYText = signal(0);
+  heroOpacity = signal(1);
   chefTranslateX = signal(400);
   chefTranslateTextX = signal(-400);
   wineTransform = signal('rotate(180deg) scale(1.5)');
   ingredientsProgress = signal(0);
+  menuProgress = signal(0);
   wineTextProgress = signal(1);
   activePdfUrl = signal<SafeResourceUrl | null>(null);
   private sanitizer = inject(DomSanitizer);
@@ -40,14 +44,33 @@ export class RestaurantComponent implements OnInit {
     const ingEnd = vh * 1.1; 
     this.ingredientsProgress.set(Math.max(0, Math.min((scroll - ingStart) / (ingEnd - ingStart), 1)));
 
+    // Menu reveal logic
+    const menuStart = vh * 1.2;
+    const menuEnd = vh * 1.7;
+    this.menuProgress.set(Math.max(0, Math.min((scroll - menuStart) / (menuEnd - menuStart), 1)));
+
     const isDesktop = typeof window !== 'undefined' && window.innerWidth > 968;
 
     // Rotate 1 degree for every 5 pixels scrolled
     this.rotation.set(scroll / 5);
-    // Move to the right as we scroll down
+    // Move to the right as we scroll down on desktop
     this.translateX.set(isDesktop ? scroll / 1.5 : 0);
+    // Move down as we scroll down on mobile
+    this.translateY.set(!isDesktop ? scroll / 1.5 : 0);
     // Move text to the left as we scroll down
     this.translateXText.set(isDesktop ? -scroll / 1.5 : 0);
+
+    if (!isDesktop) {
+      const fadeEnd = vh * 0.3; // Fade out by 30% of scroll
+      const opacity = Math.max(0, 1 - (scroll / fadeEnd));
+      this.heroOpacity.set(opacity);
+      
+      // Move text up slightly faster to make the fade/sklanjanje more obvious
+      this.translateYText.set(-scroll / 2);
+    } else {
+      this.heroOpacity.set(1);
+      this.translateYText.set(0);
+    }
 
     // Chef section animations (Trigger as we approach 3rd section)
     const startTrigger = vh * 1.8;
@@ -64,20 +87,14 @@ export class RestaurantComponent implements OnInit {
 
     // Wine section rotation (after Chef section)
     const wineStartTrigger = vh * 2.8;
-    if (isDesktop) {
-      this.wineTextProgress.set(1); // fully visible on desktop
-      if (scroll > wineStartTrigger) {
-        const rotation = 180 + (scroll - wineStartTrigger) / 8;
-        this.wineTransform.set(`rotate(${rotation}deg) scale(1.5)`);
-      } else {
-        this.wineTransform.set('rotate(180deg) scale(1.5)');
-      }
+    if (scroll > wineStartTrigger) {
+      const rotation = 180 + (scroll - wineStartTrigger) / 8;
+      this.wineTransform.set(`rotate(${rotation}deg) scale(1)`);
     } else {
-      this.wineTransform.set('none');
-      const wineTextStart = vh * 4.2;
-      const wineTextEnd = vh * 4.8; 
-      this.wineTextProgress.set(Math.max(0, Math.min((scroll - wineTextStart) / (wineTextEnd - wineTextStart), 1)));
+      this.wineTransform.set('rotate(180deg) scale(1)');
     }
+
+    this.wineTextProgress.set(1); // fully visible on desktop and mobile
   }
 
   openPdf(url: string) {
