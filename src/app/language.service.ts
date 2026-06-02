@@ -252,12 +252,12 @@ export class LanguageService {
         },
         treatments: {
           title: 'TWO SAUNAS,\nONE QUIET FIRE',
-          desc: 'Dry heat, warm timber and a deep sense of privacy. The sauna ritual is designed for release - a place to let the day leave the body.',
-          cta: 'View our offers'
+          desc: 'Discover the power of the Finnish and bio saunas, which provide a sanctuary for relaxing the mind and body.\n\nThe Finnish sauna, with its dry heat, stimulates detoxification, relieves pain in muscles and joints, and improves cardiovascular health through deep sweating.\n\nOn the other hand, the moist heat of the bio sauna opens the airways, improves skin health, and stimulates circulation.',
+          cta: 'Explore treatments'
         },
         openPool: {
           title: 'OPEN POOL',
-          desc: 'Indulge in relaxation in our open saltwater pool at a temperature of 28°C, offering a unique experience of bliss and comfort.\n\nThe spacious terrace around the pool offers a view of untouched nature and the Drina River.\n\nIf you are looking for a peaceful sanctuary for a moment of free time, our spa oasis is designed to meet all your needs.\n\nJoin us at Espadrina - where the water is warm, and relaxation is just a step away.'
+          desc: 'Indulge in relaxation in our open saltwater pool at a temperature of 28°C, offering a unique experience of bliss and comfort.\n\nThe spacious terrace around the pool offers a view of untouched nature and the Drina River.'
         },
         indoorPool: {
           title: 'A POOL MADE\nFOR DEEP REST',
