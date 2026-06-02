@@ -49,14 +49,21 @@ export class App {
 
   isMenuOpen = signal(false);
 
-  navItems = computed(() => [
-    { label: this.langService.current().nav.links.home, link: '/' },
-    { label: this.langService.current().nav.links.apartments, link: '/apartments' },
-    { label: this.langService.current().nav.restaurant, link: '/restaurant' },
-    { label: this.langService.current().nav.links.wellness, link: '/wellness' },
-    { label: this.langService.current().nav.links.gallery, link: '/gallery' },
-    { label: this.langService.current().nav.links.contact, link: '/contact' }
-  ]);
+  navItems = computed(() => {
+    let galleryParams: any = undefined;
+    if (this.isRestaurantPage()) galleryParams = { tab: 'restaurant' };
+    else if (this.isWellnessPage()) galleryParams = { tab: 'wellness' };
+    else if (this.isApartmentsPage()) galleryParams = { tab: 'apartments' };
+
+    return [
+      { label: this.langService.current().nav.links.home, link: '/' },
+      { label: this.langService.current().nav.links.apartments, link: '/apartments' },
+      { label: this.langService.current().nav.restaurant, link: '/restaurant' },
+      { label: this.langService.current().nav.links.wellness, link: '/wellness' },
+      { label: this.langService.current().nav.links.gallery, link: '/gallery', queryParams: galleryParams },
+      { label: this.langService.current().nav.links.contact, link: '/contact' }
+    ];
+  });
 
   toggleMenu() {
     this.isMenuOpen.update(v => !v);

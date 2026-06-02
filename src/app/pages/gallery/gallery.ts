@@ -1,6 +1,6 @@
 import { Component, inject, signal, computed, HostListener, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { RouterModule, ActivatedRoute } from '@angular/router';
 import { LanguageService } from '../../language.service';
 
 export interface GalleryItem {
@@ -16,6 +16,7 @@ export interface GalleryItem {
 })
 export class GalleryComponent implements OnInit {
   langService = inject(LanguageService);
+  route = inject(ActivatedRoute);
 
   activeTab = signal<'apartments' | 'restaurant' | 'wellness'>('apartments');
   lightboxIndex = signal<number | null>(null);
@@ -109,6 +110,12 @@ export class GalleryComponent implements OnInit {
 
   ngOnInit() {
     this.updateColumnCount();
+    this.route.queryParams.subscribe(params => {
+      const tab = params['tab'];
+      if (tab === 'apartments' || tab === 'restaurant' || tab === 'wellness') {
+        this.activeTab.set(tab);
+      }
+    });
   }
 
   @HostListener('window:resize')
