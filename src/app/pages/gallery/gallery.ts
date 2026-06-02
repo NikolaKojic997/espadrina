@@ -31,8 +31,8 @@ export class GalleryComponent implements OnInit {
     { src: '/images/apartments/DZO_2123.JPG' }, // Exterior apartments
     { src: '/images/apartments/DZO_2050.JPG' }, // Bed/river
     { src: '/images/apartments/DZO_1983.JPG' }, // Balcony view
-    { src: '/images/apartments/DZO_2012 (1).JPG' }, // Lawn exterior
-    { src: '/images/apartments/DZO_2171 (1).JPG' }, // Sofa close-up
+    { src: '/images/apartments/DZO_2012_1.JPG' }, // Lawn exterior
+    { src: '/images/apartments/DZO_2171_1.JPG' }, // Sofa close-up
     { src: '/images/apartments/DZO_2170.JPG' }, // Walkway wood
     { src: '/images/apartments/DZO_2230.JPG' }, // Door number 2
     { src: '/images/apartments/DZO_2160.JPG' }, // Another exterior view
@@ -44,7 +44,7 @@ export class GalleryComponent implements OnInit {
     { src: '/images/apartments/DZO_2045.JPG' }, // Upstairs view
     { src: '/images/apartments/DZO_2060.JPG' }, // Balcony view zoom
     { src: '/images/apartments/DZO_2122.JPG' }, // Lawn/river zoom
-    { src: '/images/apartments/DZO_2172 (1).JPG' }  // Exterior night view
+    { src: '/images/apartments/DZO_2172_1.JPG' }  // Exterior night view
   ];
 
   restaurantImages: GalleryItem[] = [];
