@@ -255,15 +255,19 @@ export class LanguageService {
           desc: 'Dry heat, warm timber and a deep sense of privacy. The sauna ritual is designed for release - a place to let the day leave the body.',
           cta: 'View our offers'
         },
-        pool: {
+        openPool: {
+          title: 'OPEN POOL',
+          desc: 'Indulge in relaxation in our open saltwater pool at a temperature of 28°C, offering a unique experience of bliss and comfort.\n\nThe spacious terrace around the pool offers a view of untouched nature and the Drina River.\n\nIf you are looking for a peaceful sanctuary for a moment of free time, our spa oasis is designed to meet all your needs.\n\nJoin us at Espadrina - where the water is warm, and relaxation is just a step away.'
+        },
+        indoorPool: {
           title: 'A POOL MADE\nFOR DEEP REST',
           desc: 'Magnesium-rich water, soft movement and a calming water cascade create a moment that feels both cleansing and deeply grounding.',
-          cta: 'Explore ritual'
+          notice: 'Indoor magnesium-enriched pool is currently under preparation.'
         },
-        iceRoom: {
-          title: 'ICE ROOM',
-          desc: 'The cold room brings contrast after heat. Surrounded by ice, the body wakes up slowly, circulation is refreshed, and the ritual gains its clean, energising finish.'
-        }
+        tepidarium: {
+          title: 'TEPIDARIUM AND\nSTEAM BATH',
+          desc: 'The tepidarium and steam bath, with their moist and warm ambiance, represent a sanctuary for cleansing the body and spirit. High temperature and steam work synergistically to open pores, detoxify the body, and deeply relax the muscles.\n\nThe steam bath is especially valued for its therapeutic properties, helping to alleviate respiratory problems and improve skin elasticity. Indulge in the benefits of warm steam, after which you will feel refreshed and reborn.'
+        },
       },
       apartments: {
         hero: {

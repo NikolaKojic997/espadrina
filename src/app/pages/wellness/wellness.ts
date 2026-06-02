@@ -19,13 +19,14 @@ export class WellnessComponent {
   heroTranslateX = signal(0);
   heroTranslateTextX = signal(0);
   spaProgress = signal(0);
-  poolScale = signal(1.5);
   treatmentsTranslateY = signal(100);
   treatmentsOpacity = signal(0);
-  
-  icebergTranslateX = signal(-400);
-  iceRoomTextTranslateX = signal(400);
-  iceRoomOpacity = signal(0);
+  tepidariumTranslateY = signal(100);
+  tepidariumOpacity = signal(0);
+  openPoolTranslateY = signal(100);
+  openPoolOpacity = signal(0);
+  indoorPoolTranslateY = signal(100);
+  indoorPoolOpacity = signal(0);
 
   @HostListener('window:scroll')
   onWindowScroll() {
@@ -58,29 +59,43 @@ export class WellnessComponent {
       this.treatmentsOpacity.set(0);
     }
 
-    // Ice Room Section
-    const iceRoomStart = vh * 1.8;
-    const iceRoomEnd = vh * 2.8;
+    // Tepidarium Section
+    const tepidariumStart = vh * 2.2;
+    const tepidariumEnd = vh * 3.0;
     
-    if (scroll > iceRoomStart) {
-      const progress = Math.min((scroll - iceRoomStart) / (iceRoomEnd - iceRoomStart), 1);
-      this.icebergTranslateX.set(-400 * (1 - progress));
-      this.iceRoomTextTranslateX.set(400 * (1 - progress));
-      this.iceRoomOpacity.set(progress);
+    if (scroll > tepidariumStart) {
+      const progress = Math.min((scroll - tepidariumStart) / (tepidariumEnd - tepidariumStart), 1);
+      this.tepidariumTranslateY.set(100 * (1 - progress));
+      this.tepidariumOpacity.set(progress);
     } else {
-      this.icebergTranslateX.set(-400);
-      this.iceRoomTextTranslateX.set(400);
-      this.iceRoomOpacity.set(0);
+      this.tepidariumTranslateY.set(100);
+      this.tepidariumOpacity.set(0);
     }
 
-    // Pool section
-    const poolStart = vh * 2.8;
-    if (scroll > poolStart) {
-      // Goes from 1.5 down to 1 over exactly 1.5 screens of scrolling
-      const poolProgress = Math.min((scroll - poolStart) / (vh * 1.5), 1);
-      this.poolScale.set(1.5 - (0.5 * poolProgress));
+    // Open Pool Section
+    const openPoolStart = vh * 3.2;
+    const openPoolEnd = vh * 4.0;
+    
+    if (scroll > openPoolStart) {
+      const progress = Math.min((scroll - openPoolStart) / (openPoolEnd - openPoolStart), 1);
+      this.openPoolTranslateY.set(100 * (1 - progress));
+      this.openPoolOpacity.set(progress);
     } else {
-      this.poolScale.set(1.5);
+      this.openPoolTranslateY.set(100);
+      this.openPoolOpacity.set(0);
+    }
+
+    // Indoor Pool Section
+    const indoorPoolStart = vh * 4.2;
+    const indoorPoolEnd = vh * 5.0;
+    
+    if (scroll > indoorPoolStart) {
+      const progress = Math.min((scroll - indoorPoolStart) / (indoorPoolEnd - indoorPoolStart), 1);
+      this.indoorPoolTranslateY.set(100 * (1 - progress));
+      this.indoorPoolOpacity.set(progress);
+    } else {
+      this.indoorPoolTranslateY.set(100);
+      this.indoorPoolOpacity.set(0);
     }
   }
 }

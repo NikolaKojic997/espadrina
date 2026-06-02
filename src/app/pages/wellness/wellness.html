@@ -38,36 +38,28 @@
     </div>
   </section>
 
-  <!-- Ice Room Section -->
-  <section class="ice-room-section">
-    <div class="ice-room-header">
-      <h2 class="ice-room-title fade-in">
-        <span>ICE</span>
-        <span>ROOM</span>
-      </h2>
-    </div>
-
-    <div class="ice-room-content">
-      <div class="iceberg-container" [style.transform]="'translateX(' + icebergTranslateX() + 'px)'"
-        [style.opacity]="iceRoomOpacity()">
-        <img src="/images/iceberg-isolated-transparent-background.png" alt="Iceberg" class="iceberg-img">
-      </div>
-
-      <div class="ice-room-text" [style.transform]="'translateX(' + iceRoomTextTranslateX() + 'px)'"
-        [style.opacity]="iceRoomOpacity()">
-        <p>{{ langService.current().wellness.iceRoom.desc }}</p>
-      </div>
+  <!-- Tepidarium Section -->
+  <section class="tepidarium-section">
+    <div class="tepidarium-card" [style.transform]="'translateY(' + tepidariumTranslateY() + 'px)'" [style.opacity]="tepidariumOpacity()">
+      <h2 style="white-space: pre-line;">{{ langService.current().wellness.tepidarium.title }}</h2>
+      <p style="white-space: pre-line;">{{ langService.current().wellness.tepidarium.desc }}</p>
     </div>
   </section>
 
-  <!-- Pool Section -->
-  <section class="pool-section">
-    <div class="pool-bg" [style.transform]="'scale(' + poolScale() + ')'"></div>
-    <div class="pool-content fade-in">
-      <h2 style="white-space: pre-line;">{{ langService.current().wellness.pool.title }}</h2>
-      <p>{{ langService.current().wellness.pool.desc }}</p>
-      <button routerLink="/booking" class="btn-pool">{{ langService.current().wellness.pool.cta }}</button>
+  <!-- Open Pool Section -->
+  <section class="open-pool-section">
+    <div class="open-pool-card" [style.transform]="'translateY(' + openPoolTranslateY() + 'px)'" [style.opacity]="openPoolOpacity()">
+      <h2 style="white-space: pre-line;">{{ langService.current().wellness.openPool.title }}</h2>
+      <p style="white-space: pre-line;">{{ langService.current().wellness.openPool.desc }}</p>
     </div>
   </section>
 
+  <!-- Indoor Pool Section -->
+  <section class="indoor-pool-section">
+    <div class="indoor-pool-content" [style.transform]="'translateY(' + indoorPoolTranslateY() + 'px)'" [style.opacity]="indoorPoolOpacity()">
+      <h2 style="white-space: pre-line;">{{ langService.current().wellness.indoorPool.title }}</h2>
+      <p style="white-space: pre-line;">{{ langService.current().wellness.indoorPool.desc }}</p>
+      <div class="notice-banner">{{ langService.current().wellness.indoorPool.notice }}</div>
+    </div>
+  </section>
 </div>
