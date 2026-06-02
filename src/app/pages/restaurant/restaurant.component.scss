@@ -201,17 +201,16 @@
         will-change: opacity, transform;
 
         @media (max-width: 968px) {
-          flex: 1;
-          display: flex;
-          align-items: center;
-          justify-content: center;
+          display: block;
+          width: 100%;
           margin: 0 auto;
-          line-height: 1.1;
-          font-size: clamp(42px, 14vw, 80px);
+          text-align: center;
+          line-height: 1.35;
+          font-size: clamp(32px, 11vw, 55px);
           white-space: normal;
-          word-spacing: 100vw;
-          /* Forces almost every word to a new line */
           padding: 0 10px;
+          word-break: normal;
+          overflow-wrap: break-word;
         }
       }
 

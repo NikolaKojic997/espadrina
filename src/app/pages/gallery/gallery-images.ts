@@ -3,28 +3,42 @@
 import { GalleryItem } from './gallery';
 
 export const apartmentsImages: GalleryItem[] = [
+  { src: '/images/apartments/DJI_0077.JPG' },
+  { src: '/images/apartments/DJI_0081.JPG' },
+  { src: '/images/apartments/DJI_0085.JPG' },
+  { src: '/images/apartments/DJI_0100.JPG' },
+  { src: '/images/apartments/DJI_0138.JPG' },
+  { src: '/images/apartments/DJI_0139.JPG' },
+  { src: '/images/apartments/DJI_0141.JPG' },
   { src: '/images/apartments/DZO_1975.JPG' },
   { src: '/images/apartments/DZO_1983.JPG' },
   { src: '/images/apartments/DZO_2003.JPG' },
   { src: '/images/apartments/DZO_2012_1.JPG' },
+  { src: '/images/apartments/DZO_2024.JPG' },
   { src: '/images/apartments/DZO_2025.JPG' },
   { src: '/images/apartments/DZO_2033.JPG' },
   { src: '/images/apartments/DZO_2034.JPG' },
   { src: '/images/apartments/DZO_2037.JPG' },
+  { src: '/images/apartments/DZO_2038.JPG' },
   { src: '/images/apartments/DZO_2039.JPG' },
   { src: '/images/apartments/DZO_2045.JPG' },
   { src: '/images/apartments/DZO_2050.JPG' },
   { src: '/images/apartments/DZO_2053.JPG' },
+  { src: '/images/apartments/DZO_2057.JPG' },
   { src: '/images/apartments/DZO_2060.JPG' },
   { src: '/images/apartments/DZO_2069.JPG' },
   { src: '/images/apartments/DZO_2122.JPG' },
   { src: '/images/apartments/DZO_2123.JPG' },
+  { src: '/images/apartments/DZO_2146.JPG' },
   { src: '/images/apartments/DZO_2147.JPG' },
   { src: '/images/apartments/DZO_2160.JPG' },
   { src: '/images/apartments/DZO_2170.JPG' },
   { src: '/images/apartments/DZO_2171_1.JPG' },
   { src: '/images/apartments/DZO_2172_1.JPG' },
-  { src: '/images/apartments/DZO_2230.JPG' }
+  { src: '/images/apartments/DZO_2184.JPG' },
+  { src: '/images/apartments/DZO_2188.JPG' },
+  { src: '/images/apartments/DZO_2230.JPG' },
+  { src: '/images/apartments/DZO_2247.JPG' }
 ];
 
 export const restaurantImages: GalleryItem[] = [
@@ -72,6 +86,10 @@ export const wellnessImages: GalleryItem[] = [
   { src: '/images/wellness/DZO_2317.JPG' },
   { src: '/images/wellness/DZO_2318.JPG' },
   { src: '/images/wellness/DZO_2320.JPG' },
-  { src: '/images/wellness/DZO_2321.JPG' }
+  { src: '/images/wellness/DZO_2321.JPG' },
+  { src: '/images/wellness/DZO_7593.JPG' },
+  { src: '/images/wellness/DZO_7676.JPG' },
+  { src: '/images/wellness/DZO_7678.JPG' },
+  { src: '/images/wellness/DZO_7699.JPG' }
 ];
 

@@ -265,8 +265,8 @@ export class LanguageService {
           notice: 'Indoor magnesium-enriched pool is currently under preparation.'
         },
         tepidarium: {
-          title: 'TEPIDARIUM AND\nSTEAM BATH',
-          desc: 'The tepidarium and steam bath, with their moist and warm ambiance, represent a sanctuary for cleansing the body and spirit. High temperature and steam work synergistically to open pores, detoxify the body, and deeply relax the muscles.\n\nThe steam bath is especially valued for its therapeutic properties, helping to alleviate respiratory problems and improve skin elasticity. Indulge in the benefits of warm steam, after which you will feel refreshed and reborn.'
+          title: 'STEAM BATH',
+          desc: 'The steam bath is especially valued for its therapeutic properties, helping to alleviate respiratory problems and improve skin elasticity. Indulge in the benefits of warm steam, after which you will feel refreshed and reborn.'
         },
       },
       apartments: {
