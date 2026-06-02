@@ -34,7 +34,7 @@
       [style.opacity]="treatmentsOpacity()">
       <h2 style="white-space: pre-line;">{{ langService.current().wellness.treatments.title }}</h2>
       <p>{{ langService.current().wellness.treatments.desc }}</p>
-      <button routerLink="/gallery" [queryParams]="{tab: 'wellness'}" class="btn-treatments">{{ langService.current().wellness.treatments.cta }}</button>
+      <a routerLink="/gallery" [queryParams]="{tab: 'wellness'}" class="btn-treatments">{{ langService.current().wellness.treatments.cta }}</a>
     </div>
   </section>
 

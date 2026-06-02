@@ -34,7 +34,7 @@
       @if (langService.current().apartments.villas.desc) {
       <p>{{ langService.current().apartments.villas.desc }}</p>
       }
-      <button routerLink="/gallery" [queryParams]="{tab: 'apartments'}" class="btn-villas">{{ langService.current().apartments.villas.cta }}</button>
+      <a routerLink="/gallery" [queryParams]="{tab: 'apartments'}" class="btn-villas">{{ langService.current().apartments.villas.cta }}</a>
     </div>
   </section>
 

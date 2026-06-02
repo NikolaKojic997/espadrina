@@ -234,6 +234,37 @@
           padding-bottom: 20px;
         }
       }
+
+      .btn-ingredients {
+        background: transparent;
+        color: #a65246;
+        padding: 16px 45px;
+        border: 1.5px solid #a65246;
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        transition: all 0.3s ease;
+        border-radius: 2px;
+        display: block;
+        margin: 60px auto 0 auto;
+        width: fit-content;
+        text-decoration: none;
+        
+        &:hover {
+          background: #a65246;
+          color: white;
+          transform: translateY(-2px);
+          box-shadow: 0 10px 20px rgba(166, 82, 70, 0.2);
+        }
+
+        @media (max-width: 968px) {
+          margin: 40px auto 0 auto;
+          padding: 14px 35px;
+          font-size: 12px;
+        }
+      }
     }
   }
 

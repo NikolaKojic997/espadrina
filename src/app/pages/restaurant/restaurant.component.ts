@@ -1,5 +1,6 @@
 import { Component, inject, signal, HostListener, PLATFORM_ID, OnInit } from '@angular/core';
 import { isPlatformBrowser, CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { LanguageService } from '../../language.service';
 
@@ -8,7 +9,7 @@ import { LanguageService } from '../../language.service';
   templateUrl: './restaurant.component.html',
   styleUrl: './restaurant.component.scss',
   standalone: true,
-  imports: [CommonModule]
+  imports: [CommonModule, RouterModule]
 })
 export class RestaurantComponent implements OnInit {
   langService = inject(LanguageService);

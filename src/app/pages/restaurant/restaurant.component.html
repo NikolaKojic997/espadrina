@@ -28,6 +28,7 @@
           [style.transform]="'translateY(' + (20 * (1 - ingredientsProgress())) + 'px)'">
         {{ langService.current().restaurant.ingredients.title }}
       </h2>
+      <a routerLink="/gallery" [queryParams]="{tab: 'restaurant'}" class="btn-ingredients">{{ langService.current().nav.links.gallery }}</a>
     </div>
   </section>
   <!-- Menu Section -->
