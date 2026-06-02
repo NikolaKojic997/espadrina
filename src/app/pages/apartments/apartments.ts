@@ -22,6 +22,7 @@ export class ApartmentsComponent {
   villasTranslateY = signal(100);
   villasOpacity = signal(0);
   hottubRotation = signal(180);
+  hottubScale = signal(1);
   hottubOpacity = signal(0);
   hottubTranslateY = signal(100);
 
@@ -61,12 +62,15 @@ export class ApartmentsComponent {
       this.interiorScale.set(1.5);
     }
 
-    // Hottub section rotation
+    // Hottub section rotation and scale
     const hottubStartTrigger = vh * 3.2;
     if (scroll > hottubStartTrigger) {
       this.hottubRotation.set(180 + (scroll - hottubStartTrigger) / 8);
+      const scaleProgress = Math.min((scroll - hottubStartTrigger) / (vh * 1.5), 1);
+      this.hottubScale.set(1 + (0.4 * scaleProgress));
     } else {
       this.hottubRotation.set(180);
+      this.hottubScale.set(1);
     }
 
     if (isDesktop) {

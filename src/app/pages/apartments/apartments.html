@@ -53,7 +53,7 @@
 
   <!-- Hottub Section -->
   <section class="hottub-section">
-    <div class="hottub-bg" [style.background-image]="'url(/images/djakuzi.png)'"></div>
+    <div class="hottub-bg" [style.background-image]="'url(/images/djakuzi.jpg)'" [style.transform]="'rotate(' + hottubRotation() + 'deg) scale(' + hottubScale() + ')'"></div>
     <div class="hottub-content"
          [style.transform]="'translateY(' + hottubTranslateY() + 'px)'"
          [style.opacity]="hottubOpacity()">

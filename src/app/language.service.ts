@@ -228,7 +228,7 @@ export class LanguageService {
           title_our: 'OUR',
           title_chef: 'CHEF',
           name: 'CHEF GAGA',
-          desc: 'With a passion for local ingredients and innovative techniques, our head chef crafts dishes that represent the perfect blend of traditional flavors and modern fine dining. Every plate is carefully designed to tell the story of this region, elevating it to an entirely new culinary level.'
+          desc: 'I am Dragana Zajić, a creative who believes that every dish should carry emotion, character, and a distinctive signature. I find inspiration in experimenting with flavors, applying a modern approach to the kitchen, and creating an experience that lingers long after the last bite.'
         },
         menu: {
           title: 'WHERE EVERY DISH IS REMINDER OF PEACE',
