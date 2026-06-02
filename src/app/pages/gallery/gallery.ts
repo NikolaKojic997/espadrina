@@ -2,6 +2,7 @@ import { Component, inject, signal, computed, HostListener, OnInit } from '@angu
 import { CommonModule } from '@angular/common';
 import { RouterModule, ActivatedRoute } from '@angular/router';
 import { LanguageService } from '../../language.service';
+import { apartmentsImages, restaurantImages, wellnessImages } from './gallery-images';
 
 export interface GalleryItem {
   src: string;
@@ -22,67 +23,9 @@ export class GalleryComponent implements OnInit {
   lightboxIndex = signal<number | null>(null);
   columnCount = signal(3);
 
-  // 22 apartment images ordered to distribute beautifully across columns
-  apartmentsImages: GalleryItem[] = [
-    { src: '/images/apartments/DZO_2034.JPG' }, // Stairs
-    { src: '/images/apartments/DZO_1975.JPG' }, // Dining table
-    { src: '/images/apartments/DZO_2147.JPG' }, // Living room from above
-    { src: '/images/apartments/DZO_2039.JPG' }, // Living room couch/TV
-    { src: '/images/apartments/DZO_2053.JPG' }, // Jacuzzi
-    { src: '/images/apartments/DZO_2123.JPG' }, // Exterior apartments
-    { src: '/images/apartments/DZO_2050.JPG' }, // Bed/river
-    { src: '/images/apartments/DZO_1983.JPG' }, // Balcony view
-    { src: '/images/apartments/DZO_2012_1.JPG' }, // Lawn exterior
-    { src: '/images/apartments/DZO_2171_1.JPG' }, // Sofa close-up
-    { src: '/images/apartments/DZO_2170.JPG' }, // Walkway wood
-    { src: '/images/apartments/DZO_2230.JPG' }, // Door number 2
-    { src: '/images/apartments/DZO_2160.JPG' }, // Another exterior view
-    { src: '/images/apartments/DZO_2069.JPG' }, // Living room window view
-    { src: '/images/apartments/DZO_2003.JPG' }, // Dining close-up
-    { src: '/images/apartments/DZO_2025.JPG' }, // Interior chairs
-    { src: '/images/apartments/DZO_2033.JPG' }, // Bathroom close-up
-    { src: '/images/apartments/DZO_2037.JPG' }, // Kitchen area
-    { src: '/images/apartments/DZO_2045.JPG' }, // Upstairs view
-    { src: '/images/apartments/DZO_2060.JPG' }, // Balcony view zoom
-    { src: '/images/apartments/DZO_2122.JPG' }, // Lawn/river zoom
-    { src: '/images/apartments/DZO_2172_1.JPG' }  // Exterior night view
-  ];
-
-  restaurantImages: GalleryItem[] = [
-    { src: '/images/restaurant/DZO_2393.JPG' },
-    { src: '/images/restaurant/DZO_2434.JPG' },
-    { src: '/images/restaurant/DZO_6004.JPG' },
-    { src: '/images/restaurant/DZO_6008.JPG' },
-    { src: '/images/restaurant/DZO_6014.JPG' },
-    { src: '/images/restaurant/DZO_6021.JPG' },
-    { src: '/images/restaurant/DZO_6023.JPG' },
-    { src: '/images/restaurant/DZO_6026.JPG' },
-    { src: '/images/restaurant/DZO_6027.JPG' },
-    { src: '/images/restaurant/DZO_6029.JPG' },
-    { src: '/images/restaurant/DZO_6038.JPG' },
-    { src: '/images/restaurant/DZO_6040.JPG' },
-    { src: '/images/restaurant/DZO_6041.JPG' },
-    { src: '/images/restaurant/DZO_6049.JPG' },
-    { src: '/images/restaurant/DZO_6061.JPG' }
-  ];
-
-  wellnessImages: GalleryItem[] = [
-    { src: '/images/wellness/DZO_2274.JPG' },
-    { src: '/images/wellness/DZO_2280.JPG' },
-    { src: '/images/wellness/DZO_2282.JPG' },
-    { src: '/images/wellness/DZO_2285.JPG' },
-    { src: '/images/wellness/DZO_2288.JPG' },
-    { src: '/images/wellness/DZO_2289.JPG' },
-    { src: '/images/wellness/DZO_2302.JPG' },
-    { src: '/images/wellness/DZO_2303.JPG' },
-    { src: '/images/wellness/DZO_2306.JPG' },
-    { src: '/images/wellness/DZO_2308.JPG' },
-    { src: '/images/wellness/DZO_2316.JPG' },
-    { src: '/images/wellness/DZO_2317.JPG' },
-    { src: '/images/wellness/DZO_2318.JPG' },
-    { src: '/images/wellness/DZO_2320.JPG' },
-    { src: '/images/wellness/DZO_2321.JPG' }
-  ];
+  apartmentsImages = apartmentsImages;
+  restaurantImages = restaurantImages;
+  wellnessImages = wellnessImages;
 
   activeImages = computed(() => {
     switch (this.activeTab()) {
