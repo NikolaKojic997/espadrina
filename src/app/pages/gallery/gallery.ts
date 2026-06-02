@@ -47,8 +47,41 @@ export class GalleryComponent implements OnInit {
     { src: '/images/apartments/DZO_2172_1.JPG' }  // Exterior night view
   ];
 
-  restaurantImages: GalleryItem[] = [];
-  wellnessImages: GalleryItem[] = [];
+  restaurantImages: GalleryItem[] = [
+    { src: '/images/restaurant/DZO_2393.JPG' },
+    { src: '/images/restaurant/DZO_2434.JPG' },
+    { src: '/images/restaurant/DZO_6004.JPG' },
+    { src: '/images/restaurant/DZO_6008.JPG' },
+    { src: '/images/restaurant/DZO_6014.JPG' },
+    { src: '/images/restaurant/DZO_6021.JPG' },
+    { src: '/images/restaurant/DZO_6023.JPG' },
+    { src: '/images/restaurant/DZO_6026.JPG' },
+    { src: '/images/restaurant/DZO_6027.JPG' },
+    { src: '/images/restaurant/DZO_6029.JPG' },
+    { src: '/images/restaurant/DZO_6038.JPG' },
+    { src: '/images/restaurant/DZO_6040.JPG' },
+    { src: '/images/restaurant/DZO_6041.JPG' },
+    { src: '/images/restaurant/DZO_6049.JPG' },
+    { src: '/images/restaurant/DZO_6061.JPG' }
+  ];
+
+  wellnessImages: GalleryItem[] = [
+    { src: '/images/wellness/DZO_2274.JPG' },
+    { src: '/images/wellness/DZO_2280.JPG' },
+    { src: '/images/wellness/DZO_2282.JPG' },
+    { src: '/images/wellness/DZO_2285.JPG' },
+    { src: '/images/wellness/DZO_2288.JPG' },
+    { src: '/images/wellness/DZO_2289.JPG' },
+    { src: '/images/wellness/DZO_2302.JPG' },
+    { src: '/images/wellness/DZO_2303.JPG' },
+    { src: '/images/wellness/DZO_2306.JPG' },
+    { src: '/images/wellness/DZO_2308.JPG' },
+    { src: '/images/wellness/DZO_2316.JPG' },
+    { src: '/images/wellness/DZO_2317.JPG' },
+    { src: '/images/wellness/DZO_2318.JPG' },
+    { src: '/images/wellness/DZO_2320.JPG' },
+    { src: '/images/wellness/DZO_2321.JPG' }
+  ];
 
   activeImages = computed(() => {
     switch (this.activeTab()) {
