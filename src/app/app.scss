@@ -113,6 +113,11 @@
             }
         }
     }
+
+    &.solid-header {
+        background-color: var(--drina-dark);
+        position: absolute;
+    }
 }
 
 

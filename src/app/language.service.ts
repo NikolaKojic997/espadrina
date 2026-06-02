@@ -60,7 +60,8 @@ export class LanguageService {
           apartments: 'Apartments',
           experience: 'Experience',
           wellness: 'Wellness',
-          contact: 'Contact'
+          contact: 'Contact',
+          gallery: 'Gallery'
         }
       },
       flow: {
@@ -289,6 +290,9 @@ export class LanguageService {
           desc: 'A quiet open-air ritual designed for slow mornings, warm evenings, and complete privacy.',
           cta: 'BOOK NOW'
         }
+      },
+      gallery: {
+        comingSoon: 'Images for this section are coming soon...'
       }
     };
   }

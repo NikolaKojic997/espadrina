@@ -1,0 +1,98 @@
+<div class="gallery-page">
+  <!-- Tabs Navigation -->
+  <div class="gallery-tabs-container">
+    <div class="gallery-tabs">
+      <button 
+        class="tab-btn" 
+        [class.active]="activeTab() === 'apartments'" 
+        (click)="setTab('apartments')">
+        {{ langService.current().nav.links.apartments }}
+      </button>
+      <button 
+        class="tab-btn" 
+        [class.active]="activeTab() === 'restaurant'" 
+        (click)="setTab('restaurant')">
+        {{ langService.current().nav.restaurant }}
+      </button>
+      <button 
+        class="tab-btn" 
+        [class.active]="activeTab() === 'wellness'" 
+        (click)="setTab('wellness')">
+        {{ langService.current().wellness?.hero?.title || 'Wellness & Spa' }}
+      </button>
+    </div>
+  </div>
+
+  <!-- Main Gallery Grid (Masonry Columns) -->
+  @if (activeImages().length > 0) {
+    <div class="gallery-grid">
+      @for (col of columns(); track col; let colIdx = $index) {
+        <div class="gallery-column">
+          @for (item of col; track item.img.src) {
+            <div 
+              class="gallery-item" 
+              (click)="openLightbox(item.index)">
+              <div class="gallery-image-wrapper">
+                <img [src]="item.img.src" alt="Espadrina Gallery" loading="lazy">
+                <div class="gallery-item-overlay">
+                  <span class="zoom-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <circle cx="11" cy="11" r="8"></circle>
+                      <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                      <line x1="11" y1="8" x2="11" y2="14"></line>
+                      <line x1="8" y1="11" x2="14" y2="11"></line>
+                    </svg>
+                  </span>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      }
+    </div>
+  } @else {
+    <!-- Empty Fallback State -->
+    <div class="gallery-empty">
+      <div class="empty-icon-wrapper">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="empty-icon">
+          <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+          <circle cx="8.5" cy="8.5" r="1.5" />
+          <polyline points="21 15 16 10 5 21" />
+        </svg>
+      </div>
+      <p class="empty-message">{{ langService.current().gallery?.comingSoon || 'Images for this section are coming soon...' }}</p>
+    </div>
+  }
+
+  <!-- Lightbox Modal -->
+  @if (lightboxIndex() !== null) {
+    <div class="lightbox" (click)="closeLightbox()">
+      <button class="lightbox-close" (click)="closeLightbox()" aria-label="Close lightbox">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <button class="lightbox-nav prev" (click)="prevImage($event)" aria-label="Previous image">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+
+      <div class="lightbox-content" (click)="$event.stopPropagation()">
+        <img [src]="activeImages()[lightboxIndex()!].src" alt="Espadrina Gallery Fullsize">
+      </div>
+
+      <button class="lightbox-nav next" (click)="nextImage($event)" aria-label="Next image">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+
+      <div class="lightbox-counter">
+        {{ lightboxIndex()! + 1 }} / {{ activeImages().length }}
+      </div>
+    </div>
+  }
+</div>
