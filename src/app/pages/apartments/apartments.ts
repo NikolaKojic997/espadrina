@@ -28,46 +28,62 @@ export class ApartmentsComponent {
 
   @HostListener('window:scroll')
   onWindowScroll() {
+    const isBrowser = typeof window !== 'undefined';
+    if (!isBrowser) return;
+
     const scroll = window.scrollY;
-    const vh = typeof window !== 'undefined' ? window.innerHeight : 0;
-    const isDesktop = typeof window !== 'undefined' && window.innerWidth > 968;
+    const vh = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+    const isAtBottom = (vh + scroll) >= (documentHeight - 50);
+    const isDesktop = window.innerWidth > 968;
 
     // Hero zoom logic (same as home page)
     const heroScale = 1 + (scroll / 1000) * 0.3;
     this.heroScale.set(Math.min(Math.max(heroScale, 1), 1.3));
 
+    // Helper to calculate progress based on element's viewport relative position
+    const getProgressForSelector = (selector: string, startPct = 0.85, endPct = 0.25) => {
+      const element = document.querySelector(selector);
+      if (!element) return 0;
+      const rect = element.getBoundingClientRect();
+      
+      // If we are at the bottom of the page and element has entered the viewport, complete the animation
+      if (isAtBottom && rect.top < vh) {
+        return 1;
+      }
+      
+      const start = vh * startPct;
+      const end = vh * endPct;
+      const progress = (start - rect.top) / (start - end);
+      return Math.min(Math.max(progress, 0), 1);
+    };
+
     // Details section reveal
-    const detailsStart = vh * 0.4;
-    const detailsEnd = vh * 1.1;
-    this.detailsProgress.set(Math.max(0, Math.min((scroll - detailsStart) / (detailsEnd - detailsStart), 1)));
+    const detailsProgressVal = getProgressForSelector('.details-section');
+    this.detailsProgress.set(detailsProgressVal);
 
     // Villas section entry transition
-    const villasStart = vh * 1.2;
-    const villasEnd = vh * 2.0;
-    if (scroll > villasStart) {
-      const progress = Math.min((scroll - villasStart) / (villasEnd - villasStart), 1);
-      this.villasTranslateY.set(100 * (1 - progress));
-      this.villasOpacity.set(progress);
-    } else {
-      this.villasTranslateY.set(100);
-      this.villasOpacity.set(0);
-    }
+    const villasProgressVal = getProgressForSelector('.villas-section');
+    this.villasTranslateY.set(100 * (1 - villasProgressVal));
+    this.villasOpacity.set(villasProgressVal);
 
     // Interior section zoom out background
-    const interiorStart = vh * 2.2;
-    if (scroll > interiorStart) {
-      const interiorProgress = Math.min((scroll - interiorStart) / (vh * 1.5), 1);
-      this.interiorScale.set(1.5 - (0.5 * interiorProgress));
-    } else {
-      this.interiorScale.set(1.5);
-    }
+    const interiorProgressVal = getProgressForSelector('.interior-section', 0.9, 0.1);
+    this.interiorScale.set(1.5 - (0.5 * interiorProgressVal));
 
     // Hottub section rotation and scale
-    const hottubStartTrigger = vh * 3.2;
-    if (scroll > hottubStartTrigger) {
-      this.hottubRotation.set(180 + (scroll - hottubStartTrigger) / 8);
-      const scaleProgress = Math.min((scroll - hottubStartTrigger) / (vh * 1.5), 1);
-      this.hottubScale.set(1 + (0.4 * scaleProgress));
+    const hottubSection = document.querySelector('.hottub-section');
+    if (hottubSection) {
+      const rect = hottubSection.getBoundingClientRect();
+      const hottubStartTrigger = rect.top + scroll - vh;
+      if (scroll > hottubStartTrigger) {
+        this.hottubRotation.set(180 + (scroll - hottubStartTrigger) / 8);
+        const scaleProgress = Math.min((scroll - hottubStartTrigger) / (vh * 1.5), 1);
+        this.hottubScale.set(1 + (0.4 * scaleProgress));
+      } else {
+        this.hottubRotation.set(180);
+        this.hottubScale.set(1);
+      }
     } else {
       this.hottubRotation.set(180);
       this.hottubScale.set(1);
@@ -77,16 +93,9 @@ export class ApartmentsComponent {
       this.hottubOpacity.set(1);
       this.hottubTranslateY.set(0);
     } else {
-      const hottubTextStart = vh * 3.2;
-      const hottubTextEnd = vh * 4.0;
-      if (scroll > hottubTextStart) {
-        const progress = Math.min((scroll - hottubTextStart) / (hottubTextEnd - hottubTextStart), 1);
-        this.hottubTranslateY.set(100 * (1 - progress));
-        this.hottubOpacity.set(progress);
-      } else {
-        this.hottubTranslateY.set(100);
-        this.hottubOpacity.set(0);
-      }
+      const hottubProgressVal = getProgressForSelector('.hottub-section');
+      this.hottubTranslateY.set(100 * (1 - hottubProgressVal));
+      this.hottubOpacity.set(hottubProgressVal);
     }
   }
 }

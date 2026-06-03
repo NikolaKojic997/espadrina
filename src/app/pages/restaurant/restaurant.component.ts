@@ -37,20 +37,39 @@ export class RestaurantComponent implements OnInit {
 
   @HostListener('window:scroll')
   onWindowScroll() {
+    const isBrowser = typeof window !== 'undefined';
+    if (!isBrowser) return;
+
     const scroll = window.scrollY;
-    const vh = this.initialVh || (typeof window !== 'undefined' ? window.innerHeight : 0);
+    const vh = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+    const isAtBottom = (vh + scroll) >= (documentHeight - 50);
+    const isDesktop = window.innerWidth > 968;
+
+    // Helper to calculate progress based on element's viewport relative position
+    const getProgressForSelector = (selector: string, startPct = 0.85, endPct = 0.25) => {
+      const element = document.querySelector(selector);
+      if (!element) return 0;
+      const rect = element.getBoundingClientRect();
+      
+      // If we are at the bottom of the page and element has entered the viewport, complete the animation
+      if (isAtBottom && rect.top < vh) {
+        return 1;
+      }
+      
+      const start = vh * startPct;
+      const end = vh * endPct;
+      const progress = (start - rect.top) / (start - end);
+      return Math.min(Math.max(progress, 0), 1);
+    };
 
     // Ingredients reveal logic
-    const ingStart = vh * 0.4;
-    const ingEnd = vh * 1.1; 
-    this.ingredientsProgress.set(Math.max(0, Math.min((scroll - ingStart) / (ingEnd - ingStart), 1)));
+    const ingredientsProgressVal = getProgressForSelector('.ingredients-section');
+    this.ingredientsProgress.set(ingredientsProgressVal);
 
     // Menu reveal logic
-    const menuStart = vh * 1.2;
-    const menuEnd = vh * 1.7;
-    this.menuProgress.set(Math.max(0, Math.min((scroll - menuStart) / (menuEnd - menuStart), 1)));
-
-    const isDesktop = typeof window !== 'undefined' && window.innerWidth > 968;
+    const menuProgressVal = getProgressForSelector('.menu-section');
+    this.menuProgress.set(menuProgressVal);
 
     // Rotate 1 degree for every 5 pixels scrolled
     this.rotation.set(scroll / 5);
@@ -73,24 +92,40 @@ export class RestaurantComponent implements OnInit {
       this.translateYText.set(0);
     }
 
-    // Chef section animations (Trigger as we approach 3rd section)
-    const startTrigger = vh * 1.8;
-    const endTrigger = vh * 2.8;
-
-    if (scroll > startTrigger) {
-      const progress = Math.min((scroll - startTrigger) / (endTrigger - startTrigger), 1);
-      this.chefTranslateX.set(400 * (1 - progress));
-      this.chefTranslateTextX.set(-400 * (1 - progress));
+    // Chef section animations (Trigger as we approach Chef section)
+    const chefSection = document.querySelector('.chef-section');
+    if (chefSection) {
+      const rect = chefSection.getBoundingClientRect();
+      const startTrigger = rect.top + scroll - vh;
+      const endTrigger = startTrigger + vh;
+      
+      if (isAtBottom && rect.top < vh) {
+        this.chefTranslateX.set(0);
+        this.chefTranslateTextX.set(0);
+      } else if (scroll > startTrigger) {
+        const progress = Math.min((scroll - startTrigger) / (endTrigger - startTrigger), 1);
+        this.chefTranslateX.set(400 * (1 - progress));
+        this.chefTranslateTextX.set(-400 * (1 - progress));
+      } else {
+        this.chefTranslateX.set(400);
+        this.chefTranslateTextX.set(-400);
+      }
     } else {
       this.chefTranslateX.set(400);
       this.chefTranslateTextX.set(-400);
     }
 
     // Wine section rotation (after Chef section)
-    const wineStartTrigger = vh * 2.8;
-    if (scroll > wineStartTrigger) {
-      const rotation = 180 + (scroll - wineStartTrigger) / 8;
-      this.wineTransform.set(`rotate(${rotation}deg) scale(1)`);
+    const wineMapSection = document.querySelector('.wine-map-section');
+    if (wineMapSection) {
+      const rect = wineMapSection.getBoundingClientRect();
+      const wineStartTrigger = rect.top + scroll - vh;
+      if (scroll > wineStartTrigger) {
+        const rotation = 180 + (scroll - wineStartTrigger) / 8;
+        this.wineTransform.set(`rotate(${rotation}deg) scale(1)`);
+      } else {
+        this.wineTransform.set('rotate(180deg) scale(1)');
+      }
     } else {
       this.wineTransform.set('rotate(180deg) scale(1)');
     }

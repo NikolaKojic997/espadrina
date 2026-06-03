@@ -34,6 +34,9 @@ export class HomeComponent {
   onWindowScroll() {
     if (!isPlatformBrowser(this.platformId)) return;
     const scrollY = window.scrollY;
+    const viewportHeight = window.innerHeight;
+    const documentHeight = document.documentElement.scrollHeight;
+    const isAtBottom = (viewportHeight + scrollY) >= (documentHeight - 50);
     
     // Hero zoom logic
     const heroScale = 1 + (scrollY / 1000) * 0.3;
@@ -43,36 +46,47 @@ export class HomeComponent {
     const riverSection = document.querySelector('.timeless-flow');
     if (riverSection) {
       const rect = riverSection.getBoundingClientRect();
-      const viewportHeight = window.innerHeight;
-      const sectionHeight = rect.height;
-      const currentPos = viewportHeight - rect.top;
-      let progress = (currentPos - viewportHeight * 0.2) / (sectionHeight * 0.8);
-      progress = Math.min(Math.max(progress, 0), 1);
-      this.riverReveal.set(progress * 100);
+      if (isAtBottom && rect.top < viewportHeight) {
+        this.riverReveal.set(100);
+      } else {
+        const sectionHeight = rect.height;
+        const currentPos = viewportHeight - rect.top;
+        let progress = (currentPos - viewportHeight * 0.2) / (sectionHeight * 0.8);
+        progress = Math.min(Math.max(progress, 0), 1);
+        this.riverReveal.set(progress * 100);
+      }
     }
 
     // Luxury section logic
     const luxurySection = document.querySelector('.luxury-escape');
     if (luxurySection) {
       const rect = luxurySection.getBoundingClientRect();
-      const viewportHeight = window.innerHeight;
-      const start = viewportHeight;
-      const end = viewportHeight * 0.1;
-      let progress = (start - rect.top) / (start - end);
-      progress = Math.min(Math.max(progress, 0), 1);
-      this.luxuryProgress.set(progress);
+      if (isAtBottom && rect.top < viewportHeight) {
+        this.luxuryProgress.set(1);
+      } else {
+        const start = viewportHeight;
+        const end = viewportHeight * 0.1;
+        let progress = (start - rect.top) / (start - end);
+        progress = Math.min(Math.max(progress, 0), 1);
+        this.luxuryProgress.set(progress);
+      }
     }
 
     // Food section logic
     const foodSection = document.querySelector('.timeless-food');
     if (foodSection) {
       const rect = foodSection.getBoundingClientRect();
-      const viewportHeight = window.innerHeight;
-      const start = viewportHeight;
-      const end = viewportHeight * 0.2;
-      let progress = (start - rect.top) / (start - end);
-      progress = Math.min(Math.max(progress, 0), 1);
-      this.foodProgress.set(progress);
+      let progress = 0;
+      if (isAtBottom && rect.top < viewportHeight) {
+        progress = 1;
+        this.foodProgress.set(1);
+      } else {
+        const start = viewportHeight;
+        const end = viewportHeight * 0.2;
+        progress = (start - rect.top) / (start - end);
+        progress = Math.min(Math.max(progress, 0), 1);
+        this.foodProgress.set(progress);
+      }
 
       // Rotation: same logic as restaurant page (1 deg per 5px scrolled within section)
       // Stop rotating once the plate has reached its final position
@@ -86,24 +100,30 @@ export class HomeComponent {
     const spaSection = document.querySelector('.personal-spa');
     if (spaSection) {
       const rect = spaSection.getBoundingClientRect();
-      const viewportHeight = window.innerHeight;
-      const start = viewportHeight;
-      const end = viewportHeight * 0.2;
-      let progress = (start - rect.top) / (start - end);
-      progress = Math.min(Math.max(progress, 0), 1);
-      this.spaProgress.set(progress);
+      if (isAtBottom && rect.top < viewportHeight) {
+        this.spaProgress.set(1);
+      } else {
+        const start = viewportHeight;
+        const end = viewportHeight * 0.2;
+        let progress = (start - rect.top) / (start - end);
+        progress = Math.min(Math.max(progress, 0), 1);
+        this.spaProgress.set(progress);
+      }
     }
 
     // Pool section logic
     const poolSection = document.querySelector('.pool-on-you');
     if (poolSection) {
       const rect = poolSection.getBoundingClientRect();
-      const viewportHeight = window.innerHeight;
-      const start = viewportHeight;
-      const end = viewportHeight * 0.2;
-      let progress = (start - rect.top) / (start - end);
-      progress = Math.min(Math.max(progress, 0), 1);
-      this.poolProgress.set(progress);
+      if (isAtBottom && rect.top < viewportHeight) {
+        this.poolProgress.set(1);
+      } else {
+        const start = viewportHeight;
+        const end = viewportHeight * 0.2;
+        let progress = (start - rect.top) / (start - end);
+        progress = Math.min(Math.max(progress, 0), 1);
+        this.poolProgress.set(progress);
+      }
     }
   }
 }
