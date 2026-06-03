@@ -186,7 +186,7 @@
       }
 
       .btn-villas {
-        background: #a65246;
+        background: var(--drina-accent);
         color: white;
         padding: 18px 45px;
         border: none;
@@ -199,9 +199,9 @@
         border-radius: 2px;
 
         &:hover {
-          background: #8e4439;
+          background: #943a2b;
           transform: translateY(-3px);
-          box-shadow: 0 15px 30px rgba(166, 82, 70, 0.4);
+          box-shadow: 0 15px 30px rgba(176, 75, 58, 0.4);
         }
       }
     }
@@ -363,7 +363,7 @@
       }
 
       .btn-hottub {
-        background: #a65246;
+        background: var(--drina-accent);
         color: white;
         border: none;
         padding: 18px 45px;
@@ -376,9 +376,9 @@
         border-radius: 2px;
 
         &:hover {
-          background: #8e4439;
+          background: #943a2b;
           transform: translateY(-3px);
-          box-shadow: 0 15px 30px rgba(166, 82, 70, 0.4);
+          box-shadow: 0 15px 30px rgba(176, 75, 58, 0.4);
         }
       }
     }
