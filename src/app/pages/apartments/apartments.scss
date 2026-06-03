@@ -197,6 +197,8 @@
         letter-spacing: 1px;
         transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         border-radius: 2px;
+        text-decoration: none;
+        display: inline-block;
 
         &:hover {
           background: #943a2b;
