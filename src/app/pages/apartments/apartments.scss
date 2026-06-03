@@ -363,20 +363,22 @@
       }
 
       .btn-hottub {
-        background: transparent;
+        background: #a65246;
         color: white;
-        border: 1px solid white;
-        padding: 16px 45px;
+        border: none;
+        padding: 18px 45px;
         font-size: 14px;
-        font-weight: 500;
+        font-weight: 700;
+        cursor: pointer;
         text-transform: uppercase;
         letter-spacing: 1px;
-        cursor: pointer;
-        transition: all 0.3s ease;
+        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        border-radius: 2px;
 
         &:hover {
-          background: white;
-          color: var(--drina-dark);
+          background: #8e4439;
+          transform: translateY(-3px);
+          box-shadow: 0 15px 30px rgba(166, 82, 70, 0.4);
         }
       }
     }
